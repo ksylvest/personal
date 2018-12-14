@@ -32,16 +32,15 @@ class SectionedController extends Controller {
   }
 
   private reset() {
+    this.activate(this.tabTargets, "tab--active");
+    this.activate(this.panelTargets, "panel--active");
+  }
+
+  private activate(entries: HTMLElement[], active: string) {
     const { index } = this;
-
-    for (let current = 0; current < this.tabTargets.length; current++) {
-      const tabTarget = this.tabTargets[current];
-      tabTarget.classList.toggle("tab--active", index === current);
-    }
-
-    for (let current = 0; current < this.panelTargets.length; current++) {
-      const panelTarget = this.panelTargets[current];
-      panelTarget.classList.toggle("panel--active", index === current);
+    for (let current = 0; current < entries.length; current++) {
+      const tabTarget = entries[current];
+      tabTarget.classList.toggle(active, index === current);
     }
   }
 }
