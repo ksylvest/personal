@@ -1,6 +1,5 @@
 {
-  "name": "personal",
-  "scripts": {},
+  "name": "ksylvest",
   "env": {
     "NEW_RELIC_APP_NAME": {
       "value": "ksylvest (test)"
@@ -52,16 +51,19 @@
     {
       "plan": "heroku-redis",
       "as": "SIDEKIQ_REDIS"
-    }
+    },
     "sendgrid",
     "papertrail"
   ],
   "buildpacks": [
     {
+      "url": "heroku/nodejs"
+    },
+    {
       "url": "heroku/ruby"
     }
   ],
   "scripts": {
-    "postdeploy": "bundle exec rake db:setup"
+    "postdeploy": "bundle exec rake db:schema:load db:fixtures:load"
   }
 }
