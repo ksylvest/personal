@@ -1,96 +1,95 @@
 class Project
 
-  attr_reader :name, :slug, :icon, :description, :url
+  attr_reader :name, :icon, :description, :url
 
-  def initialize(slug, icon, name, description, url)
-    @slug = slug
-    @icon = icon
+  def initialize(name, icon, description, url)
     @name = name
+    @icon = icon
     @description = description
     @url = url
   end
 
-  RHINO = new(:rhino, 'fal fa-server', 'Rhino',
+  RHINO = new('Rhino', 'fal fa-server',
     'A Ruby rack server built using sockets, threads and a CLI.',
     'https://github.com/ksylvest/rhino/')
 
-  SPECIFIER = new(:specifier, 'fal fa-gavel', 'Specifier',
+  SPECIFIER = new('Specifier', 'fal fa-gavel',
     'A Ruby testing framework built for examples, contexts and a CLI.',
     'https://github.com/ksylvest/specifier/')
 
-  ENIGMA = new(:enigma, 'fal fa-key', 'Enigma',
+  ENIGMA = new('Enigma', 'fal fa-key',
     'A Ruby enigma machine (rotors, reflectors, plugboard and all).',
     'https://github.com/ksylvest/enigma/')
 
-  ATTATCHED = new(:attached, 'fal fa-paperclip', 'Attached',
+  ATTATCHED = new('Attached', 'fal fa-paperclip',
     'A Rails gem for uploading files to Amazon, Google or Rackspace.',
     'https://ksylvest.github.io/attached/')
 
-  FORMULA = new(:formula, 'fal fa-flask', 'Formula',
+  FORMULA = new('Formula', 'fal fa-flask',
     'A Rails gem for creating rich forms with minimal markup.',
     'https://ksylvest.github.io/formula/')
 
-  ERRONEOUS = new(:erroneous, 'fal fa-exclamation', 'Erroneous',
+  ERRONEOUS = new('Erroneous', 'fal fa-exclamation',
     'A Rails gem for converting errors to human readable forms.',
     'https://ksylvest.github.io/erroneous/')
 
-  IDENTIFIER = new(:identifier, 'fal fa-tags', 'Identifier',
+  IDENTIFIER = new('Identifier', 'fal fa-tags',
     'A Ruby gem for generating UUIDs and GUIDs cross platform.',
     'https://ksylvest.github.io/identifier/')
 
-  SERIALIZER = new(:serializer, 'fal fa-tachometer', 'Serializer',
+  SERIALIZER = new('Serializer', 'fal fa-tachometer',
     'A Rails gem for serializing settings with types and defaults.',
     'https://ksylvest.github.io/serializer/')
 
-  REASON = new(:reason, 'fal fa-filter', 'Reason',
+  REASON = new('Reason', 'fal fa-filter',
     'An iOS and Mac pod that adds enumerables, parsing, and more.',
     'https://github.com/ksylvest/reason')
 
-  GEOGRAPHY = new(:geography, 'fal fa-globe', 'Geography',
+  GEOGRAPHY = new('Geography', 'fal fa-globe',
     'An iOS and Mac pod that adds in support for countries and regions.',
     'https://github.com/ksylvest/geography')
 
-  ENCORE = new(:encore, 'fal fa-random', 'Encore',
+  ENCORE = new('Encore', 'fal fa-random',
     'An iOS and Mac pod that eliminates duplicate for callbacks.',
     'https://github.com/ksylvest/encore/')
 
-  LINK = new(:link, 'fal fa-link', 'Link',
+  LINK = new('Link', 'fal fa-link',
     'An iOS pod that simplifies tables and collections.',
     'https://github.com/ksylvest/link/')
 
-  SETUP = new(:setup, 'fal fa-magic', 'Setup',
+  SETUP = new('Setup', 'fal fa-magic',
     'A Bash script for setting up development environments.',
     'https://ksylvest.github.io/setup/')
 
-  AGE = new(:age, 'fal fa-clock', 'Age',
+  AGE = new('Age', 'fal fa-clock',
     'A JS library for formatting and counting dates in a friendly form.',
     'https://ksylvest.github.io/jquery-age/')
 
-  CAROUSEL = new(:carousel, 'fal fa-images', 'Carousel',
+  CAROUSEL = new('Carousel', 'fal fa-images',
     'A JS library for browsing images in a photo carousel.',
     'https://ksylvest.github.io/jquery-carousel/')
 
-  GRIDLY = new(:gridly, 'fal fa-th', 'Gridly',
+  GRIDLY = new('Gridly', 'fal fa-th',
     'A JS library for reording and resizing of elements on a grid.',
     'https://ksylvest.github.io/jquery-gridly/')
 
-  GROWL = new(:growl, 'fal fa-comments', 'Growl',
+  GROWL = new('Growl', 'fal fa-comments',
     'A JS library that enables growl style notifications.',
     'https://ksylvest.github.io/jquery-growl/')
 
-  LIGHTER = new(:lighter, 'fal fa-fire', 'Lighter',
+  LIGHTER = new('Lighter', 'fal fa-fire',
     'A JS library for full screen image browsing and zooming.',
     'https://ksylvest.github.io/jquery-lighter/')
 
-  MODAL = new(:modal, 'fal fa-arrows', 'Modal',
+  MODAL = new('Modal', 'fal fa-arrows',
     'A JS library for scrollable and static modals.',
     'https://ksylvest.github.io/jquery-modal/')
 
-  OBSERVER = new(:observer, 'fal fa-eye', 'Observer',
+  OBSERVER = new('Observer', 'fal fa-eye',
     'A JS library for throttled observing of form changes.',
     'https://ksylvest.github.io/jquery-observer/')
 
-  SPIN = new(:spin, 'fal fa-spinner', 'Spin',
+  SPIN = new('Spin', 'fal fa-spinner',
     'A JS library for generating imageless vector spinners.',
     'https://ksylvest.github.io/jquery-spin/')
 
