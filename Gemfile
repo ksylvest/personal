@@ -2,36 +2,29 @@ source 'https://rubygems.org'
 
 ruby '2.5.3'
 
+gem 'pg'
+gem 'puma'
 gem 'rails'
 gem 'webpacker'
-gem 'pg'
 
 gem 'bootsnap', require: false
 
-gem 'turbolinks'
-
-gem 'puma'
-gem 'foreman'
-
 gem 'bcrypt'
-gem 'dalli'
 gem 'erroneous'
-gem 'faker'
 gem 'fabrication'
-gem 'figaro'
+gem 'faker'
+gem 'foreman'
 gem 'formula'
 gem 'kaminari'
-gem 'kgio'
 gem 'mini_magick'
-gem 'openssl'
 gem 'progress'
 gem 'redcarpet'
 gem 'redis'
 gem 'rouge'
-gem 'unf'
+gem 'turbolinks'
 
-gem 'rack-timeout'
 gem 'rack-cache'
+gem 'rack-timeout'
 
 gem 'aws-sdk-s3', require: false
 
@@ -44,9 +37,10 @@ gem 'byebug', group: %i[development test]
 
 group :test do
   gem 'capybara'
+  gem 'chromedriver-helper'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'chromedriver-helper'
+  gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'
   gem 'shoulda-context'
   gem 'shoulda-matchers'
@@ -54,8 +48,8 @@ group :test do
 end
 
 group :development do
-  gem 'listen'
   gem 'brakeman'
+  gem 'listen'
   gem 'rubocop'
   gem 'spring'
   gem 'spring-watcher-listen'
