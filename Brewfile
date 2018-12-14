@@ -1,7 +1,6 @@
 brew 'hub'
 brew 'git'
 brew 'imagemagick'
-brew 'memcached'
 brew 'rbenv'
 brew 'redis'
 brew 'postgres'
