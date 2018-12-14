@@ -7,6 +7,9 @@ executors:
         image: circleci/ruby:2.5.3-node-browsers
       -
         image: circleci/postgres:11.1-alpine-ram
+        environment:
+          POSTGRES_USER: circleci
+          POSTGRES_DB: personal_test
       -
         image: circleci/redis:5.0.3-alpine
     environment:
@@ -15,36 +18,43 @@ executors:
       BUNDLE_PATH: vendor/bundle
       RAILS_ENV: test
       RACK_ENV: test
+      PGHOST: localhost
 
 commands:
   bundle:
     steps:
-      - restore_cache:
-        name: Bundler
-        keys:
-          - bundler-{{ arch }}-{{ checksum "Gemfile.lock" }}
-          - bundler-{{ arch }}
-          - bundler
-      - run: bundle check || bundle install
-      - save_cache:
-        name: Bundler
-        key: bundler-{{ arch }}-{{ checksum "Gemfile.lock" }}
-        paths:
-          - vendor/bundle
+      -
+        restore_cache:
+          keys:
+            - bundler-{{ arch }}-{{ checksum "Gemfile.lock" }}
+            - bundler-{{ arch }}
+            - bundler
+      -
+        run: bundle check || bundle install
+      -
+        save_cache:
+          key: bundler-{{ arch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+  precopmile:
+    steps:
+      -
+        run: bundle exec rake assets:precompile
   yarn:
     steps:
-      - restore_cache:
-        name: Yarn
-        keys:
-          - yarn-{{ arch }}-{{ checksum "yarn.lock" }}
-          - yarn-{{ arch }}
-          - yarn
-      - run: yarn install
-      - save_cache:
-        name: Yarn
-        key: yarn-{{ arch }}-{{ checksum "yarn.lock" }}
-        paths:
-          - ~/.cache/yarn
+      -
+        restore_cache:
+          keys:
+            - yarn-{{ arch }}-{{ checksum "yarn.lock" }}
+            - yarn-{{ arch }}
+            - yarn
+      -
+        run: yarn install
+      -
+        save_cache:
+          key: yarn-{{ arch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
 
 jobs:
   lint:
@@ -52,71 +62,73 @@ jobs:
     steps:
       - checkout
       - yarn
-      -
-        type: shell
-        command: yarn run lint
+      - run:
+          command: yarn run tslint ./app/**/*.ts
 
   rubocop:
     executor: default
     steps:
       - checkout
       - bundle
+      - run:
+          command: bundle exec rubocop --format progress --format html --out tmp/rubocop.html
       -
-        type: shell
-        command: bundle exec rubocop --format progress --format html --out tmp/rubocop.html
-      -
-        type: artifacts-store
-        path: tmp/rubocop.html
-        destination: rubocop.html
+        store_artifacts:
+          path: tmp/rubocop.html
+          destination: rubocop.html
 
   brakeman:
+    executor: default
     steps:
       - checkout
       - bundle
       -
-        type: shell
-        command: bundle exec brakeman -z --format html --output tmp/brakeman.html
+        run:
+          command: bundle exec brakeman -z --format html --output tmp/brakeman.html
       -
-        type: artifacts-store
-        path: tmp/brakeman.html
-        destination: brakeman.html
+        store_artifacts:
+          path: tmp/brakeman.html
+          destination: brakeman.html
 
   rspec:
+    executor: default
     steps:
       - checkout
       - bundle
       - yarn
-      - run: dockerize -wait tcp://localhost:6379 # Redis
-      - run: dockerize -wait tcp://localhost:5432 # Postgres
+      - precopmile
+      - run: dockerize -wait tcp://localhost:6379 -timeout 2m # Redis
+      - run: dockerize -wait tcp://localhost:5432 -timeout 2m # Postgres
       -
-        type: shell
-        command: |
-          bundle exec rspec \
-            --profile \
-            --format RspecJunitFormatter \
-            --out tmp/results/rspec.xml \
-            --format progress \
-            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split)
+        run:
+          command: |
+            bundle exec rspec \
+              --profile \
+              --format RspecJunitFormatter \
+              --out tmp/results/rspec.xml \
+              --format progress \
+              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split)
       -
-        type: test-results-store
-        path: tmp/results
+        store_test_results:
+          path: tmp/results
       -
-        type: artifacts-store
-        path: coverage
-        destination: coverage
+        store_artifacts:
+          path: coverage
+          destination: coverage
       -
-        type: artifacts-store
-        path: tmp/screenshots
-        destination: screenshots
+        store_artifacts:
+          path: tmp/screenshots
+          destination: screenshots
       -
-        type: artifacts-store
-        path: log
-        destination: log
+        store_artifacts:
+          path: log
+          destination: log
 
 workflows:
+  version: 2.1
   build:
     jobs:
-      - tslint
+      - lint
       - brakeman
       - rubocop
       - rspec
