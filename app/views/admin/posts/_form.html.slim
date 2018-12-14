@@ -1,0 +1,25 @@
+= form_for [:admin, post] do |form|
+
+  = form.text_field :title, placeholder: "Title", class: 'title'
+  = errors post, :title
+
+  .sectioned data-controller="sectioned"
+    .tabs
+      a.tab href='#' data-target="sectioned.tab" data-action="click->sectioned#tab" data-index=0 Manage
+      a.tab href='#' data-target="sectioned.tab" data-action="click->sectioned#tab" data-index=1 Preview
+    .panels data-controller="previewable"
+      .panel data-target="sectioned.panel" data-index=0
+         = form.text_area :body, placeholder: "Body", class: 'body',
+          data: { target: "previewable.field", action: "change->previewable#change" }
+         = errors post, :body
+      .panel data-target="sectioned.panel" data-index=1
+        .result data-target="previewable.result"
+
+  .input
+    .icon
+      i.fal.fa-tags
+    = form.text_field :taggables, placeholder: "Tags", class: 'tags'
+  = errors post, :tags
+
+  .actions
+    = form.submit

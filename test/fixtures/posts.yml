@@ -1,0 +1,135 @@
+ruby:
+  status: active
+  user: kevin
+  slug: ruby
+  segment: 2013-01-01
+  title: Ruby
+  tags:
+    - ruby
+    - programming
+    - langauge
+  summary: Ruby is a language created by Yukihiro Matsumoto.
+  body: |
+    # Overview
+    Ruby is a language created by Yukihiro Matsumoto.
+    # Example
+        puts 'Ruby
+
+python:
+  status: active
+  user: kevin
+  slug: python
+  segment: 2013-01-01
+  title: Python
+  tags:
+    - python
+    - programming
+    - langauge
+  summary: Python is a language created by Guido van Rossum.
+  body: |
+    # Overview
+    Python is a language created by Guido van Rossum.
+    # Example
+        print "Python"
+
+rails:
+  status: active
+  user: kevin
+  slug: rails
+  segment: 2013-01-01
+  title: Rails
+  tags:
+    - ruby
+    - rails
+    - programming
+    - framework
+  summary: Rails is a framework created by David Heinemeier Hansson.
+  body: |
+    # Overview
+    Rails is a framework created by David Heinemeier Hansson.
+
+sinatra:
+  status: active
+  user: kevin
+  slug: sinatra
+  segment: 2013-01-01
+  title: Sinatra
+  tags:
+    - ruby
+    - sinatra
+    - programming
+    - framework
+  summary: Sinatra is a framework created by Blake Mizerany.
+  body: |
+    # Overview
+    Sinatra is a framework created by Blake Mizerany.
+
+django:
+  status: active
+  user: kevin
+  slug: django
+  segment: 2013-01-01
+  title: Django
+  tags:
+    - python
+    - django
+    - programming
+    - framework
+  summary: Django is a framework created by Jacob Kaplan-Moss.
+  body: |
+    # Overview
+    Django is a framework created by Jacob Kaplan-Moss.
+
+pylons:
+  status: active
+  user: kevin
+  slug: pylons
+  segment: 2013-01-01
+  title: Pylons
+  tags:
+    - python
+    - pylons
+    - programming
+    - framework
+  summary: Who knows what pylons is all about
+  body: |
+    # Overview
+    Hello
+
+sass:
+  status: active
+  user: kevin
+  slug: sass
+  segment: 2013-01-01
+  title: SASS
+  tags:
+    - css
+  summary: Everyone loves SASS!
+  body: |
+    # Overview
+    SASS eventually turns into CSS...
+    # Example
+        .ninja
+        {
+          color: black
+          visibility: hidden
+        }
+
+less:
+  status: active
+  user: kevin
+  slug: less
+  segment: 2013-01-01
+  title: LESS
+  tags:
+    - css
+  summary: Everyone loves LESS!
+  body: |
+    # Overview
+    LESS eventually turns into CSS...
+    # Example
+        .ninja
+        {
+          color: black
+          visibility: hidden
+        }

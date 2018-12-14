@@ -1,0 +1,82 @@
+.pagination
+
+  *
+    transition-duration: $fast
+    transition-property: background-color, border-color, color
+
+  display: block
+  position: relative
+  margin: 8px auto
+  text-align: center
+
+  ul
+    margin: 0
+    padding: 0
+    display: inline-block
+    +clears
+
+    li
+      display: block
+      float: left
+      margin: 0
+      padding: 0
+
+      > a, > span
+        display: block
+        color: inherit
+        text-align: center
+        line-height: 28px
+
+      &.page
+        color: $asbestos
+        background-color: $clouds
+
+        > a, > span
+          color: $white
+          background-color: $white
+
+          &:hover,&:focus
+            color: $white
+            background-color: $river
+
+        &.active
+          > a, > span
+            cursor: default
+            color: $silver
+            background-color: $white
+
+        > a, > span
+          +rounded(50%)
+          height: 28px
+          width:  28px
+          margin: 8px
+
+      &.next,&.prev
+        color: $river
+        background-color: $clouds
+
+        &:hover,&:focus
+          color: $white
+          background-color: $river
+
+        &.disabled
+          cursor: default
+          color: $silver
+          background-color: $clouds
+
+        > a, > span
+          height: 44px
+          padding: 8px
+
+      &.prev
+        border:
+          right: 2px solid $white
+      &.next
+        border:
+          left: 2px solid $white
+
+      &:first-child
+        +rounded(6px 0px 0px 6px)
+
+      &:last-child
+        +rounded(0px 6px 6px 0px)

@@ -1,0 +1,21 @@
+= form_for user, url: admin_user_path do |form|
+
+  .input
+    .icon
+      i.fal.fa-user
+    = form.text_field :name, placeholder: "Name"
+  = errors user, :name
+
+  .input
+    .icon
+      i.fal.fa-envelope
+    = form.email_field :email, placeholder: "Email"
+  = errors user, :email
+
+  .input
+    .icon
+      .fal.fa-lock
+    = form.password_field :password, placeholder: "Password"
+  = errors user, :password
+
+  = form.submit commit, class: "submit"

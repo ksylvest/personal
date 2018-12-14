@@ -1,0 +1,5 @@
+- provide :title, "Admin » Attachments » Edit"
+
+nav.crumbs #{link_to 'Admin', admin_path} » #{link_to 'Attachments', admin_attachments_path} » Edit
+
+= render 'form', attachment: @attachment

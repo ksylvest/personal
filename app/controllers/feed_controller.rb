@@ -1,0 +1,10 @@
+class FeedController < ApplicationController
+
+  # GET /
+  def index
+    @posts = Post.all
+
+    fresh_when(last_modified: @posts.maximum(:updated_at) || @posts.maximum(:created_at))
+  end
+
+end

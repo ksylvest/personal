@@ -1,0 +1,7 @@
+- cache page do
+  article.page.summary
+    h1.title= page.title
+    p.time= time_tag(page.date, l(page.date, format: :human))
+    = render 'pages/tags', tags: page.tags
+    section.summary= page.summary
+    a.more href=page_path(slug: page.slug) More

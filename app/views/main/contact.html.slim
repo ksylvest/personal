@@ -1,0 +1,40 @@
+- provide :title, "Contact"
+- provide :keywords, "kevin, sylvestre, github, stack, twitter, facebook, linkedin, dribbble, google, vimeo"
+- provide :description, "How to get in touch. Try GitHub, Stack, Twitter, Facebook, LinkedIn, Google or Vimeo."
+- provide :head
+
+= render 'contacts/form', contact: Contact.new
+
+.grid
+  a.element href=github_url
+    .icon
+      i.fab.fa-github
+    h1.name GitHub
+  a.element href=stackoverflow_url
+    .icon
+      i.fab.fa-stack-overflow
+    h1.name StackOverflow
+  a.element href=twitter_url
+    .icon
+      i.fab.fa-twitter
+    h1.name Twitter
+  a.element href=facebook_url
+    .icon
+      i.fab.fa-facebook
+    h1.name Facebook
+  a.element href=linkedin_url
+    .icon
+      i.fab.fa-linkedin
+    h1.name LinkedIn
+  a.element href=dribbble_url
+    .icon
+      i.fab.fa-dribbble
+    h1.name Dribbble
+  a.element href=google_url
+    .icon
+      i.fab.fa-google
+    h1.name Google
+  a.element href=vimeo_url
+    .icon
+      i.fab.fa-vimeo
+    h1.name Vimeo

@@ -1,0 +1,40 @@
+@mixin clears
+  &:before,&:after
+    clear: both
+    content: ""
+    display: block
+
+@mixin inactive
+  pointer:
+    events: none
+
+@mixin opacity($opacity)
+  opacity: $opacity
+  filter: alpha(opacity = $opacity * 100)
+
+@mixin shadowed($shadow: 0 $thin $thick rgba($black, $translucent))
+  box:
+    shadow: $shadow
+
+@mixin rounded($radius: 4px)
+  border:
+    radius: $radius
+
+@mixin button($color)
+  color: $color
+  background-color: $white
+  border: $thin solid $color
+  &:hover
+    color: $white
+    background-color: $color
+  &:active
+    color: $white
+    background-color: $color
+
+@mixin responsive($min: 320px, $max: 960px, $margin: 20px)
+  margin: auto
+  min-width: $min
+  max-width: $max
+
+  @media (min-width: #{$min - ($margin * 2)}) and (max-width: #{$max + ($margin * 2)})
+    margin: auto $margin

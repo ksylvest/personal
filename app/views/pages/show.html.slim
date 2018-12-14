@@ -1,0 +1,14 @@
+- provide :title, @page.title
+- provide :description, @page.summary
+- provide :keywords, @page.keywords
+- provide :head
+
+- cache @page do
+
+  .page.details
+    h1.title= @page.title
+    = render 'pages/tags', tags: @page.tags
+    section.body
+      = markdown @page.body
+
+  = render 'shared/disqus'

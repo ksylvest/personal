@@ -1,0 +1,5 @@
+- cache post do
+  article
+    h1.title= link_to post.title, post_path(segment: post.segment, slug: post.slug)
+    section.summary= post.summary
+    p.actions= link_to 'More', post_path(segment: post.segment, slug: post.slug), class: 'more'

@@ -1,0 +1,16 @@
+= form_for contact, url: contact_path do |form|
+
+  = form.text_field :name, placeholder: "Name"
+  = errors contact, :name
+
+  = form.email_field :email, placeholder: "Email"
+  = errors contact, :email
+
+  = form.text_field :subject, placeholder: "Subject"
+  = errors contact, :subject
+
+  = form.text_area :message, placeholder: "Message"
+  = errors contact, :message
+
+  .actions
+    = form.submit "Send", class: "button"

@@ -1,0 +1,12 @@
+- provide :title, "Projects"
+- provide :keywords, "attached, formula, erroneous, identifier, serializer, setup, age, carousel, gridly, growl, lighter, modal, obsere, spin"
+- provide :description, "Links to Ruby, Rails, iOS, JS and Bash projects."
+- provide :head
+
+.grid
+  - Project.all.each do |project|
+    a.element href= project.url
+      .icon
+        i class=project.icon
+      h1.name= project.name
+      p.description= project.description

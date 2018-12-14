@@ -1,0 +1,4 @@
+Sitemap: https://ksylvest.com/sitemap.xml
+
+User-Agent: *
+Disallow: /admin

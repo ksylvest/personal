@@ -1,0 +1,5 @@
+kevin:
+  name: Kevin Sylvestre
+  email: kevin@ksylvest.com
+  role: admin
+  password_digest: <%= BCrypt::Password.create "secret" %>

@@ -1,0 +1,66 @@
+#!/usr/bin/env ruby
+require 'pathname'
+require 'fileutils'
+include FileUtils
+
+APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
+
+POW_HOSTS_PATH = '~/Library/Application Support/Pow/Hosts'
+
+def system!(*args)
+  system(*args) || abort("\n- COMMAND '#{args}' FAILED -\n")
+end
+
+chdir APP_ROOT do
+  puts "- BREW -"
+
+  unless system('which brew')
+    system! '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
+  end
+
+  system! 'brew install rbenv'
+  system! 'brew install redis'
+  system! 'brew install postgres'
+  system! 'brew install postgis'
+  system! 'brew install pow'
+  system! 'brew install yarn'
+
+  system! 'brew services start redis'
+  system! 'brew services start postgres'
+  system! 'brew services start memcached'
+
+  puts "- RBENV -"
+
+  system! 'rbenv install 2.5.3 -s'
+  system! 'rbenv rehash'
+
+  puts "- POW -"
+
+  unless system('test -d ~/.pow')
+    system! "mkdir -p #{POW_HOSTS_PATH}"
+    system! "ln -s #{POW_HOSTS_PATH} ~/.pow"
+    system! 'sudo pow --install-system'
+    system! 'pow --install-local'
+  end
+
+  puts "- BUNDLER -"
+
+  system! 'gem install bundler --conservative'
+  system('bundle check') || system!('bundle install')
+
+  puts "- YARN -"
+
+  system! 'bin/yarn install'
+
+  puts "- RAILS -"
+
+  system! 'bin/rails db:setup'
+  system! 'bin/rails db:fixtures:load'
+  system! 'bin/rails log:clear tmp:clear'
+  system! 'bin/rails restart'
+
+  puts "- POWDER -"
+
+  system! 'powder link ksylvest'
+  system! 'powder open'
+end

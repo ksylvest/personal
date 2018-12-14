@@ -1,0 +1,2 @@
+import "./fontawesome";
+import "./webfontloader";

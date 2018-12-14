@@ -1,0 +1,16 @@
+.bundle
+.byebug*
+.sass*
+.powenv
+.powder
+config/master.key
+coverage
+log/*
+tmp/*
+db/*.sqlite*
+public/assets
+public/system
+public/packs*
+storage
+node*
+yarn-*.log

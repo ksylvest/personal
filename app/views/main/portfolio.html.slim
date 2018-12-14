@@ -1,0 +1,29 @@
+- provide :title, "Portfolio"
+- provide :keywords, "pose, hearts, vidfolia, pickupfc, productwiki"
+- provide :description, "iOS and web apps designed or developed including Pose, Hearts, Vidfolia, Winescan, PickupFC and More!"
+- provide :head
+
+h1= link_to Portfolio::POSE.name, Portfolio::POSE.url
+p Pose is the place to celebrate and shop unique styles. Join a diverse and creative community of over three million users in exchanging fashion inspiration and products that are as one-of-a-kind as you are. Pose lets you upload inspiration poses or shoppable products, save and share content, browse and follow celebrities, and much more. Pose's universal iPhone and iPad app has been featured by Apple as "App of the Week" and "App Store Best".
+
+= render 'portfolios/grid', portfolio: Portfolio::POSE, size: '640x640'
+
+h1= link_to Portfolio::SURKUS.name, Portfolio::SURKUS.url
+p Surkus is a mobile 'CrowdCasting' app that pays you to experience local venues and events. The app supports native iOS and Android clients as well as an API built in Ruby on Rails. It features a deep integration with geo-location tracking and push-notifications to handle checkins and checkouts from different venues.
+
+= render 'portfolios/grid', portfolio: Portfolio::SURKUS, size: '640x640'
+
+h1= link_to Portfolio::HEARTS.name, Portfolio::HEARTS.url
+p The classic card game transformed for the Apple Mac App Store. This application was one of the premier apps available in the new store. It features rich animations and a great user interface paired with challenging artificial intelligence. The app broke through the top hundred paid app list in the store.
+
+= render 'portfolios/grid', portfolio: Portfolio::HEARTS, size: '800x600'
+
+h1= link_to Portfolio::WINESCAN.name, Portfolio::WINESCAN.url
+p Wines are an unknown purchase for many drinkers. Wine Scan aides consumers in their collecting by providing important tasting information in real time. The iOS application features a rich interface that provides a subscription  to tasting notes for nearly ten thousand wines. In addition barcode scanning lets drinkers save their favourite wines to their cellar.
+
+= render 'portfolios/grid', portfolio: Portfolio::WINESCAN, size: '512x512'
+
+h1= link_to Portfolio::VIDFOLIA.name, Portfolio::VIDFOLIA.url
+p Vidfolia is the place for videographers to share their work with prospective clients. This application is written in Ruby on Rails and integrates with a cloud based video processing services to provide high definition portfolios. Advanced searching allows clients to find the perfect video professional.
+
+= render 'portfolios/grid', portfolio: Portfolio::VIDFOLIA, size: '512x512'

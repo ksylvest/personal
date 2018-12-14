@@ -1,0 +1,16 @@
+header#header
+  .content
+    = link_to root_path, class: 'avatar' do
+      picture
+        source type="image/webp" srcset=srcset('application/images/avatar/default', sizes: %w[100w 200w 300w 400w 500w 600w], format: 'webp')
+        = image_tag asset_pack_url('application/images/avatar/default.jpg'), alt: 'Kevin Sylvestre', class: 'image',
+          srcset: srcset('application/images/avatar/default', sizes: %w[100w 200w 300w 400w 500w 600w], format: 'jpg')
+    h1.title Kevin Sylvestre
+    h2.subtitle A Ruby and iOS developer and designer.
+    nav.links
+      = link_to 'Home', root_path
+      = link_to 'About', about_path
+      = link_to 'Contact', contact_path
+      = link_to 'Projects', projects_path
+      = link_to 'Portfolio', portfolio_path
+      = link_to 'Search', search_path

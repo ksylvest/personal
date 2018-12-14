@@ -1,0 +1,15 @@
+= form_for session, url: admin_session_path do |form|
+
+  .input
+    .icon
+      i.fal.fa-envelope
+    = form.email_field :email, placeholder: "Email"
+  = errors session, :email
+
+  .input
+    .icon
+      i.fal.fa-lock
+    = form.password_field :password, placeholder: "Password"
+  = errors session, :password
+
+  = form.submit commit, class: "submit"
