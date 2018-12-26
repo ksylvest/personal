@@ -88,10 +88,10 @@
   resolved "https://registry.yarnpkg.com/@stimulus/webpack-helpers/-/webpack-helpers-1.1.0.tgz#17f00ea6eaa38b490ba84fec6f6c436c604a4a85"
   integrity sha512-trzloYQ7RBZcYIbB5hLLgYvC7MHJkj1avPFIrEFCd2t7WCFhH5wQApyzAZAS+BtjvFwHp0o1o7Rp1OceRgjOCw==
 
-"@types/jquery@^3.3.28":
-  version "3.3.28"
-  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.28.tgz#e4e4e1a72a890b9d5fce34019d961265dd1394c4"
-  integrity sha512-6+0asQBU38H5kdoKvxVGE7fY8JREBgQsxONw0na0noV9D3JLN2+odBPKkTvRcLW20xSNiP8BH0nyl+8PcIHYNw==
+"@types/jquery@^3.3.29":
+  version "3.3.29"
+  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.29.tgz#680a2219ce3c9250483722fccf5570d1e2d08abd"
+  integrity sha512-FhJvBninYD36v3k6c+bVk1DSZwh7B5Dpb/Pyk3HKVsiohn0nhbefZZ+3JXbWQhFyt0MxSl2jRDdGQPHeOHFXrQ==
   dependencies:
     "@types/sizzle" "*"
 
