@@ -9,7 +9,7 @@
     "@types/marked": "^0.6.0",
     "@types/webfontloader": "^1.6.29",
     "babel-polyfill": "^6.26.0",
-    "caniuse-lite": "^1.0.30000927",
+    "caniuse-lite": "^1.0.30000928",
     "jquery": "^3.3.1",
     "marked": "^0.6.0",
     "postcss-preset-env": "^6.0.7",
