@@ -91,7 +91,7 @@ GEM
       rails (> 3.0.0)
     erubi (1.8.0)
     fabrication (2.20.1)
-    faker (1.9.1)
+    faker (1.9.3)
       i18n (>= 0.7)
     ffi (1.9.25)
     foreman (0.85.0)
