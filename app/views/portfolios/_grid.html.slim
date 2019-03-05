@@ -1,6 +1,6 @@
 .grid.thumbs
   - portfolio.images.each do |image|
     .element.thumb
-      = link_to asset_pack_url("application/images/portfolio/originals/#{portfolio.slug}/#{image}.jpg"), data: { lighten: 'portfolio' } do
-        = image_tag asset_pack_url("application/images/portfolio/thumbs/#{portfolio.slug}/#{image}.jpg"), size: size
+      = link_to asset_pack_url("media/application/images/portfolio/originals/#{portfolio.slug}/#{image}.jpg"), data: { lighten: 'portfolio' } do
+        = image_tag asset_pack_url("media/application/images/portfolio/thumbs/#{portfolio.slug}/#{image}.jpg"), size: size
         .mask
