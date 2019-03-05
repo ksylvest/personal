@@ -1,4 +1,4 @@
-import "babel-polyfill";
+import "@babel/polyfill";
 
 import * as Rails from "rails-ujs";
 import * as Turbolinks from "turbolinks";
