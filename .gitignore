@@ -14,3 +14,4 @@ public/packs*
 storage
 node*
 yarn-*.log
+.yarn-*
