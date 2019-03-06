@@ -71,5 +71,5 @@ library.add(
 );
 
 document.addEventListener("turbolinks:load", () => {
-  (dom as any).i2svg();
+  dom.i2svg();
 });
