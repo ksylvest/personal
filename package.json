@@ -3,7 +3,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
     "@fortawesome/free-brands-svg-icons": "^5.7.2",
-    "@fortawesome/pro-light-svg-icons": "^5.7.2",
+    "@fortawesome/pro-light-svg-icons": "^5.8.0",
     "@rails/webpacker": "^4.0.1",
     "@types/jquery": "^3.3.29",
     "@types/marked": "^0.6.3",
