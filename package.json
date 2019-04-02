@@ -6,7 +6,7 @@
     "@fortawesome/pro-light-svg-icons": "^5.8.1",
     "@rails/webpacker": "^4.0.1",
     "@types/jquery": "^3.3.29",
-    "@types/marked": "^0.6.3",
+    "@types/marked": "^0.6.4",
     "@types/webfontloader": "^1.6.29",
     "jquery": "^3.3.1",
     "marked": "^0.6.1",
