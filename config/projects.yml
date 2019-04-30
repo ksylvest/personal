@@ -1,0 +1,105 @@
+-
+  name: 'Rhino'
+  icon: 'fal fa-server'
+  description: 'A Ruby rack server built using sockets, threads and a CLI.'
+  url: 'https://github.com/ksylvest/rhino/'
+-
+  name: 'Specifier'
+  icon: 'fal fa-gavel'
+  description: 'A Ruby testing framework built for examples, contexts and a CLI.'
+  url: 'https://github.com/ksylvest/specifier/'
+-
+  name: 'Enigma'
+  icon: 'fal fa-key'
+  description: 'A Ruby enigma machine (rotors, reflectors, plugboard and all).'
+  url: 'https://github.com/ksylvest/enigma/'
+-
+  name: 'Attached'
+  icon: 'fal fa-paperclip'
+  description: 'A Rails gem for uploading files to Amazon, Google or Rackspace.'
+  url: 'https://ksylvest.github.io/attached/'
+-
+  name: 'Formula'
+  icon: 'fal fa-flask'
+  description: 'A Rails gem for creating rich forms with minimal markup.'
+  url: 'https://ksylvest.github.io/formula/'
+-
+  name: 'Erroneous'
+  icon: 'fal fa-exclamation'
+  description: 'A Rails gem for converting errors to human readable forms.'
+  url: 'https://ksylvest.github.io/erroneous/'
+-
+  name: 'Identifier'
+  icon: 'fal fa-tags'
+  description: 'A Ruby gem for generating UUIDs and GUIDs cross platform.'
+  url: 'https://ksylvest.github.io/identifier/'
+-
+  name: 'Serializer'
+  icon: 'fal fa-tachometer'
+  description: 'A Rails gem for serializing settings with types and defaults.'
+  url: 'https://ksylvest.github.io/serializer/'
+-
+  name: 'Reason'
+  icon: 'fal fa-filter'
+  description: 'An iOS and Mac pod that adds enumerables, parsing, and more.'
+  url: 'https://github.com/ksylvest/reason'
+-
+  name: 'Geography'
+  icon: 'fal fa-globe'
+  description: 'An iOS and Mac pod that adds in support for countries and regions.'
+  url: 'https://github.com/ksylvest/geography'
+-
+  name: 'Encore'
+  icon: 'fal fa-random'
+  description: 'An iOS and Mac pod that eliminates duplicate for callbacks.'
+  url: 'https://github.com/ksylvest/encore/'
+-
+  name: 'Link'
+  icon: 'fal fa-link'
+  description: 'An iOS pod that simplifies tables and collections.'
+  url: 'https://github.com/ksylvest/link/'
+-
+  name: 'Setup'
+  icon: 'fal fa-magic'
+  description: 'A Bash script for setting up development environments.'
+  url: 'https://ksylvest.github.io/setup/'
+-
+  name: 'Age'
+  icon: 'fal fa-clock'
+  description: 'A JS library for formatting and counting dates in a friendly form.'
+  url: 'https://ksylvest.github.io/jquery-age/'
+-
+  name: 'Carousel'
+  icon: 'fal fa-images'
+  description: 'A JS library for browsing images in a photo carousel.'
+  url: 'https://ksylvest.github.io/jquery-carousel/'
+-
+  name: 'Gridly'
+  icon: 'fal fa-th'
+  description: 'A JS library for reording and resizing of elements on a grid.'
+  url: 'https://ksylvest.github.io/jquery-gridly/'
+-
+  name: 'Growl'
+  icon: 'fal fa-comments'
+  description: 'A JS library that enables growl style notifications.'
+  url: 'https://ksylvest.github.io/jquery-growl/'
+-
+  name: 'Lighter'
+  icon: 'fal fa-fire'
+  description: 'A JS library for full screen image browsing and zooming.'
+  url: 'https://ksylvest.github.io/jquery-lighter/'
+-
+  name: 'Modal'
+  icon: 'fal fa-arrows'
+  description: 'A JS library for scrollable and static modals.'
+  url: 'https://ksylvest.github.io/jquery-modal/'
+-
+  name: 'Observer'
+  icon: 'fal fa-eye'
+  description: 'A JS library for throttled observing of form changes.'
+  url: 'https://ksylvest.github.io/jquery-observer/'
+-
+  name: 'Spin'
+  icon: 'fal fa-spinner'
+  description: 'A JS library for generating imageless vector spinners.'
+  url: 'https://ksylvest.github.io/jquery-spin/'
