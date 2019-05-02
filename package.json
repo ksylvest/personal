@@ -8,7 +8,7 @@
     "@types/jquery": "^3.3.29",
     "@types/marked": "^0.6.5",
     "@types/webfontloader": "^1.6.29",
-    "jquery": "^3.4.0",
+    "jquery": "^3.4.1",
     "marked": "^0.6.2",
     "rails-ujs": "^5.2.3",
     "stimulus": "^1.1.1",
