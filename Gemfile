@@ -37,7 +37,6 @@ gem 'byebug', group: %i[development test]
 
 group :test do
   gem 'capybara'
-  gem 'chromedriver-helper'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
@@ -45,6 +44,7 @@ group :test do
   gem 'shoulda-context'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'webdrivers'
 end
 
 group :development do
