@@ -16,7 +16,7 @@
     "turbolinks": "^5.1.1",
     "typescript": "^3.4.5",
     "webfontloader": "^1.6.28",
-    "webpack": "^4.32.1"
+    "webpack": "^4.32.2"
   },
   "devDependencies": {
     "tslint": "^5.16.0",
