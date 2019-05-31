@@ -20,7 +20,7 @@
     "webpack": "^4.32.2"
   },
   "devDependencies": {
-    "tslint": "^5.16.0",
+    "tslint": "^5.17.0",
     "webpack-dev-server": "^3.4.1"
   },
   "scripts": {
