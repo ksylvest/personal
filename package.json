@@ -4,7 +4,7 @@
     "@babel/polyfill": "^7.4.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
     "@fortawesome/free-brands-svg-icons": "^5.9.0",
-    "@fortawesome/pro-light-svg-icons": "^5.8.2",
+    "@fortawesome/pro-light-svg-icons": "^5.9.0",
     "@rails/webpacker": "^4.0.7",
     "@types/jquery": "^3.3.29",
     "@types/marked": "^0.6.5",
