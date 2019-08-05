@@ -2,7 +2,7 @@
   "private": true,
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
-    "@fortawesome/fontawesome-svg-core": "^1.2.20",
+    "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-brands-svg-icons": "^5.10.0",
     "@fortawesome/pro-light-svg-icons": "^5.10.0",
     "@rails/webpacker": "^4.0.7",
