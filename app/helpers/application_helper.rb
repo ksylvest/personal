@@ -24,12 +24,13 @@ module ApplicationHelper
 
   def ld
     {
-      '@context': 'http://schema.org', '@type': 'WebSite', 'url': root_url,
-      'potentialAction':
-      {
+      '@context': 'http://schema.org',
+      '@type': 'WebSite',
+      'url': root_url,
+      'potentialAction': {
         '@type': 'SearchAction',
-        'target': search_url(search: { query: '{search_query}' }),
-        'query-input': 'required name=search_query',
+        'target': search_url(query: '{query}'),
+        'query-input': 'required name=query',
       },
     }
   end

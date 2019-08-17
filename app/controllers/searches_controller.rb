@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
-  # GET /search
+  # GET /search?query=:query
   def show
-    @search = Search.new(params[:search])
+    @search = Search.new(params[:query])
     @pages = @search.pages
     @posts = @search.posts
   end

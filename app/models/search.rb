@@ -3,10 +3,8 @@ class Search
 
   attr_accessor :query
 
-  validates :query, presence: true
-
-  def initialize(attributes = {})
-    @query = attributes[:query] if attributes
+  def initialize(query)
+    @query = query
   end
 
   def posts
