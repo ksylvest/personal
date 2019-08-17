@@ -2,11 +2,11 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `rails
+# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
@@ -40,14 +40,14 @@ ActiveRecord::Schema.define(version: 2018_02_10_050633) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "attachings", force: :cascade do |t|
-    t.bigint "attachment_id", null: false
-    t.string "document_type", null: false
-    t.bigint "document_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "attachings", id: :serial, force: :cascade do |t|
+    t.integer "attachment_id", null: false
+    t.integer "document_id", null: false
+    t.string "document_type", limit: 255, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["attachment_id"], name: "index_attachings_on_attachment_id"
-    t.index ["document_type", "document_id"], name: "index_attachings_on_document_type_and_document_id"
+    t.index ["document_id", "document_type"], name: "index_attachings_on_document_id_and_document_type"
   end
 
   create_table "attachments", force: :cascade do |t|
@@ -56,37 +56,35 @@ ActiveRecord::Schema.define(version: 2018_02_10_050633) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pages", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "status", null: false
-    t.string "slug", null: false
-    t.string "title", null: false
+  create_table "pages", id: :serial, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "status", limit: 255, null: false
+    t.string "slug", limit: 255, null: false
+    t.string "title", limit: 255, null: false
     t.text "summary", null: false
     t.text "body", null: false
     t.text "tags", default: [], null: false, array: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index "to_tsvector('english'::regconfig, (((((COALESCE(title, ''::character varying))::text || ' '::text) || COALESCE(summary, ''::text)) || ' '::text) || COALESCE(body, ''::text)))", name: "index_pages_on_tsvector", using: :gin
     t.index ["slug"], name: "index_pages_on_slug", unique: true
-    t.index ["status"], name: "index_pages_on_status"
     t.index ["tags"], name: "index_pages_on_tags", using: :gin
     t.index ["user_id"], name: "index_pages_on_user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "status", null: false
-    t.string "segment", null: false
-    t.string "slug", null: false
-    t.string "title", null: false
+  create_table "posts", id: :serial, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "status", limit: 255, null: false
+    t.string "segment", limit: 255, null: false
+    t.string "slug", limit: 255, null: false
+    t.string "title", limit: 255, null: false
     t.text "summary", null: false
     t.text "body", null: false
     t.text "tags", default: [], null: false, array: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index "to_tsvector('english'::regconfig, (((((COALESCE(title, ''::character varying))::text || ' '::text) || COALESCE(summary, ''::text)) || ' '::text) || COALESCE(body, ''::text)))", name: "index_posts_on_tsvector", using: :gin
     t.index ["segment", "slug"], name: "index_posts_on_segment_and_slug", unique: true
-    t.index ["status"], name: "index_posts_on_status"
     t.index ["tags"], name: "index_posts_on_tags", using: :gin
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

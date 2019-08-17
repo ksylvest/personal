@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 shared_examples_for 'taggable' do
-
   describe '#taggables=' do
     it 'splits a value into tags' do
       subject.taggables = 'ruby rack'
@@ -15,5 +14,4 @@ shared_examples_for 'taggable' do
       expect(subject.taggables).to eq('ruby rack')
     end
   end
-
 end

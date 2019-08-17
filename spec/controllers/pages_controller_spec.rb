@@ -1,13 +1,12 @@
 require 'spec_helper'
 
-describe PagesController do
+RSpec.describe PagesController, type: :request do
+  let(:page) { Fabricate(:page) }
 
   describe 'GET #show' do
-    it 'assigns the requested page as @page' do
-      page = Fabricate(:page)
-      get :show, params: { slug: page.slug }
-      expect(assigns(:page)).to eq(page)
+    it 'is successful' do
+      get page_path(slug: page.slug)
+      expect(response).to have_http_status(:ok)
     end
   end
-
 end

@@ -51,5 +51,4 @@ private
   def attributes
     params.require(:post).permit(:title, :body, :summary, :taggables)
   end
-
 end

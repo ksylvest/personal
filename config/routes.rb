@@ -14,15 +14,17 @@ Rails.application.routes.draw do
   get 'projects', to: 'main#projects', as: :projects
   get 'portfolio', to: 'main#portfolio', as: :portfolio
 
-  resources :feed, only: :index
-  resources :archive, only: :index
-  resources :sitemap, only: :index
+  resource :feed, only: :show
+  resource :archive, only: :show
+  resource :sitemap, only: :show
 
   resource :search, only: %i[show]
 
   resource :contact, only: %i[new create]
 
   get 'admin', to: 'admin/dashboard#index', as: :admin
+
+  resource :auth, only: %i[create destroy]
 
   namespace :admin do
     resource :user, only: %i[edit update]

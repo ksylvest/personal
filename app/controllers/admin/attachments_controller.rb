@@ -53,5 +53,4 @@ private
   def attributes
     params.require(:attachment).permit(:name, :file)
   end
-
 end

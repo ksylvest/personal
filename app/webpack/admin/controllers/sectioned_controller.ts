@@ -2,7 +2,7 @@ import { Controller } from "stimulus";
 
 const DEFAULT_INDEX = 0;
 
-class SectionedController extends Controller {
+export class SectionedController extends Controller {
   public static targets = [
     "tab",
     "panel",
@@ -44,5 +44,3 @@ class SectionedController extends Controller {
     }
   }
 }
-
-export { SectionedController };

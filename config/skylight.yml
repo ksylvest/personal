@@ -1,2 +1,2 @@
 ---
-authentication: <%= ENV['SKYLIGHT_AUTHENTICATION'] %>
+authentication: <%= ENV['SKYLIGHT_AUTHENTICATION'] %>	

@@ -5,8 +5,6 @@ class PagesController < ApplicationController
   def show
     @page = Page.find_by!(attributes)
     norobot unless @page.active?
-
-    fresh_when(@page)
   end
 
 private
@@ -14,5 +12,4 @@ private
   def attributes
     params.permit(:slug)
   end
-
 end

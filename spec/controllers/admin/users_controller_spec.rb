@@ -1,42 +1,34 @@
 require 'spec_helper'
 
-describe Admin::UsersController do
-
+RSpec.describe Admin::UsersController, type: :request do
   let(:user) { Fabricate(:user, role: User::Role::ADMIN) }
 
-  before :each do
-    request.env['HTTPS'] = 'on'
-  end
-
-  before(:each) do
-    authenticate(user)
-  end
+  before { authenticate(user) }
 
   describe 'GET #edit' do
-    it 'it successful' do
-      get :edit
+    it 'is successful' do
+      get edit_admin_user_path
       expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'PATCH #update' do
     context 'with valid parameters' do
-      it 'redirects if successful' do
+      it 'saves the user' do
         expect {
-          patch :update, params: { user: { name: user.name.reverse } }
+          patch admin_user_path, params: { user: { name: user.name.reverse } }
           expect(response).to redirect_to(admin_path)
         }.to change { user.reload.name }
       end
     end
 
     context 'with invalid parameters' do
-      it 're-renders the "edit" template' do
+      it 'does not save the user' do
         expect {
-          patch :update, params: { user: { name: '' } }
-          expect(response).to render_template('edit')
-        }.to_not change { user.reload.name }
+          patch admin_user_path, params: { user: { name: '' } }
+          expect(response).to have_http_status(:ok)
+        }.not_to change { user.reload.name }
       end
     end
   end
-
 end

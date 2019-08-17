@@ -9,17 +9,19 @@ class ApplicationController < ActionController::Base
 protected
 
   def user
-    return @_user if @_user
-
-    cookie = cookies.signed[:user]
-    @_user = User.find(cookie) if cookie
+    @user ||= begin
+      user_id = cookies.encrypted[:user_id]
+      User.find(user_id) if user_id
+    end
   end
 
   def authenticate(user)
-    cookies.permanent.signed[:user] = user.id
+    @user = user
+    cookies.encrypted[:user_id] = user.id
   end
 
   def deauthenticate
+    @user = nil
     cookies.delete :user
   end
 
@@ -28,24 +30,14 @@ protected
   end
 
   def admin!
-    return if authenticated? && user.admin?
-
-    store
-    redirect_to new_admin_session_path, alert: 'You must be an admin.'
+    authenticate!(role: User::Role::ADMIN)
   end
 
-  def authenticate!
-    return if authenticated?
+  def authenticate!(role:)
+    return if authenticated? && user.role.eql?(role)
 
     store
-    redirect_to root_path, alert: 'You must be logged in.'
-  end
-
-  def deauthenticate!
-    return unless authenticated?
-
-    store
-    redirect_to root_path, alert: 'You must be logged out.'
+    redirect_to new_admin_session_path, alert: 'You must be authenticated.'
   end
 
   def store
@@ -55,5 +47,4 @@ protected
   def restore(default:)
     session.delete(:location) || default
   end
-
 end

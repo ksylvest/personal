@@ -1,16 +1,31 @@
 require 'spec_helper'
 
-describe MainController do
-
-  %w[about contact projects portfolio].each do |page|
-
-    describe "GET ##{page}" do
-      it 'should be successful' do
-        get page
-        expect(response).to have_http_status(:ok)
-      end
+RSpec.describe MainController, type: :request do
+  describe 'GET #about' do
+    it 'is successful' do
+      get about_path
+      expect(response).to have_http_status(:ok)
     end
-
   end
 
+  describe 'GET #contact' do
+    it 'is successful' do
+      get contact_path
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'GET #projects' do
+    it 'is successful' do
+      get projects_path
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'GET #projects' do
+    it 'is successful' do
+      get portfolio_path
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end

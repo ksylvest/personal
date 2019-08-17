@@ -1,20 +1,18 @@
 require 'spec_helper'
 
-describe Validation do
-
-  it 'validates URLs' do
-    expect('https://ksylvest.com').to match(Validation::URL)
-    expect('ksylvest.com').to_not match(Validation::URL)
+RSpec.describe Validation, type: :model do
+  it 'validates urls' do
+    expect(Validation::URL).to match('https://ksylvest.com')
+    expect(Validation::URL).not_to match('ksylvest.com')
   end
 
   it 'validates emails' do
-    expect('kevin@ksylvest.com').to match(Validation::EMAIL)
-    expect('kevin').to_not match(Validation::EMAIL)
+    expect(Validation::EMAIL).to match('kevin@ksylvest.com')
+    expect(Validation::EMAIL).not_to match('kevin')
   end
 
   it 'validates permalinks' do
-    expect('2014-12-31-something').to match(Validation::PERMALINK)
-    expect('2014 12 31 something').to_not match(Validation::PERMALINK)
+    expect(Validation::PERMALINK).to match('2014-12-31-something')
+    expect(Validation::PERMALINK).not_to match('2014 12 31 something')
   end
-
 end
