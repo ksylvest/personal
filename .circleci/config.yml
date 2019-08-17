@@ -27,8 +27,6 @@ commands:
         restore_cache:
           keys:
             - bundler-{{ arch }}-{{ checksum "Gemfile.lock" }}
-            - bundler-{{ arch }}
-            - bundler
       -
         run: gem update --system
       -
@@ -46,14 +44,13 @@ commands:
         restore_cache:
           keys:
             - yarn-{{ arch }}-{{ checksum "yarn.lock" }}
-            - yarn-{{ arch }}
-            - yarn
       -
         run: yarn install
       -
         save_cache:
           key: yarn-{{ arch }}-{{ checksum "yarn.lock" }}
           paths:
+            - node_modules
             - ~/.cache/yarn
 
 jobs:
