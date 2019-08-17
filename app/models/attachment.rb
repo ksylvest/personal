@@ -1,5 +1,5 @@
 class Attachment < ApplicationRecord
-  has_many :attachings
+  has_many :attachings, dependent: :destroy
 
   has_one_attached :file
 

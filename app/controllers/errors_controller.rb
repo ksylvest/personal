@@ -17,5 +17,4 @@ class ErrorsController < ApplicationController
   def exception
     render status: 500
   end
-
 end

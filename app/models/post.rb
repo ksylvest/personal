@@ -32,5 +32,4 @@ private
     self.slug ||= title.parameterize if title.present?
     self.segment ||= Time.current.strftime(Formats::SEGMENT)
   end
-
 end

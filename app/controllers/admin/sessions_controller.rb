@@ -1,13 +1,10 @@
 class Admin::SessionsController < AdminController
-  before_action :admin!, only: %i[destroy]
-  before_action :deauthenticate!, only: %i[new create]
-
-  # GET /admin/session/new
+  # GET /session/new
   def new
     @session = Session.new
   end
 
-  # POST /admin/session
+  # POST /session
   def create
     @session = Session.new(attributes)
 
@@ -19,11 +16,11 @@ class Admin::SessionsController < AdminController
     end
   end
 
-  # DELETE /admin/session
+  # DELETE /session
   def destroy
     deauthenticate
 
-    redirect_to(root_path)
+    redirect_to(new_admin_session_path)
   end
 
 private
@@ -31,5 +28,4 @@ private
   def attributes
     params.require(:session).permit(:email, :password)
   end
-
 end

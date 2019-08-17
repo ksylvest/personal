@@ -8,13 +8,4 @@ module Robots
   def norobot
     robots('noindex,nofollow')
   end
-
-  def noindex
-    robots('noindex')
-  end
-
-  def nofollow
-    robots('nofollow')
-  end
-
 end

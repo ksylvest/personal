@@ -1,20 +1,17 @@
 module ApplicationHelper
-
   def active?(*mode)
     mode.include?(params[:controller]) || mode.include?(params[:action])
   end
 
   def srcset(path, format:, sizes: %w[1x 2x 3x])
-    sizes.map { |size| "#{asset_pack_url("#{path}-#{size}.#{format}")} #{size}" }.join(',')
+    sizes.map { |size| "#{image_path("#{path}-#{size}.#{format}")} #{size}" }.join(',')
   end
 
   def markdown(text)
     render = Redcarpet::Render::Advanced.new
     render.helper = self
     markdown = Redcarpet::Markdown.new(render, fenced_code_blocks: true)
-    result = markdown.render(text)
-    result = find_and_preserve(result) if defined? find_and_preserve
-    raw result
+    sanitize markdown.render(text)
   end
 
   def viewport
@@ -76,5 +73,4 @@ module ApplicationHelper
     when Video then video_tag attachment.file.url, options
     end
   end
-
 end

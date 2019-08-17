@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-
   # GET /contact/new
   def new
     @contact = Contact.new
@@ -22,5 +21,4 @@ private
   def attributes
     params.require(:contact).permit(:name, :email, :subject, :message)
   end
-
 end

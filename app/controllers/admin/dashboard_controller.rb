@@ -3,5 +3,4 @@ class Admin::DashboardController < AdminController
 
   # GET /admin
   def index; end
-
 end

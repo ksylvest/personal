@@ -20,5 +20,4 @@ class Search
   def present?
     @query.present?
   end
-
 end

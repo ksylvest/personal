@@ -6,7 +6,7 @@ class Admin::UsersController < AdminController
     @user = user
   end
 
-  # PUT /admin/user
+  # PATCH /admin/user
   def update
     @user = user
 
@@ -22,5 +22,4 @@ private
   def attributes
     params.require(:user).permit(:name, :email, :password)
   end
-
 end

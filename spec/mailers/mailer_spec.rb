@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Mailer do
+RSpec.describe Mailer, type: :mailer do
   describe '#contact' do
     let(:contact) { Contact.new(name: 'John', email: 'john@gmail.com', subject: 'Hello', message: 'How are you?') }
     let(:mail) { Mailer.contact(contact) }

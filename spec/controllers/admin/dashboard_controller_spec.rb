@@ -1,18 +1,14 @@
 require 'spec_helper'
 
-describe Admin::DashboardController do
+RSpec.describe Admin::DashboardController, type: :request do
+  let(:user) { Fabricate(:user, role: 'admin') }
 
-  let(:admin) { Fabricate(:user, role: 'admin') }
-
-  before(:each) do
-    authenticate(admin)
-  end
+  before { authenticate(user) }
 
   describe 'GET #index' do
-    it 'returns http success' do
-      get 'index'
+    it 'is successful' do
+      get admin_path
       expect(response).to have_http_status(:ok)
     end
   end
-
 end

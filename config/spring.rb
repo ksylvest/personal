@@ -1,1 +1,1 @@
-%w[tmp/restart.txt].each { |path| Spring.watch(path) }
+Spring.watch('tmp/restart.txt')

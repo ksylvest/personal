@@ -6,12 +6,12 @@ executors:
       -
         image: circleci/ruby:2.6.3-node-browsers
       -
-        image: circleci/postgres:11.1-alpine-ram
+        image: circleci/postgres:11.5-alpine-ram
         environment:
           POSTGRES_USER: circleci
           POSTGRES_DB: personal_test
       -
-        image: circleci/redis:5.0.3-alpine
+        image: circleci/redis:5.0.5-alpine
     environment:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 4
@@ -30,7 +30,11 @@ commands:
             - bundler-{{ arch }}
             - bundler
       -
-        run: bundle check || bundle install
+        run: gem update --system
+      -
+        run: gem install bundler
+      -
+        run: bundle check || bundle install && bundle clean
       -
         save_cache:
           key: bundler-{{ arch }}-{{ checksum "Gemfile.lock" }}

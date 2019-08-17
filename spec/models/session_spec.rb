@@ -1,17 +1,16 @@
 require 'spec_helper'
 
-describe Session do
-
+RSpec.describe Session, type: :model do
   let(:user) { Fabricate(:user) }
 
-  it { should validate_presence_of(:email) }
-  it { should validate_presence_of(:password) }
+  it { is_expected.to validate_presence_of(:email) }
+  it { is_expected.to validate_presence_of(:password) }
 
-  it { should_not allow_value('kevin').for(:email) }
-  it { should_not allow_value('@host.com').for(:email) }
-  it { should allow_value('kevin@host.com').for(:email) }
+  it { is_expected.not_to allow_value('kevin').for(:email) }
+  it { is_expected.not_to allow_value('@host.com').for(:email) }
+  it { is_expected.to allow_value('kevin@host.com').for(:email) }
 
-  it 'should authenticate' do
+  it 'authenticates' do
     session = Session.new(email: user.email, password: user.password)
     expect(session.user).to eq(user)
   end
@@ -19,11 +18,11 @@ describe Session do
   describe 'persisted?' do
     it 'is "false" if unauthenticated' do
       session = Session.new
-      expect(session.persisted?).to be_falsey
+      expect(session).not_to be_persisted
     end
     it 'is "true" if authenticated' do
       session = Session.new(email: user.email, password: user.password)
-      expect(session.persisted?).to be_truthy
+      expect(session).to be_persisted
     end
   end
 end

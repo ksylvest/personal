@@ -1,33 +1,37 @@
 require 'spec_helper'
 
-describe PostsController do
+RSpec.describe PostsController, type: :request do
+  let(:post) { Fabricate(:post) }
 
   describe 'GET #index' do
-    it 'assigns all posts as @posts' do
-      post = Fabricate(:post)
-      get :index
-      expect(assigns(:posts)).to include(post)
+    it 'is succcesful' do
+      get posts_path
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'GET #show' do
-    it 'assigns the requested post as @post' do
-      post = Fabricate(:post)
-      get :show, params: { segment: post.segment, slug: post.slug }
-      expect(assigns(:post)).to eq(post)
+    it 'is successful' do
+      get post_path(segment: post.segment, slug: post.slug)
+      expect(response).to have_http_status(:ok)
     end
 
-    it 'allows indexing of valid posts' do
-      post = Fabricate(:post, status: Approvable::Status::ACTIVE)
-      get :show, params: { segment: post.segment, slug: post.slug }
-      should_robot
+    context 'with an active post' do
+      let(:post) { Fabricate(:post, status: Approvable::Status::ACTIVE) }
+
+      it 'allows indexing of valid posts' do
+        get post_path(segment: post.segment, slug: post.slug)
+        expect(response.headers['X-Robots-Tag']).to be_nil
+      end
     end
 
-    it 'disallows indexing of invalid posts' do
-      post = Fabricate(:post, status: Approvable::Status::PENDING)
-      get :show, params: { segment: post.segment, slug: post.slug }
-      should_norobot
+    context 'with an inactive post' do
+      let(:post) { Fabricate(:post, status: Approvable::Status::PENDING) }
+
+      it 'disallows indexing of invalid posts' do
+        get post_path(segment: post.segment, slug: post.slug)
+        expect(response.headers['X-Robots-Tag']).to(eql('noindex,nofollow'))
+      end
     end
   end
-
 end

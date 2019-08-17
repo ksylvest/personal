@@ -26,5 +26,4 @@ class Session
   def persisted?
     user&.authenticate(password)
   end
-
 end

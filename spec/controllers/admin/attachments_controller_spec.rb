@@ -1,113 +1,80 @@
 require 'spec_helper'
 
-describe Admin::AttachmentsController do
-
+RSpec.describe Admin::AttachmentsController, type: :request do
+  let!(:attachment) { Fabricate(:attachment) }
   let(:user) { Fabricate(:user, role: 'admin') }
-  let(:invalid) { { file: fixture_file_upload('attachment'), name: '' } }
-  let(:attributes) { { file: fixture_file_upload('attachment'), name: 'Ruby...' } }
+  let(:invalid_attributes) { { file: fixture_file_upload('attachment'), name: '' } }
+  let(:valid_attributes) { { file: fixture_file_upload('attachment'), name: 'Ruby...' } }
 
-  before(:each) do
-    authenticate(user)
-  end
+  before { authenticate(user) }
 
   describe 'GET #index' do
-    it 'assigns all attachments as @attachments' do
-      attachment = Fabricate(:attachment)
-      get :index
-      expect(assigns(:attachments)).to include(attachment)
+    it 'is successful' do
+      get admin_attachments_path
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'GET #new' do
-    it 'assigns a new attachment as @attachment' do
-      get :new
-      expect(assigns(:attachment)).to be_a_new(Attachment)
+    it 'is successful' do
+      get new_admin_attachment_path
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'GET #edit' do
-    it 'assigns the requested attachment as @attachment' do
-      attachment = Fabricate(:attachment)
-      get :edit, params: { id: attachment.id }
-      expect(assigns(:attachment)).to eq(attachment)
+    it 'is successful' do
+      get edit_admin_attachment_path(attachment)
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'POST #create' do
     describe 'with valid params' do
-      it 'creates a new attachment' do
+      it 'saves' do
         expect {
-          post :create, params: { attachment: attributes }
+          post admin_attachments_path, params: { attachment: valid_attributes }
+          expect(response).to redirect_to(admin_attachments_path)
         }.to change(Attachment, :count)
       end
-
-      it 'assigns a newly created attachment as @attachment' do
-        post :create, params: { attachment: attributes }
-        expect(assigns(:attachment)).to be_a(Attachment)
-        expect(assigns(:attachment)).to be_persisted
-      end
-
-      it 'redirects to the created attachment' do
-        post :create, params: { attachment: attributes }
-        expect(response).to redirect_to(admin_attachments_path)
-      end
     end
 
     describe 'with invalid params' do
-      it 'assigns a newly created but unsaved attachment as @attachment' do
-        post :create, params: { attachment: invalid }
-        expect(assigns(:attachment)).to be_a_new(Attachment)
-      end
-
-      it 're-renders the "new" template' do
-        post :create, params: { attachment: invalid }
-        expect(response).to render_template('new')
+      it 'does not save' do
+        expect {
+          post admin_attachments_path, params: { attachment: invalid_attributes }
+          expect(response).to have_http_status(:ok)
+        }.not_to change(Attachment, :count)
       end
     end
   end
 
-  describe 'PUT update' do
+  describe 'PATCH #update' do
     describe 'with valid params' do
-      it 'assigns the requested attachment as @attachment' do
-        attachment = Fabricate(:attachment)
-        put :update, params: { id: attachment.id, attachment: attributes }
-        expect(assigns(:attachment)).to eq(attachment)
-      end
-
-      it 'redirects to the attachment' do
-        attachment = Fabricate(:attachment)
-        put :update, params: { id: attachment.id, attachment: attributes }
-        expect(response).to redirect_to(admin_attachments_path)
+      it 'saves' do
+        expect {
+          patch admin_attachment_path(attachment), params: { attachment: valid_attributes }
+          expect(response).to redirect_to(admin_attachments_path)
+        }.to change { attachment.reload.name }
       end
     end
 
     describe 'with invalid params' do
-      it 'assigns the attachment as @attachment' do
-        attachment = Fabricate(:attachment)
-        put :update, params: { id: attachment.id, attachment: invalid }
-        expect(assigns(:attachment)).to eq(attachment)
-      end
-
-      it 'renders the "edit" template' do
-        attachment = Fabricate(:attachment)
-        put :update, params: { id: attachment.id, attachment: invalid }
-        expect(response).to have_http_status(:ok)
+      it 'does not save' do
+        expect {
+          patch admin_attachment_path(attachment), params: { attachment: invalid_attributes }
+          expect(response).to have_http_status(:ok)
+        }.not_to change { attachment.reload.name }
       end
     end
   end
 
-  describe 'DELETE destroy' do
-    it 'destroys the requested attachment' do
-      attachment = Fabricate(:attachment)
+  describe 'DELETE #destroy' do
+    it 'destroys' do
       expect {
-        delete :destroy, params: { id: attachment.id }
+        delete admin_attachment_path(attachment)
+        expect(response).to redirect_to(admin_attachments_path)
       }.to change(Attachment, :count).by(-1)
-    end
-
-    it 'redirects to the attachments list' do
-      attachment = Fabricate(:attachment)
-      delete :destroy, params: { id: attachment.id }
-      expect(response).to redirect_to(admin_attachments_path)
     end
   end
 end

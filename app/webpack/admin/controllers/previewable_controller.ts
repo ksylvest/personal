@@ -1,7 +1,7 @@
 import * as marked from "marked";
 import { Controller } from "stimulus";
 
-class PreviewableController extends Controller {
+export class PreviewableController extends Controller {
   public initialize() {
     this.reset();
   }
@@ -15,5 +15,3 @@ class PreviewableController extends Controller {
     this.targets.find("result").innerHTML = marked(field.value);
   }
 }
-
-export { PreviewableController };

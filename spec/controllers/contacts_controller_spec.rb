@@ -1,42 +1,48 @@
 require 'spec_helper'
 
-describe ContactsController do
-
+RSpec.describe ContactsController, type: :request do
   describe 'GET #new' do
-    it 'assigns all posts as @posts' do
-      get :new
+    it 'is successful' do
+      get new_contact_path
       expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'POST #create' do
-    it 'sends an action mailer with valid parameters' do
-      expect {
-        post :create, params: {
-          contact: {
-            name: 'John Smith',
-            email: 'john.smith@gmail.com',
-            subject: 'Hello',
-            message: 'How are you?',
-          },
+    context 'with valid params' do
+      let(:params) do
+        {
+          name: 'John Smith',
+          email: 'john.smith@gmail.com',
+          subject: 'Hello',
+          message: 'How are you?',
         }
-      }.to change { ActionMailer::Base.deliveries.count }
-      expect(response).to be_redirect
+      end
+
+      it 'schedules a devliery' do
+        expect {
+          post contact_path, params: { contact: params }
+          expect(response).to redirect_to(root_path)
+        }.to change { ActionMailer::Base.deliveries.count }
+      end
     end
 
-    it 'does nothing with invalid parameters' do
-      expect {
-        post :create, params: {
-          contact: {
-            name: 'John Smith',
-            email: 'john.smith',
-            subject: 'Hello',
-            message: 'How are you?',
-          },
+    context 'with invalid parameters' do
+      let(:params) do
+        {
+          name: 'John Smith',
+          email: 'john.smith',
+          subject: 'Hello',
+          message: 'How are you?',
         }
-      }.to_not change { ActionMailer::Base.deliveries.count }
-      expect(response).to have_http_status(:ok)
+      end
+
+      it 'does not schedule a delivery' do
+        expect {
+          post contact_path, params: { contact: params }
+          expect(response).to have_http_status(:ok)
+        }.not_to change { ActionMailer::Base.deliveries.count }
+      end
     end
   end
-
 end

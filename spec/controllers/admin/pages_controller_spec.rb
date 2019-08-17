@@ -1,113 +1,80 @@
 require 'spec_helper'
 
-describe Admin::PagesController do
-
+RSpec.describe Admin::PagesController, type: :request do
+  let!(:entry) { Fabricate(:page, user: user) }
   let(:user) { Fabricate(:user, role: 'admin') }
-  let(:invalid) { { title: '', body: '' } }
-  let(:attributes) { { title: 'Ruby', summary: 'Ruby', body: 'Ruby...' } }
+  let(:valid_attributes) { { title: 'Ruby', summary: 'Ruby', body: 'Ruby...' } }
+  let(:invalid_attributes) { { title: '', body: '' } }
 
-  before(:each) do
-    authenticate(user)
-  end
+  before { authenticate(user) }
 
   describe 'GET #index' do
-    it 'assigns all pages as @pages' do
-      page = Fabricate(:page, user: user)
-      get :index
-      expect(assigns(:pages)).to include(page)
+    it 'is successful' do
+      get admin_pages_path
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'GET #new' do
-    it 'assigns a new page as @page' do
-      get :new
-      expect(assigns(:page)).to be_a_new(Page)
+    it 'is successful' do
+      get new_admin_page_path
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'GET #edit' do
-    it 'assigns the requested page as @page' do
-      page = Fabricate(:page, user: user)
-      get :edit, params: { id: page.id }
-      expect(assigns(:page)).to eq(page)
+    it 'is successful' do
+      get edit_admin_page_path(entry)
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe 'POST #create' do
     context 'with valid params' do
-      it 'creates a new Page' do
+      it 'saves' do
         expect {
-          post :create, params: { page: attributes }
+          post admin_pages_path, params: { page: valid_attributes }
+          expect(response).to redirect_to(admin_pages_path)
         }.to change(Page, :count)
       end
-
-      it 'assigns a newly created page as @page' do
-        post :create, params: { page: attributes }
-        expect(assigns(:page)).to be_a(Page)
-        expect(assigns(:page)).to be_persisted
-      end
-
-      it 'redirects to the created page' do
-        post :create, params: { page: attributes }
-        expect(response).to redirect_to(admin_pages_path)
-      end
     end
 
     context 'with invalid params' do
-      it 'assigns a newly created but unsaved page as @page' do
-        post :create, params: { page: invalid }
-        expect(assigns(:page)).to be_a_new(Page)
-      end
-
-      it 're-renders the "new" template' do
-        post :create, params: { page: invalid }
-        expect(response).to render_template('new')
+      it 'does not' do
+        expect {
+          post admin_pages_path, params: { page: invalid_attributes }
+          expect(response).to have_http_status(:ok)
+        }.not_to change(Page, :count)
       end
     end
   end
 
-  describe 'PUT update' do
+  describe 'PATCH #update' do
     context 'with valid params' do
-      it 'assigns the requested page as @page' do
-        page = Fabricate(:page, user: user)
-        put :update, params: { id: page.id, page: attributes }
-        expect(assigns(:page)).to eq(page)
-      end
-
-      it 'redirects to the page' do
-        page = Fabricate(:page, user: user)
-        put :update, params: { id: page.id, page: attributes }
-        expect(response).to redirect_to(admin_pages_path)
+      it 'saves' do
+        expect {
+          patch admin_page_path(entry), params: { page: valid_attributes }
+          expect(response).to redirect_to(admin_pages_path)
+        }.to change { entry.reload.title }
       end
     end
 
     context 'with invalid params' do
-      it 'assigns the page as @page' do
-        page = Fabricate(:page, user: user)
-        put :update, params: { id: page.id, page: invalid }
-        expect(assigns(:page)).to eq(page)
-      end
-
-      it 'renders the "edit" template' do
-        page = Fabricate(:page, user: user)
-        put :update, params: { id: page.id, page: invalid }
-        expect(response).to have_http_status(:ok)
+      it 'does not save' do
+        expect {
+          patch admin_page_path(entry), params: { page: invalid_attributes }
+          expect(response).to have_http_status(:ok)
+        }.not_to change { entry.reload.title }
       end
     end
   end
 
-  describe 'DELETE destroy' do
-    it 'destroys the requested page' do
-      page = Fabricate(:page, user: user)
+  describe 'DELETE #destroy' do
+    it 'destroys' do
       expect {
-        delete :destroy, params: { id: page.id }
+        delete admin_page_path(entry)
+        expect(response).to redirect_to(admin_pages_path)
       }.to change(Page, :count).by(-1)
-    end
-
-    it 'redirects to the pages list' do
-      page = Fabricate(:page, user: user)
-      delete :destroy, params: { id: page.id }
-      expect(response).to redirect_to(admin_pages_path)
     end
   end
 end

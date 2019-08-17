@@ -1,5 +1,4 @@
 class MainController < ApplicationController
-
   # GET /about
   def about; end
 
@@ -11,5 +10,4 @@ class MainController < ApplicationController
 
   # GET /portfolio
   def portfolio; end
-
 end

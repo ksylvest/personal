@@ -1,20 +1,33 @@
 require 'spec_helper'
 
-describe ApplicationHelper do
+RSpec.describe ApplicationHelper, type: :helper do
   describe '#markdown' do
-    it 'converts to markdown' do
-      expect(helper.markdown('Example')).to match('<p>Example</p>')
-    end
-    it 'highlights code' do
-      markdown = helper.markdown <<~SAMPLE
-        ```language
-        "hello"
-        ```
-      SAMPLE
+    context 'with text' do
+      subject(:markdown) do
+        helper.markdown(<<~MARKDOWN)
+          Example
+        MARKDOWN
+      end
 
-      expect(markdown).to match('<pre class=\"highlight plaintext\"><code>')
-      expect(markdown).to match('hello')
-      expect(markdown).to match('</code></pre>')
+      it 'converts to markdown' do
+        expect(markdown).to match('<p>Example</p>')
+      end
+    end
+
+    context 'with code' do
+      subject(:markdown) do
+        helper.markdown(<<~MARKDOWN)
+          ```language
+          "hello"
+          ```
+        MARKDOWN
+      end
+
+      it 'highlights code' do
+        expect(markdown).to match('<pre class=\"highlight plaintext\"><code>')
+        expect(markdown).to match('hello')
+        expect(markdown).to match('</code></pre>')
+      end
     end
   end
 

@@ -2,7 +2,7 @@ module Attachable
   extend ActiveSupport::Concern
 
   included do
-    has_many :attachings, as: :document
+    has_many :attachings, as: :document, dependent: :destroy
     has_many :attachments, through: :attachings
 
     before_save :attach!

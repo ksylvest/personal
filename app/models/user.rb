@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   module Role
     ADMIN = 'admin'.freeze
     GUEST = 'guest'.freeze
@@ -23,13 +22,4 @@ class User < ApplicationRecord
   after_initialize { self.role ||= Role::GUEST }
 
   has_one_attached :avatar
-
-  def admin?
-    role.eql?(Role::ADMIN)
-  end
-
-  def guest?
-    role.eql?(Role::GUEST)
-  end
-
 end

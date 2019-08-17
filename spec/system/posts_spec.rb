@@ -1,0 +1,12 @@
+require 'spec_helper'
+
+RSpec.describe 'Posts', type: :system do
+  let(:entry) { Fabricate(:post) }
+
+  it 'lets a visitor view a post title and body' do
+    visit post_path(segment: entry.segment, slug: entry.slug)
+
+    expect(page).to have_text(entry.title)
+    expect(page).to have_text(entry.body)
+  end
+end

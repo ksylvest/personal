@@ -1,5 +1,4 @@
 class Portfolio
-
   attr_reader :name, :slug, :url
 
   def initialize(slug, name, url)
@@ -33,5 +32,4 @@ class Portfolio
   VIDFOLIA = new(:vidfolia, 'Vidfolia', 'https://vidfolia.com')
   WINESCAN = new(:winescan, 'Winescan', 'http://api.winescan.ca')
   SURKUS = new(:surkus, 'Surkus', 'https://surkus.com')
-
 end
