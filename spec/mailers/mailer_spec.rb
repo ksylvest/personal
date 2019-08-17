@@ -2,8 +2,9 @@ require 'spec_helper'
 
 RSpec.describe Mailer, type: :mailer do
   describe '#contact' do
+    subject(:mail) { Mailer.contact(contact) }
+
     let(:contact) { Contact.new(name: 'John', email: 'john@gmail.com', subject: 'Hello', message: 'How are you?') }
-    let(:mail) { Mailer.contact(contact) }
 
     it 'sends a message' do
       expect(mail.subject).to eq('Hello')
