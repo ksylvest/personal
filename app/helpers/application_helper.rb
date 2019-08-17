@@ -29,7 +29,7 @@ module ApplicationHelper
       'url': root_url,
       'potentialAction': {
         '@type': 'SearchAction',
-        'target': search_url(query: '{query}'),
+        'target': "#{search_url}?query={query}",
         'query-input': 'required name=query',
       },
     }
