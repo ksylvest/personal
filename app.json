@@ -1,6 +1,9 @@
 {
   "name": "ksylvest",
   "env": {
+    "DD_API_KEY": {
+      "required": true
+    },
     "NEW_RELIC_APP_NAME": {
       "value": "ksylvest (test)"
     },
@@ -49,6 +52,9 @@
     "papertrail"
   ],
   "buildpacks": [
+    {
+      "url": "https://github.com/DataDog/heroku-buildpack-datadog.git"
+    },
     {
       "url": "heroku/nodejs"
     },

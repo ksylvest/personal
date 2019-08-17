@@ -30,6 +30,7 @@ gem 'aws-sdk-s3', require: false
 
 gem 'slim-rails'
 
+gem 'datadog'
 gem 'newrelic_rpm'
 gem 'skylight'
 
