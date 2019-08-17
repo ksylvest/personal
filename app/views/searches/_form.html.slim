@@ -1,5 +1,4 @@
-= form_for search, method: :get, url: search_path do |form|
-
+= form_for(search, method: :get, url: search_path) do |form|
   .group
-    = form.text_field :query, placeholder: "Search", class: 'search'
-    = form.submit 'Search', class: 'button'
+    = text_field_tag(:query, search.query, placeholder: "Search", class: 'search')
+    = submit_tag('Search', class: 'button')
