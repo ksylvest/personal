@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe 'Admin', type: :system do
-  let(:user) { Fabricate(:user, role: :admin) }
+  let(:user) { create(:user, role: :admin) }
 
   it 'lets a user authenticate with valid credentials' do
     visit admin_path

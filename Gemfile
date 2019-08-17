@@ -12,10 +12,7 @@ gem 'bootsnap', require: false
 
 gem 'bcrypt'
 gem 'erroneous'
-gem 'fabrication'
-gem 'faker'
 gem 'foreman'
-gem 'image_processing'
 gem 'kaminari'
 gem 'progress'
 gem 'redcarpet'
@@ -25,6 +22,9 @@ gem 'turbolinks'
 
 gem 'rack-cache'
 gem 'rack-timeout'
+
+gem 'image_processing'
+gem 'mini_magick'
 
 gem 'aws-sdk-s3', require: false
 
@@ -48,6 +48,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
   gem 'selenium-webdriver'

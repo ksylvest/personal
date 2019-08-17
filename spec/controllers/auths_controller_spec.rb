@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe AuthsController, type: :request do
-  let(:user) { Fabricate(:user) }
+  let(:user) { create(:user) }
 
   describe 'POST #create' do
     it 'is successful' do

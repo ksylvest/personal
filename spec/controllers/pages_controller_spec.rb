@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe PagesController, type: :request do
-  let(:page) { Fabricate(:page) }
+  let(:page) { create(:page) }
 
   describe 'GET #show' do
     it 'is successful' do

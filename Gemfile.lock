@@ -100,9 +100,11 @@ GEM
     erroneous (1.0.1)
       rails (> 3.0.0)
     erubi (1.8.0)
-    fabrication (2.20.2)
-    faker (2.1.2)
-      i18n (>= 0.8)
+    factory_bot (5.0.2)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.2)
+      factory_bot (~> 5.0.2)
+      railties (>= 4.2.0)
     ffi (1.11.1)
     foreman (0.64.0)
       dotenv (~> 0.7.0)
@@ -312,12 +314,12 @@ DEPENDENCIES
   byebug
   capybara
   erroneous
-  fabrication
-  faker
+  factory_bot_rails
   foreman
   image_processing
   kaminari
   listen
+  mini_magick
   newrelic_rpm
   pg
   progress

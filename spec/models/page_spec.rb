@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Page, type: :model do
-  subject { Fabricate.build(:page) }
+  subject { build(:page) }
 
   it_behaves_like 'attachable'
   it_behaves_like 'searchable'
@@ -22,16 +22,16 @@ RSpec.describe Page, type: :model do
   it { is_expected.not_to allow_value('2013 12 31').for(:slug) }
 
   describe '.search' do
-    subject(:search) { Page.search('Ruby') }
+    subject(:search) { Page.search('Potato') }
 
-    let!(:match) { Fabricate(:page, title: 'Ruby') }
-    let!(:miss) { Fabricate(:page, title: 'Python') }
+    let!(:match) { create(:page, title: 'Potato') }
+    let!(:miss) { create(:page, title: 'Tomato') }
 
-    it 'includes a page about "Ruby" when searching for "Ruby"' do
+    it 'includes a page about "Potato" when searching for "Potato"' do
       expect(search).to include(match)
     end
 
-    it 'excludes a page about "Python" when searching for "Ruby"' do
+    it 'excludes a page about "Tomato" when searching for "Potato"' do
       expect(search).not_to include(miss)
     end
   end
