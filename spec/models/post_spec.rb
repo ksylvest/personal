@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Post, type: :model do
-  subject { Fabricate.build(:post) }
+  subject { build(:post) }
 
   it_behaves_like 'attachable'
   it_behaves_like 'searchable'
@@ -21,8 +21,8 @@ RSpec.describe Post, type: :model do
   describe '.search' do
     subject(:search) { Post.search('Ruby') }
 
-    let!(:match) { Fabricate(:post, title: 'Ruby') }
-    let!(:miss) { Fabricate(:post, title: 'Python') }
+    let!(:match) { create(:post, title: 'Ruby') }
+    let!(:miss) { create(:post, title: 'Python') }
 
     it 'includes a post about "Ruby" when searching for "Ruby"' do
       expect(search).to include(match)

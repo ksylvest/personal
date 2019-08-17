@@ -10,14 +10,6 @@ class Redcarpet::Render::Advanced < Redcarpet::Render::HTML
     helper.image_tag(internalize(link), title: title, alt: alt)
   end
 
-  def video(link, title, alt)
-    helper.video_tag(internalize(link), title: title, alt: alt)
-  end
-
-  def audio(link, title, alt)
-    helper.audio_tag(internalize(link), title: title, alt: alt)
-  end
-
 protected
 
   def internalize(link)

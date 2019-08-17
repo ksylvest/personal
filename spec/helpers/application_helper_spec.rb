@@ -2,12 +2,10 @@ require 'spec_helper'
 
 RSpec.describe ApplicationHelper, type: :helper do
   describe '#markdown' do
+    subject(:markdown) { helper.markdown(text) }
+
     context 'with text' do
-      subject(:markdown) do
-        helper.markdown(<<~MARKDOWN)
-          Example
-        MARKDOWN
-      end
+      let(:text) { 'Example' }
 
       it 'converts to markdown' do
         expect(markdown).to match('<p>Example</p>')
@@ -15,8 +13,8 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     context 'with code' do
-      subject(:markdown) do
-        helper.markdown(<<~MARKDOWN)
+      let(:text) do
+        <<~MARKDOWN
           ```language
           "hello"
           ```
@@ -27,6 +25,17 @@ RSpec.describe ApplicationHelper, type: :helper do
         expect(markdown).to match('<pre class=\"highlight plaintext\"><code>')
         expect(markdown).to match('hello')
         expect(markdown).to match('</code></pre>')
+      end
+    end
+
+    %w[original small large square].each do |variant|
+      context "with a 'image' attachment using '#{variant}'" do
+        let(:text) { "![Image](attachment:#{attachment.id}:#{variant})" }
+        let(:attachment) { create(:attachment, :image) }
+
+        it 'generates an image' do
+          expect(markdown).to match('<img alt="Image" src="http://test.host/rails/(.*)/image.png">')
+        end
       end
     end
   end

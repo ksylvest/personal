@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Admin::DashboardController, type: :request do
-  let(:user) { Fabricate(:user, role: 'admin') }
+  let(:user) { create(:user, role: 'admin') }
 
   before { authenticate(user) }
 

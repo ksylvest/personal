@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Admin::SessionsController, type: :request do
-  let(:user) { Fabricate(:user, role: 'admin') }
+  let(:user) { create(:user, role: 'admin') }
 
   describe 'GET #new' do
     it 'is successful' do

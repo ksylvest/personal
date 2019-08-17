@@ -32,7 +32,5 @@ module Attachable
     def parse(string)
       Array(string.scan(REGEX).collect { |id, _| id })
     end
-
   end
-
 end

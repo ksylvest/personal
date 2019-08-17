@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe 'Posts', type: :system do
-  let(:entry) { Fabricate(:post) }
+  let(:entry) { create(:post) }
 
   it 'lets a visitor view a post title and body' do
     visit post_path(segment: entry.segment, slug: entry.slug)

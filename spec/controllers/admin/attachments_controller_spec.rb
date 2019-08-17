@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe Admin::AttachmentsController, type: :request do
-  let!(:attachment) { Fabricate(:attachment) }
-  let(:user) { Fabricate(:user, role: 'admin') }
+  let!(:attachment) { create(:attachment) }
+  let(:user) { create(:user, role: 'admin') }
   let(:invalid_attributes) { { file: fixture_file_upload('attachment'), name: '' } }
   let(:valid_attributes) { { file: fixture_file_upload('attachment'), name: 'Ruby...' } }
 

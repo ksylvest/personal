@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 RSpec.describe Admin::PagesController, type: :request do
-  let!(:entry) { Fabricate(:page, user: user) }
-  let(:user) { Fabricate(:user, role: 'admin') }
-  let(:valid_attributes) { { title: 'Ruby', summary: 'Ruby', body: 'Ruby...' } }
+  let!(:entry) { create(:page, user: user) }
+  let(:user) { create(:user, role: 'admin') }
+  let(:valid_attributes) { { title: 'Sorbet', summary: 'Sorbet', body: 'Sorbet...' } }
   let(:invalid_attributes) { { title: '', body: '' } }
 
   before { authenticate(user) }

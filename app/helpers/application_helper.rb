@@ -65,12 +65,4 @@ module ApplicationHelper
   def stackoverflow_url
     'https://stackoverflow.com/users/259900/kevin-sylvestre?rel=author'
   end
-
-  def attachment_tag(attachment, options = {})
-    case attachment
-    when Audio then audio_tag attachment.file.url, options
-    when Image then image_tag attachment.file.url, options
-    when Video then video_tag attachment.file.url, options
-    end
-  end
 end

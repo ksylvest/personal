@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe PostsController, type: :request do
-  let(:post) { Fabricate(:post) }
+  let(:post) { create(:post) }
 
   describe 'GET #index' do
     it 'is succcesful' do
@@ -17,7 +17,7 @@ RSpec.describe PostsController, type: :request do
     end
 
     context 'with an active post' do
-      let(:post) { Fabricate(:post, status: Approvable::Status::ACTIVE) }
+      let(:post) { create(:post, status: Approvable::Status::ACTIVE) }
 
       it 'allows indexing of valid posts' do
         get post_path(segment: post.segment, slug: post.slug)
@@ -26,7 +26,7 @@ RSpec.describe PostsController, type: :request do
     end
 
     context 'with an inactive post' do
-      let(:post) { Fabricate(:post, status: Approvable::Status::PENDING) }
+      let(:post) { create(:post, status: Approvable::Status::PENDING) }
 
       it 'disallows indexing of invalid posts' do
         get post_path(segment: post.segment, slug: post.slug)
