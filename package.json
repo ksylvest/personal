@@ -4,7 +4,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.24",
     "@fortawesome/free-brands-svg-icons": "^5.11.1",
-    "@fortawesome/pro-light-svg-icons": "^5.10.2",
+    "@fortawesome/pro-light-svg-icons": "^5.11.1",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "^4.0.7",
     "@types/jquery": "^3.3.31",
