@@ -20,6 +20,7 @@ RSpec.describe Session, type: :model do
       session = Session.new
       expect(session).not_to be_persisted
     end
+
     it 'is "true" if authenticated' do
       session = Session.new(email: user.email, password: user.password)
       expect(session).to be_persisted
