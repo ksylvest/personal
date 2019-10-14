@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.describe Page, type: :model do
   subject { build(:page) }
 
+  it_behaves_like 'approvable'
   it_behaves_like 'attachable'
   it_behaves_like 'searchable'
   it_behaves_like 'taggable'
