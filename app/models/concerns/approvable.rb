@@ -23,5 +23,4 @@ module Approvable
   def pending?
     self.status.eql?(Status::PENDING)
   end
-
 end
