@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "tslint": "^5.20.0",
-    "webpack-dev-server": "^3.8.2"
+    "webpack-dev-server": "^3.9.0"
   },
   "scripts": {
     "lint": "tslint ./app/**/*.ts"
