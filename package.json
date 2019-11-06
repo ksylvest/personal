@@ -5,7 +5,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/pro-light-svg-icons": "^5.11.2",
-    "@rails/ujs": "^6.0.0",
+    "@rails/ujs": "^6.0.1",
     "@rails/webpacker": "^4.0.7",
     "@types/jquery": "^3.3.31",
     "@types/marked": "^0.6.5",
