@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :attachment do
     name { 'Attachment' }
-    file { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'fixtures', fixture)) }
+    file { Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures', fixture)) }
 
     transient do
       fixture { 'attachment' }
