@@ -4,14 +4,14 @@ executors:
   default:
     docker:
       -
-        image: circleci/ruby:2.6.5-node-browsers
+        image: circleci/ruby:2.7.0-node-browsers
       -
-        image: circleci/postgres:11.5-alpine-ram
+        image: circleci/postgres:12.1-alpine-ram
         environment:
           POSTGRES_USER: circleci
           POSTGRES_DB: personal_test
       -
-        image: circleci/redis:5.0.5-alpine
+        image: circleci/redis:5.0.7-alpine
     environment:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 4
