@@ -57,6 +57,6 @@
     }
   ],
   "scripts": {
-    "postdeploy": "bundle exec rake db:setup"
+    "postdeploy": "bundle exec rake db:schema:load db:seed"
   }
 }
