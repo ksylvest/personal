@@ -21,14 +21,14 @@ module Personal
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
 
-    if ENV.include?('SENDGRID_USERNAME') && ENV.include?('SENDGRID_PASSWORD')
+    if Rails.application.credentials.mailgun.present?
       config.action_mailer.smtp_settings = {
-        address: 'smtp.sendgrid.net',
+        address: 'smtp.mailgun.org',
         port: 587,
-        user_name: ENV['SENDGRID_USERNAME'],
-        password: ENV['SENDGRID_PASSWORD'],
         authentication: :plain,
-        domain: 'ksylvest.com',
+        user_name: Rails.application.credentials.mailgun[:username],
+        password: Rails.application.credentials.mailgun[:password],
+        domain: Rails.application.credentials.mailgun[:domain],
       }
     end
 
