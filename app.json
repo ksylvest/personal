@@ -45,7 +45,6 @@
       "plan": "heroku-redis",
       "as": "CABLE_REDIS"
     },
-    "sendgrid",
     "papertrail"
   ],
   "buildpacks": [
