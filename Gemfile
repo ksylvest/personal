@@ -13,6 +13,7 @@ gem 'bootsnap', require: false
 gem 'bcrypt'
 gem 'erroneous'
 gem 'foreman'
+gem 'http'
 gem 'kaminari'
 gem 'progress'
 gem 'redcarpet'
@@ -56,4 +57,5 @@ group :test do
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webdrivers'
+  gem 'webmock'
 end
