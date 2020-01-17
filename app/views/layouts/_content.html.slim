@@ -1,3 +1,5 @@
 section#content
   .content
+    - flash.map do |type, message|
+      .flash(class=type) = message
     == yield
