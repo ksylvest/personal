@@ -2,3 +2,6 @@ en:
   time:
     formats:
       human: '%A, %B %e, %Y'
+  contact:
+    notice: Your message is on the way.
+    error: Your message is not being sent.

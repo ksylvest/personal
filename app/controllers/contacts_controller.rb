@@ -8,15 +8,20 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(attributes)
 
-    if @contact.valid?
+    if @contact.valid? && verified?
       Mailer.contact(@contact).deliver_now
-      redirect_to root_path
+      redirect_to root_path, notice: t('contact.notice')
     else
+      flash.alert = t('contact.error')
       render :new
     end
   end
 
 private
+
+  def verified?
+    Recaptcha.verified?(response: params.require(:recaptcha).fetch(:response), remoteip: request.ip)
+  end
 
   def attributes
     params.require(:contact).permit(:name, :email, :subject, :message)

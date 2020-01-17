@@ -12,16 +12,22 @@ RSpec.describe ContactsController, type: :request do
     context 'with valid params' do
       let(:params) do
         {
-          name: 'John Smith',
-          email: 'john.smith@gmail.com',
-          subject: 'Hello',
-          message: 'How are you?',
+          contact: {
+            name: 'John Smith',
+            email: 'john.smith@gmail.com',
+            subject: 'Hello',
+            message: 'How are you?',
+          },
+          recaptcha: {
+            response: SecureRandom.alphanumeric,
+          },
         }
       end
 
-      it 'schedules a devliery' do
+      it 'schedules a delivery' do
+        allow(Recaptcha).to receive(:verified?).and_return(true)
         expect {
-          post contact_path, params: { contact: params }
+          post contact_path, params: params
           expect(response).to redirect_to(root_path)
         }.to change { ActionMailer::Base.deliveries.count }
       end
@@ -30,16 +36,22 @@ RSpec.describe ContactsController, type: :request do
     context 'with invalid parameters' do
       let(:params) do
         {
-          name: 'John Smith',
-          email: 'john.smith',
-          subject: 'Hello',
-          message: 'How are you?',
+          contact: {
+            name: 'John Smith',
+            email: 'john.smith',
+            subject: 'Hello',
+            message: 'How are you?',
+          },
+          recaptcha: {
+            response: SecureRandom.alphanumeric,
+          },
         }
       end
 
       it 'does not schedule a delivery' do
+        allow(Recaptcha).to receive(:verified?).and_return(false)
         expect {
-          post contact_path, params: { contact: params }
+          post contact_path, params: params
           expect(response).to have_http_status(:ok)
         }.not_to change { ActionMailer::Base.deliveries.count }
       end
