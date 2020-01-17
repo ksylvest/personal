@@ -92,9 +92,13 @@ GEM
       xpath (~> 3.2)
     childprocess (3.0.0)
     concurrent-ruby (1.1.5)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     crass (1.0.5)
     diff-lcs (1.3)
     docile (1.3.2)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     erroneous (1.0.1)
       rails (> 3.0.0)
     erubi (1.9.0)
@@ -104,9 +108,23 @@ GEM
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
     ffi (1.11.3)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     foreman (0.87.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hashdiff (1.0.0)
+    http (4.3.0)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      http-parser (~> 1.2.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (2.2.0)
+    http-parser (1.2.1)
+      ffi-compiler (>= 1.0, < 2.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     image_processing (1.10.3)
@@ -234,6 +252,7 @@ GEM
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     rubyzip (2.0.0)
+    safe_yaml (1.0.5)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -276,6 +295,9 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.6)
     unicode-display_width (1.6.0)
     web-console (4.0.1)
       actionview (>= 6.0.0)
@@ -286,6 +308,10 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
+    webmock (3.8.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     webpacker (4.2.2)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
@@ -310,6 +336,7 @@ DEPENDENCIES
   erroneous
   factory_bot_rails
   foreman
+  http
   image_processing
   kaminari
   listen
@@ -340,6 +367,7 @@ DEPENDENCIES
   turbolinks
   web-console
   webdrivers
+  webmock
   webpacker
 
 RUBY VERSION
