@@ -1,35 +1,39 @@
 class Portfolio
-  attr_reader :name, :slug, :url
-
-  def initialize(slug, name, url)
-    @slug = slug
-    @name = name
-    @url = url
-  end
+  attr_reader :name, :summary, :url
 
   def self.all
-    [
-      POSE,
-      SURKUS,
-      HEARTS,
-      VIDFOLIA,
-      WINESCAN,
-    ]
+    @all ||= YAML.load_file(Rails.root.join('config/portfolio.yml')).map { |config| new(config) }
+  end
+
+  def initialize(config)
+    @url = config['url']
+    @slug = config['slug']
+    @name = config['name']
+    @summary = config['summary']
+    @images = config['images']
+    @videos = config['videos']
   end
 
   def images
-    case slug
-    when :pose then %w[01 02 03 04 05 06 07 08 09 10 11 12]
-    when :hearts then %w[01 02 03 04 05 06]
-    when :vidfolia then %w[01 02 03]
-    when :winescan then %w[01 02 03 04 05 06 07 08 09 10 11 12]
-    when :surkus then %w[01 02 03 04 05 06]
+    return unless @images
+
+    size = @images['size']
+    files = @images['files']
+    files.each do |file|
+      yield({
+        size: size,
+        original: "portfolio/originals/#{@slug}/#{file}",
+        thumb: "portfolio/thumbs/#{@slug}/#{file}",
+      })
     end
   end
 
-  POSE = new(:pose, 'Pose', 'https://pose.com')
-  HEARTS = new(:hearts, 'Hearts', 'https://gethearts.com')
-  VIDFOLIA = new(:vidfolia, 'Vidfolia', 'https://vidfolia.com')
-  WINESCAN = new(:winescan, 'Winescan', 'http://api.winescan.ca')
-  SURKUS = new(:surkus, 'Surkus', 'https://surkus.com')
+  def videos
+    return unless @videos
+
+    urls = @videos['urls']
+    urls.each do |url|
+      yield({ url: url })
+    end
+  end
 end

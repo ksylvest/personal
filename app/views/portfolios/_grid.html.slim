@@ -1,6 +1,0 @@
-.grid.thumbs
-  - portfolio.images.each do |image|
-    .element.thumb
-      = link_to image_path("portfolio/originals/#{portfolio.slug}/#{image}.jpg"), data: { lighten: 'portfolio' } do
-        = image_tag image_path("portfolio/thumbs/#{portfolio.slug}/#{image}.jpg"), size: size
-        .mask

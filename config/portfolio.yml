@@ -1,0 +1,131 @@
+-
+  slug: clutter
+  name: Clutter
+  url: 'https://clutter.com'
+  summary: >
+    Clutter's mission is to make people's lives convenient, so they can
+    experience more of what they love. The companies tech is built end-to-end
+    on a combination of ruby on rails, react with typescript, and GraphQL.
+    Clutter's software stack spans a variety of domains helping customers with
+    both full-service and self-storage needs. Clutter has been supported by
+    Atomico, Sequoia, SoftBank, FifthWall and GV with $300M in funding and now
+    stores millions of belongings in Los Angeles, New York, San Francisco,
+    San Diego, Chicago, Seattle, Philadelphia and many more cities.
+  images:
+    size: 640x640
+    files:
+      - '01.jpg'
+      - '02.jpg'
+      - '03.jpg'
+  videos:
+    urls:
+      - https://www.youtube.com/embed/SDughwDukB0
+
+-
+  slug: pose
+  name: Pose
+  url: 'https://pose.com'
+  summary: >
+    Pose is the place to celebrate and shop unique styles. Join a diverse and
+    creative community of over three million users in exchanging fashion
+    inspiration and products that are as one-of-a-kind as you are. Pose lets
+    you upload inspiration poses or shoppable products, save and share content,
+    browse and follow celebrities, and much more. Pose's universal iOS app has
+    been featured by Apple as 'App of the Week' and 'App Store Best'.
+  images:
+    size: 640x640
+    files:
+      - '01.jpg'
+      - '02.jpg'
+      - '03.jpg'
+      - '04.jpg'
+      - '05.jpg'
+      - '06.jpg'
+      - '07.jpg'
+      - '08.jpg'
+      - '09.jpg'
+      - '10.jpg'
+      - '11.jpg'
+      - '12.jpg'
+
+-
+  slug: hearts
+  name: Hearts
+  url: 'https://gethearts.com'
+  summary: >
+    The classic card game transformed for the Apple Mac App Store. This
+    application was one of the premier apps available in the new store. It
+    features rich animations and a great user interface paired with challenging
+    artificial intelligence. The app broke through the top hundred paid app list
+    in the store.
+  images:
+    size: 640x640
+    files:
+      - '01.jpg'
+      - '02.jpg'
+      - '03.jpg'
+      - '04.jpg'
+      - '05.jpg'
+      - '06.jpg'
+
+-
+  slug: surkus
+  name: Surkus
+  url: 'https://surkus.com'
+  summary: >
+    Surkus is a mobile 'CrowdCasting' app that pays you to experience local
+    venues and events. The app supports native iOS and Android clients as
+    well as an API built in Ruby on Rails. It features a deep integration
+    with geo-location tracking and push-notifications to handle visits at
+    different venues.
+  images:
+    size: 640x640
+    files:
+      - '01.jpg'
+      - '02.jpg'
+      - '03.jpg'
+      - '04.jpg'
+      - '05.jpg'
+      - '06.jpg'
+
+-
+  slug: vidfolia
+  name: Vidfolia
+  url: 'https://vidfolia.com'
+  summary: >
+    Vidfolia is the place for videographers to share their work with prospective
+    clients. This application is written in Ruby on Rails and integrates with a
+    cloud based video processing services to provide high definition portfolios.
+    Advanced searching allows clients to find the perfect video professional.
+  images:
+    size: 512x512
+    files:
+      - '01.jpg'
+      - '02.jpg'
+      - '03.jpg'
+
+-
+  slug: winescan
+  name: Winescan
+  url: 'http://api.winescan.ca'
+  summary: >
+    Wines are an unknown purchase for many drinkers. Wine Scan aides consumers in
+    their collecting by providing important tasting information in real time. The
+    iOS application features a rich interface that provides a subscription to
+    tasting notes for nearly ten thousand wines. In addition barcode scanning lets
+    drinkers save their favourite wines to their cellar.
+  images:
+    size: 512x512
+    files:
+      - '01.jpg'
+      - '02.jpg'
+      - '03.jpg'
+      - '04.jpg'
+      - '05.jpg'
+      - '06.jpg'
+      - '07.jpg'
+      - '08.jpg'
+      - '09.jpg'
+      - '10.jpg'
+      - '11.jpg'
+      - '12.jpg'
