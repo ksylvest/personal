@@ -22,7 +22,7 @@ RSpec.describe MainController, type: :request do
     end
   end
 
-  describe 'GET #projects' do
+  describe 'GET #portfolio' do
     it 'is successful' do
       get portfolio_path
       expect(response).to have_http_status(:ok)
