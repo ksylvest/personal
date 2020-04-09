@@ -3,7 +3,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 2.7.0
+  TargetRubyVersion: 2.7.1
   Exclude:
     - Gemfile.lock
     - db/schema.rb
