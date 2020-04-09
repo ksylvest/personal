@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_10_050633) do
+ActiveRecord::Schema.define(version: 2020_04_09_161456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2018_02_10_050633) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index "to_tsvector('english'::regconfig, (((((COALESCE(title, ''::character varying))::text || ' '::text) || COALESCE(summary, ''::text)) || ' '::text) || COALESCE(body, ''::text)))", name: "index_posts_on_tsvector", using: :gin
-    t.index ["segment", "slug"], name: "index_posts_on_segment_and_slug", unique: true
+    t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["tags"], name: "index_posts_on_tags", using: :gin
     t.index ["user_id"], name: "index_posts_on_user_id"
   end

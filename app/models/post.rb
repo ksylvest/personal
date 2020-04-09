@@ -13,7 +13,7 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
   validates :summary, presence: true
-  validates :slug, presence: true, uniqueness: true, format: { with: Validation::PERMALINK, scope: :segment }
+  validates :slug, presence: true, uniqueness: true, format: { with: Validation::PERMALINK }
   validates :segment, presence: true, format: { with: Validation::PERMALINK }
   validates :user, presence: true
 
