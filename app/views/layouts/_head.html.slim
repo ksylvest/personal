@@ -13,6 +13,11 @@ meta name="viewport" content=viewport
 = csrf_meta_tags
 = csp_meta_tag
 
+javascript:
+  RELEASE = #{{JSON.generate(release)}};
+  ENVIRONMENT = #{{JSON.generate(Rails.env)}};
+  SENTRY_DSN = #{{JSON.generate(Rails.application.credentials.sentry_dsn)}};
+
 = stylesheet_pack_tag "application", "data-turbolinks-track": "reload"
 = javascript_pack_tag "application", "data-turbolinks-track": "reload"
 
