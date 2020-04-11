@@ -66,4 +66,8 @@ module ApplicationHelper
   def stackoverflow_url
     'https://stackoverflow.com/users/259900/kevin-sylvestre?rel=author'
   end
+
+  def release
+    "#{ENV.fetch('HEROKU_APP_NAME') { 'playground' }}@#{ENV.fetch('HEROKU_RELEASE_VERSION') { 'local' }}"
+  end
 end
