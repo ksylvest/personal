@@ -11,7 +11,7 @@
     "@types/loadjs": "^4.0.0",
     "@types/marked": "^0.7.3",
     "@types/webfontloader": "^1.6.29",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "loadjs": "^4.2.0",
     "marked": "^0.8.2",
     "stimulus": "^1.1.1",
