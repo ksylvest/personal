@@ -16,7 +16,7 @@
     "loadjs": "^4.2.0",
     "marked": "^0.8.2",
     "stimulus": "^1.1.1",
-    "ts-loader": "^7.0.0",
+    "ts-loader": "^7.0.1",
     "turbolinks": "^5.2.0",
     "typescript": "^3.8.3",
     "webfontloader": "^1.6.28"
