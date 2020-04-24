@@ -4,7 +4,17 @@ orbs:
   node: circleci/node@2.0.3
 
 executors:
-  default:
+  basic:
+    docker:
+      - image: circleci/ruby:2.7.1-node-browsers
+    environment:
+      BUNDLE_JOBS: 4
+      BUNDLE_RETRY: 4
+      BUNDLE_PATH: vendor/bundle
+      BUNDLER_VERSION: 2.1.4
+      RAILS_ENV: test
+      RACK_ENV: test
+  advanced:
     docker:
       - image: circleci/ruby:2.7.1-node-browsers
       - image: circleci/postgres:12.1-alpine-ram
@@ -24,7 +34,7 @@ executors:
 
 jobs:
   bundle:
-    executor: default
+    executor: basic
     steps:
       - checkout
       - ruby/load-cache
@@ -36,7 +46,7 @@ jobs:
             - vendor/bundle
 
   yarn:
-    executor: default
+    executor: basic
     steps:
       - checkout
       - node/install-packages:
@@ -48,7 +58,7 @@ jobs:
             - node_modules
 
   compile:
-    executor: default
+    executor: basic
     steps:
       - checkout
       - attach_workspace:
@@ -61,7 +71,7 @@ jobs:
             - public/packs*
 
   tslint:
-    executor: default
+    executor: basic
     steps:
       - checkout
       - attach_workspace:
@@ -70,7 +80,7 @@ jobs:
           command: yarn run tslint ./app/**/*.ts*
 
   rubocop:
-    executor: default
+    executor: basic
     steps:
       - checkout
       - attach_workspace:
@@ -81,7 +91,7 @@ jobs:
           destination: rubocop.html
 
   brakeman:
-    executor: default
+    executor: basic
     steps:
       - checkout
       - attach_workspace:
@@ -92,7 +102,7 @@ jobs:
           destination: brakeman.html
 
   rspec:
-    executor: default
+    executor: advanced
     steps:
       - checkout
       - attach_workspace:
