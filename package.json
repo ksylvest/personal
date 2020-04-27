@@ -24,7 +24,7 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "tslint": "^6.1.1",
+    "tslint": "^6.1.2",
     "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
