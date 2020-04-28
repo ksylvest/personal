@@ -9,7 +9,7 @@
     "@rails/ujs": "^6.0.2",
     "@rails/webpacker": "^5.1.1",
     "@sentry/browser": "^5.15.5",
-    "@types/jquery": "^3.3.35",
+    "@types/jquery": "^3.3.36",
     "@types/loadjs": "^4.0.0",
     "@types/marked": "^0.7.4",
     "@types/webfontloader": "^1.6.29",
