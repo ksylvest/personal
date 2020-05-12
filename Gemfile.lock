@@ -219,7 +219,7 @@ GEM
     redis (4.1.4)
     regexp_parser (1.7.0)
     rexml (3.2.4)
-    rouge (3.18.0)
+    rouge (3.19.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.1)
