@@ -914,7 +914,7 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@fortawesome/fontawesome-common-types@^0.2.28", "@fortawesome/fontawesome-common-types@^0.2.29":
+"@fortawesome/fontawesome-common-types@^0.2.29":
   version "0.2.29"
   resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-common-types/-/0.2.29/fontawesome-common-types-0.2.29.tgz#e1a456b643237462d390304cab6975ff3fd68397"
   integrity sha512-cY+QfDTbZ7XVxzx7jxbC98Oxr/zc7R2QpTLqTxqlfyXDrAJjzi/xUIqAUsygELB62JIrbsWxtSRhayKFkGI7MA==
@@ -933,12 +933,12 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.29"
 
-"@fortawesome/pro-light-svg-icons@^5.13.0":
-  version "5.13.0"
-  resolved "https://npm.fontawesome.com/@fortawesome/pro-light-svg-icons/-/5.13.0/pro-light-svg-icons-5.13.0.tgz#f531e5a39e7a3e033b615292561f9b96bf0dfeed"
-  integrity sha512-zi7rrtH7qpJ8o4qQQ3NS31eLQUG2To3jeOqkTjdmA9dpQKRw5eJ/G4Q1YxQIXQohxSY85rc1JuTzFoRiCqmElg==
+"@fortawesome/pro-light-svg-icons@^5.13.1":
+  version "5.13.1"
+  resolved "https://npm.fontawesome.com/@fortawesome/pro-light-svg-icons/-/5.13.1/pro-light-svg-icons-5.13.1.tgz#271cf9d5c7252b4058eabebe41fa9e623cce628b"
+  integrity sha512-OV5Cxan/vIZFyPofJ3RQBfSQXf7hnbE97HXAqLWhkmwm990GJBfEjsan4XwS/206T+ZKlY/MiXPiHtBPoQL87g==
   dependencies:
-    "@fortawesome/fontawesome-common-types" "^0.2.28"
+    "@fortawesome/fontawesome-common-types" "^0.2.29"
 
 "@rails/ujs@^6.0.3":
   version "6.0.3"
