@@ -13,7 +13,7 @@
     "@types/loadjs": "^4.0.0",
     "@types/marked": "^0.7.4",
     "@types/webfontloader": "^1.6.32",
-    "fork-ts-checker-webpack-plugin": "^5.0.2",
+    "fork-ts-checker-webpack-plugin": "^5.0.4",
     "jquery": "^3.5.1",
     "loadjs": "^4.2.0",
     "marked": "^1.1.0",
