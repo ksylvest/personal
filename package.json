@@ -12,7 +12,6 @@
     "@types/jquery": "^3.5.0",
     "@types/loadjs": "^4.0.0",
     "@types/marked": "^1.1.0",
-    "@types/webfontloader": "^1.6.32",
     "fork-ts-checker-webpack-plugin": "^5.0.4",
     "jquery": "^3.5.1",
     "loadjs": "^4.2.0",
@@ -20,8 +19,7 @@
     "sass-loader": "^8.0.2",
     "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0",
-    "typescript": "^3.9.5",
-    "webfontloader": "^1.6.28"
+    "typescript": "^3.9.5"
   },
   "devDependencies": {
     "tslint": "^6.1.2",
