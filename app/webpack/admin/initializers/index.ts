@@ -1,2 +1,1 @@
 import "./fontawesome";
-import "./webfontloader";
