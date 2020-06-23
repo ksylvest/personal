@@ -46,7 +46,7 @@
 -
   name: 'Geography'
   icon: 'fal fa-globe'
-  description: 'An iOS and Mac pod that adds in support for countries and regions.'
+  description: 'An iOS and Mac pod for listing countries and regions.'
   url: 'https://github.com/ksylvest/geography'
 -
   name: 'Encore'
