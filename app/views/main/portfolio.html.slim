@@ -8,10 +8,9 @@
   p= portfolio.summary
   .grid
     - portfolio.images do |image|
-      .card.thumb
-        = link_to image_path(image[:original]), data: { lighten: 'portfolio' } do
-          = image_tag image_path(image[:thumb]), size: image[:size]
-          .mask
+      = link_to image_path(image[:original]), data: { lighten: 'portfolio' }, class: 'zoomer' do
+        = image_tag image_path(image[:thumb]), size: image[:size], class: 'zoomer__image'
+        .zoomer__mask
   - portfolio.videos do |video|
     .player
       iframe width="960" height="540" src=video[:url] frameborder="0"
