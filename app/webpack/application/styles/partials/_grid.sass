@@ -1,80 +1,14 @@
 .grid
   margin: 8px 0
-  +clears
-  .element
-
-    color: $asbestos
-    background-color: $clouds
-
-    transition-duration: $fast
-    transition-property: background-color, border-color, color
-
-    a
-      display: block
-      overflow: hidden
-
-    img
-      width: 100%
-      height: auto
-      display: block
-      transition-duration: $fast
-      transition-property: transform
-      transform: scale(1.0)
-
-    &:hover
-      color: $clouds
-      background-color: $asbestos
-
-      img
-        transform: scale(1.2)
-
-    .mask
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      bottom: 0
-
-      transition-duration: $fast
-      transition-property: background-color
-      background-color: rgba($belize, 0.0)
-      &:hover
-        background-color: rgba($belize, 0.2)
-
-    position: relative
-    padding: 20px
-
-    &.thumb
-      padding: 2px
-
-    .icon
-      display: block
-      text-align: center
-      font-size: 100px
-      line-height: 100px
-      margin: $spacing 0
-
-    .name
-      color: inherit
-      text-align: center
-      margin: $spacing 0
-
-    .description
-      color: inherit
-      text-align: center
-      margin: $spacing 0
-
-    +columns(1 of 3)
-    +interval(3n)
+  display: grid
+  grid-column-gap: 20px
+  grid-row-gap: 20px
+  grid-template-columns: repeat(3, auto)
 
 @media (min-width: 640px) and (max-width: 960px)
   .grid
-    .element
-      +columns(1 of 2)
-      +interval(2n)
+    grid-template-columns: repeat(2, auto)
 
 @media (min-width: 320px) and (max-width: 640px)
   .grid
-    .element
-      +columns(1 of 1)
-      +interval(1n)
+    grid-template-columns: repeat(1, auto)
