@@ -5,7 +5,7 @@
 
 .grid
   - Project.all.each do |project|
-    a.element href= project.url
+    a.card href= project.url
       .icon
         i class=project.icon
       h1.name= project.name

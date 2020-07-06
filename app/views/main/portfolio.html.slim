@@ -6,9 +6,9 @@
 - Portfolio.all.each do |portfolio|
   h1= link_to portfolio.name, String(portfolio.url)
   p= portfolio.summary
-  .grid.thumbs
+  .grid
     - portfolio.images do |image|
-      .element.thumb
+      .card.thumb
         = link_to image_path(image[:original]), data: { lighten: 'portfolio' } do
           = image_tag image_path(image[:thumb]), size: image[:size]
           .mask
