@@ -31,7 +31,6 @@ gem 'aws-sdk-s3', require: false
 
 gem 'slim-rails'
 
-gem 'newrelic_rpm'
 gem 'sentry-raven'
 gem 'skylight'
 
