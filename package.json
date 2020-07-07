@@ -12,7 +12,7 @@
     "@types/jquery": "^3.5.0",
     "@types/loadjs": "^4.0.0",
     "@types/marked": "^1.1.0",
-    "fork-ts-checker-webpack-plugin": "^5.0.6",
+    "fork-ts-checker-webpack-plugin": "^5.0.7",
     "jquery": "^3.5.1",
     "loadjs": "^4.2.0",
     "marked": "^1.1.0",
