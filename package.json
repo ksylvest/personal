@@ -8,7 +8,7 @@
     "@fortawesome/pro-light-svg-icons": "^5.13.1",
     "@rails/ujs": "^6.0.3",
     "@rails/webpacker": "^5.1.1",
-    "@sentry/browser": "^5.19.1",
+    "@sentry/browser": "^5.19.2",
     "@types/jquery": "^3.5.0",
     "@types/loadjs": "^4.0.0",
     "@types/marked": "^1.1.0",
