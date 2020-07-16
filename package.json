@@ -5,7 +5,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
-    "@fortawesome/pro-light-svg-icons": "^5.13.1",
+    "@fortawesome/pro-light-svg-icons": "^5.14.0",
     "@rails/ujs": "^6.0.3",
     "@rails/webpacker": "^5.1.1",
     "@sentry/browser": "^5.19.2",
