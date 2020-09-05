@@ -43,7 +43,7 @@ library.add(
   faLinkedin,
   faStackOverflow,
   faTwitter,
-  faVimeo,
+  faVimeo
 );
 
 library.add(
@@ -67,7 +67,7 @@ library.add(
   faSpinner,
   faTachometer,
   faTags,
-  faTh,
+  faTh
 );
 
 document.addEventListener("turbolinks:load", () => {

@@ -19,7 +19,7 @@ library.add(
   faFileVideo,
   faLock,
   faTags,
-  faUser,
+  faUser
 );
 
 document.addEventListener("turbolinks:load", () => {

@@ -2,11 +2,11 @@ import * as marked from "marked";
 import { Controller } from "stimulus";
 
 export class PreviewableController extends Controller {
-  public initialize() {
+  public initialize(): void {
     this.reset();
   }
 
-  public change() {
+  public change(): void {
     this.reset();
   }
 
