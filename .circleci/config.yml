@@ -21,8 +21,7 @@ executors:
         environment:
           POSTGRES_USER: circleci
           POSTGRES_DB: personal_test
-      -
-        image: circleci/redis:5.0.7-alpine
+      - image: circleci/redis:5.0.7-alpine
     environment:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 4
@@ -70,14 +69,14 @@ jobs:
             - tmp/cache/webpacker
             - public/packs*
 
-  tslint:
+  eslint:
     executor: basic
     steps:
       - checkout
       - attach_workspace:
           at: .
       - run:
-          command: yarn run tslint ./app/**/*.ts*
+          command: yarn run eslint ./app/**/*.ts*
 
   rubocop:
     executor: basic
@@ -128,8 +127,7 @@ jobs:
       - store_artifacts:
           path: log
           destination: log
-      -
-        run:
+      - run:
           command: |
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-$CC_TEST_REPORTER_VERSION > ./cc-test-reporter
             chmod +x ./cc-test-reporter
@@ -146,7 +144,7 @@ workflows:
           requires:
             - bundle
             - yarn
-      - tslint:
+      - eslint:
           requires:
             - yarn
       - brakeman:
