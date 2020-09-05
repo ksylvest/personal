@@ -86,7 +86,7 @@
 
 - slug: vidfolia
   name: Vidfolia
-  url:"https://vidfolia.com
+  url: https://vidfolia.com
   summary: >
     Vidfolia is the place for videographers to share their work with prospective
     clients. This application is written in Ruby on Rails and integrates with a
