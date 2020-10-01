@@ -2,13 +2,13 @@
 
   .input
     .icon
-      i.fal.fa-envelope
+      i.fas.fa-envelope
     = form.email_field :email, placeholder: "Email"
   = errors session, :email
 
   .input
     .icon
-      i.fal.fa-lock
+      i.fas.fa-lock
     = form.password_field :password, placeholder: "Password"
   = errors session, :password
 

@@ -3,9 +3,10 @@
   "private": true,
   "dependencies": {
     "@babel/preset-typescript": "^7.10.4",
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-brands-svg-icons": "^5.14.0",
-    "@fortawesome/pro-light-svg-icons": "^5.14.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.31",
+    "@fortawesome/free-brands-svg-icons": "^5.15.0",
+    "@fortawesome/free-regular-svg-icons": "^5.15.0",
+    "@fortawesome/free-solid-svg-icons": "^5.15.0",
     "@rails/ujs": "^6.0.3",
     "@rails/webpacker": "^5.2.1",
     "@sentry/browser": "^5.23.0",

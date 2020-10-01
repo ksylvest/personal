@@ -12,10 +12,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import {
-  faArrows,
   faClock,
   faComments,
   faExclamation,
+  faExpand,
   faEye,
   faFilter,
   faFire,
@@ -30,10 +30,10 @@ import {
   faRandom,
   faServer,
   faSpinner,
-  faTachometer,
+  faCogs,
   faTags,
   faTh,
-} from "@fortawesome/pro-light-svg-icons";
+} from "@fortawesome/free-solid-svg-icons";
 
 library.add(
   faDribbble,
@@ -47,10 +47,11 @@ library.add(
 );
 
 library.add(
-  faArrows,
   faClock,
+  faCogs,
   faComments,
   faExclamation,
+  faExpand,
   faEye,
   faFilter,
   faFire,
@@ -65,7 +66,6 @@ library.add(
   faRandom,
   faServer,
   faSpinner,
-  faTachometer,
   faTags,
   faTh
 );

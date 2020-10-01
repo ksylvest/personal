@@ -9,7 +9,7 @@ import {
   faLock,
   faTags,
   faUser,
-} from "@fortawesome/pro-light-svg-icons";
+} from "@fortawesome/free-solid-svg-icons";
 
 library.add(
   faEnvelope,
