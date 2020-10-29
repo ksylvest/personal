@@ -10,7 +10,7 @@
     "@rails/ujs": "^6.0.3",
     "@rails/webpacker": "^5.2.1",
     "@sentry/browser": "^5.27.2",
-    "@types/jquery": "^3.5.3",
+    "@types/jquery": "^3.5.4",
     "@types/loadjs": "^4.0.0",
     "@types/marked": "^1.1.0",
     "fork-ts-checker-webpack-plugin": "^5.2.1",
