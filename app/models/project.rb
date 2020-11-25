@@ -1,5 +1,8 @@
 class Project
-  attr_reader :name, :icon, :description, :url
+  attr_reader :name
+  attr_reader :icon
+  attr_reader :description
+  attr_reader :url
 
   def self.all
     @all ||= YAML.load_file(Rails.root.join('config/projects.yml')).map do |config|
