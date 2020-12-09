@@ -1,1 +1,5 @@
-Spring.watch('tmp/restart.txt')
+Spring.watch(
+  '.ruby-version',
+  '.rbenv-vars',
+  'tmp/restart.txt'
+)
