@@ -16,7 +16,7 @@
     "fork-ts-checker-webpack-plugin": "^6.0.6",
     "jquery": "^3.5.1",
     "loadjs": "^4.2.0",
-    "marked": "^1.2.5",
+    "marked": "^1.2.6",
     "sass-loader": "^10.1.0",
     "stimulus": "^2.0.0",
     "turbolinks": "^5.2.0",
