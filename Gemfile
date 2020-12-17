@@ -31,7 +31,7 @@ gem 'aws-sdk-s3', require: false
 
 gem 'slim-rails'
 
-gem 'sentry-raven'
+gem 'sentry-rails'
 
 gem 'byebug', group: %i[development test]
 
