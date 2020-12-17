@@ -12,7 +12,6 @@
 heroku create personal
 heroku addons:add redis
 heroku addons:add scheduler
-heroku addons:add newrelic
 heroku addons:add papertrail
 heroku domains:add ksylvest.com
 git push heroku master
