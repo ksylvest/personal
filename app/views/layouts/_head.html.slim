@@ -17,6 +17,7 @@ javascript:
   RELEASE = #{{JSON.generate(release)}};
   ENVIRONMENT = #{{JSON.generate(Rails.env)}};
   SENTRY_DSN = #{{JSON.generate(Rails.application.credentials.sentry_dsn)}};
+  SENTRY_TRACES_SAMPLE_RATE = #{{JSON.generate(SENTRY_TRACES_SAMPLE_RATE)}};
 
 = stylesheet_pack_tag "application", "data-turbolinks-track": "reload"
 = javascript_pack_tag "application", "data-turbolinks-track": "reload"
