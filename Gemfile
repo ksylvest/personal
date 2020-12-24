@@ -19,6 +19,7 @@ gem 'progress'
 gem 'redcarpet'
 gem 'redis'
 gem 'rouge'
+gem 'skylight'
 gem 'turbolinks'
 
 gem 'rack-cache'
