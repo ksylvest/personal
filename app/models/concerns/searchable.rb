@@ -11,7 +11,7 @@ module Searchable
     include Singleton
 
     LANGUAGE = 'english'.freeze
-    SEPARATOR = /\W+/.freeze
+    SEPARATOR = /\W+/
 
     def generate(query, fields, sanitizer)
       "(#{searchables(fields)}) @@ (#{tokens(query, sanitizer)})"

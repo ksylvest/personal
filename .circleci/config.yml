@@ -7,17 +7,17 @@ orbs:
 executors:
   basic:
     docker:
-      - image: cimg/ruby:2.7.2-node
+      - image: cimg/ruby:3.0.0-node
     environment:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 4
       BUNDLE_PATH: vendor/bundle
-      BUNDLER_VERSION: 2.1.4
+      BUNDLER_VERSION: 2.2.3
       RAILS_ENV: test
       RACK_ENV: test
   advanced:
     docker:
-      - image: cimg/ruby:2.7.2-node
+      - image: cimg/ruby:3.0.0-node
       - image: circleci/postgres:13-ram
         environment:
           POSTGRES_USER: circleci
@@ -28,7 +28,7 @@ executors:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 4
       BUNDLE_PATH: vendor/bundle
-      BUNDLER_VERSION: 2.1.4
+      BUNDLER_VERSION: 2.2.3
       RAILS_ENV: test
       RACK_ENV: test
       PGHOST: localhost

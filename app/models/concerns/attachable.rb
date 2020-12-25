@@ -17,7 +17,7 @@ module Attachable
   class Attacher
     include Singleton
 
-    REGEX = /attachment:(?<id>\d+):(?<style>\w+)/.freeze
+    REGEX = /attachment:(?<id>\d+):(?<style>\w+)/
 
     def ids(object, attributes)
       strings(object, attributes).map { |string| parse(string) }.flatten
