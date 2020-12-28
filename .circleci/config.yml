@@ -34,75 +34,26 @@ executors:
       PGHOST: localhost
 
 jobs:
-  bundle:
-    executor: basic
-    steps:
-      - checkout
-      - ruby/install-deps
-      - persist_to_workspace:
-          root: .
-          paths:
-            - vendor/bundle
-
-  yarn:
+  eslint:
     executor: basic
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
-      - persist_to_workspace:
-          root: .
-          paths:
-            - node_modules
-
-  compile:
-    executor: basic
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - restore_cache:
-          keys:
-            - compile-{{ .Branch }}-{{ .Revision }}
-            - compile-{{ .Branch }}
-            - compile
-      - run: bundle exec rails webpacker:compile webpacker:clean
-      - save_cache:
-          key: compile-{{ .Branch }}-{{ .Revision }}
-          paths:
-            - tmp/cache/webpacker
-            - public/packs*
-      - persist_to_workspace:
-          root: .
-          paths:
-            - tmp/cache/webpacker
-            - public/packs*
-
-  eslint:
-    executor: basic
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
       - run: yarn run eslint ./app/**/*.ts*
 
   rubocop:
     executor: basic
     steps:
       - checkout
-      - attach_workspace:
-          at: .
-      - run: bundle exec rubocop --format progress --format html --out tmp/rubocop.html
-      - store_artifacts:
-          path: tmp/rubocop.html
-          destination: rubocop.html
+      - ruby/install-deps
+      - ruby/rubocop-check
 
   brakeman:
     executor: basic
     steps:
       - checkout
-      - attach_workspace:
-          at: .
+      - ruby/install-deps
       - run: bundle exec brakeman -z --format html --output tmp/brakeman.html
       - store_artifacts:
           path: tmp/brakeman.html
@@ -116,8 +67,9 @@ jobs:
       - run: sudo apt-get install imagemagick
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
-      - attach_workspace:
-          at: .
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
       - run: dockerize -wait tcp://localhost:6379 -timeout 2m # Redis
       - run: dockerize -wait tcp://localhost:5432 -timeout 2m # Postgres
       - ruby/rspec-test
@@ -131,21 +83,7 @@ workflows:
   version: 2.1
   build:
     jobs:
-      - bundle
-      - yarn
-      - compile:
-          requires:
-            - bundle
-            - yarn
-      - eslint:
-          requires:
-            - yarn
-      - brakeman:
-          requires:
-            - bundle
-      - rubocop:
-          requires:
-            - bundle
-      - rspec:
-          requires:
-            - compile
+      - eslint
+      - brakeman
+      - rubocop
+      - rspec
