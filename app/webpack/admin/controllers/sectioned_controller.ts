@@ -5,8 +5,13 @@ const DEFAULT_INDEX = 0;
 export class SectionedController extends Controller {
   public static targets = ["tab", "panel"];
 
-  public tabTargets: HTMLElement[];
-  public panelTargets: HTMLElement[];
+  private get tabs(): Element[] {
+    return this.targets.findAll("tab");
+  }
+
+  private get panels(): Element[] {
+    return this.targets.findAll("panel");
+  }
 
   public initialize(): void {
     this.index = DEFAULT_INDEX;
@@ -29,15 +34,15 @@ export class SectionedController extends Controller {
   }
 
   private reset(): void {
-    this.activate(this.tabTargets, "tab--active");
-    this.activate(this.panelTargets, "panel--active");
+    this.activate(this.tabs, "tab--active");
+    this.activate(this.panels, "panel--active");
   }
 
-  private activate(entries: HTMLElement[], active: string): void {
+  private activate(entries: Element[], active: string): void {
     const { index } = this;
     for (let current = 0; current < entries.length; current++) {
-      const tabTarget = entries[current];
-      tabTarget.classList.toggle(active, index === current);
+      const entry = entries[current];
+      entry.classList.toggle(active, index === current);
     }
   }
 }

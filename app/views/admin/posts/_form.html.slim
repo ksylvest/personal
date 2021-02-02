@@ -5,15 +5,15 @@
 
   .sectioned data-controller="sectioned"
     .tabs
-      a.tab href='#' data-target="sectioned.tab" data-action="click->sectioned#tab" data-index=0 Manage
-      a.tab href='#' data-target="sectioned.tab" data-action="click->sectioned#tab" data-index=1 Preview
+      a.tab href='#' data-sectioned-target="tab" data-action="click->sectioned#tab" data-index=0 Manage
+      a.tab href='#' data-sectioned-target="tab" data-action="click->sectioned#tab" data-index=1 Preview
     .panels data-controller="previewable"
-      .panel data-target="sectioned.panel" data-index=0
+      .panel data-sectioned-target="panel" data-index=0
          = form.text_area :body, placeholder: "Body", class: 'body',
-          data: { target: "previewable.field", action: "change->previewable#change" }
+          data: { previewable_target: "field", action: "change->previewable#change" }
          = errors post, :body
-      .panel data-target="sectioned.panel" data-index=1
-        .result data-target="previewable.result"
+      .panel data-sectioned-target="panel" data-index=1
+        .result data-previewable-target="result"
 
   .input
     .icon
