@@ -2,7 +2,7 @@
   "name": "personal",
   "private": true,
   "dependencies": {
-    "@babel/preset-typescript": "^7.12.13",
+    "@babel/preset-typescript": "^7.12.16",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
