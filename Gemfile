@@ -6,7 +6,7 @@ gem 'rails'
 
 gem 'pg'
 gem 'puma'
-gem 'webpacker', '6.0.0.beta.6'
+gem 'webpacker', '6.0.0.pre.2'
 
 gem 'bootsnap', require: false
 
