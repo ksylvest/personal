@@ -79,6 +79,15 @@ jobs:
           ./cc-test-reporter format-coverage -t simplecov coverage/coverage.json
           ./cc-test-reporter upload-coverage
 
+  webpack:
+    executor: basic
+    steps:
+      - checkout
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+      - run: NODE_ENV=production RAILS_ENV=production RACK_ENV=production ./bin/webpack
+
 workflows:
   version: 2.1
   build:
@@ -87,3 +96,4 @@ workflows:
       - brakeman
       - rubocop
       - rspec
+      - webpack
