@@ -1116,10 +1116,10 @@
   resolved "https://registry.yarnpkg.com/@types/loadjs/-/loadjs-4.0.0.tgz#14f85e89d7ca8784d9ab6cac6c5a21480e6488d4"
   integrity sha512-vg2B8Kw8U5d//cPuPoHX/kUiluMxbNyNTHzoRnetdW3HGEuFZJOorOWNRpn43bUJ2s2BCmMP79dtvl+irSJ3mg==
 
-"@types/marked@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-1.2.2.tgz#1f858a0e690247ecf3b2eef576f98f86e8d960d4"
-  integrity sha512-wLfw1hnuuDYrFz97IzJja0pdVsC0oedtS4QsKH1/inyW9qkLQbXgMUqEQT0MVtUBx3twjWeInUfjQbhBVLECXw==
+"@types/marked@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-2.0.2.tgz#33a15106383f6e42cd6bdd38093e6b19904e29e1"
+  integrity sha512-P4zanhCQKs4tiWPPBGpB7lHflgFCP9DFGNI5YtpW9MALKoy2qs9rHNWJ+z55cegD9uCfnmsKuaosq9FNvbxrOw==
 
 "@types/minimatch@*":
   version "3.0.4"
