@@ -1,0 +1,41 @@
+version: 2
+registries:
+  npm-registry-npm-fontawesome-com:
+    type: npm-registry
+    url: https://npm.fontawesome.com
+    token: "${{secrets.NPM_REGISTRY_NPM_FONTAWESOME_COM_TOKEN}}"
+
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: listen
+    versions:
+    - 3.5.0
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "13:00"
+  open-pull-requests-limit: 10
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: fork-ts-checker-webpack-plugin
+    versions:
+    - 6.2.2
+    - 6.2.3
+  - dependency-name: sass
+    versions:
+    - 1.32.10
+  - dependency-name: "@types/marked"
+    versions:
+    - 2.0.0
+  - dependency-name: "@typescript-eslint/eslint-plugin"
+    versions:
+    - 4.16.0
+  registries:
+  - npm-registry-npm-fontawesome-com
