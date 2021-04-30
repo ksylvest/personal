@@ -19,7 +19,7 @@
     "jquery": "^3.6.0",
     "loadjs": "^4.2.0",
     "marked": "^2.0.3",
-    "mini-css-extract-plugin": "^1.5.1",
+    "mini-css-extract-plugin": "^1.6.0",
     "sass": "^1.32.12",
     "sass-loader": "^11.0.1",
     "stimulus": "^2.0.0",
