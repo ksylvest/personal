@@ -20,7 +20,7 @@
     "loadjs": "^4.2.0",
     "marked": "^2.0.7",
     "mini-css-extract-plugin": "^1.6.0",
-    "sass": "^1.34.0",
+    "sass": "^1.34.1",
     "sass-loader": "^12.0.0",
     "stimulus": "^2.0.0",
     "turbolinks": "^5.2.0",
