@@ -18,7 +18,7 @@
     "fork-ts-checker-webpack-plugin": "^6.2.10",
     "jquery": "^3.6.0",
     "loadjs": "^4.2.0",
-    "marked": "^2.0.7",
+    "marked": "^2.1.0",
     "mini-css-extract-plugin": "^1.6.0",
     "sass": "^1.35.1",
     "sass-loader": "^12.1.0",
