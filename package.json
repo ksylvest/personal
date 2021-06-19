@@ -15,7 +15,7 @@
     "@types/marked": "^2.0.3",
     "css-loader": "^5.2.6",
     "css-minimizer-webpack-plugin": "^3.0.1",
-    "fork-ts-checker-webpack-plugin": "^6.2.10",
+    "fork-ts-checker-webpack-plugin": "^6.2.11",
     "jquery": "^3.6.0",
     "loadjs": "^4.2.0",
     "marked": "^2.1.1",
