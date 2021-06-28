@@ -9,7 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@rails/ujs": "^6.1.4",
     "@rails/webpacker": "6.0.0-beta.7",
-    "@sentry/browser": "^6.7.2",
+    "@sentry/browser": "^6.8.0",
     "@types/jquery": "^3.5.5",
     "@types/loadjs": "^4.0.0",
     "@types/marked": "^2.0.3",
