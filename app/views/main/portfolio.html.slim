@@ -4,7 +4,11 @@
 - provide :head
 
 - Portfolio.all.each do |portfolio|
-  h1= link_to portfolio.name, String(portfolio.url)
+  h1
+    - if portfolio.url
+      = link_to portfolio.name, portfolio.url
+    - else
+      = portfolio.name
   p= portfolio.summary
   .grid
     - portfolio.images do |image|

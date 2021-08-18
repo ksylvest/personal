@@ -22,7 +22,6 @@
 
 - slug: pose
   name: Pose
-  url: https://pose.com
   summary: >
     Pose is the place to celebrate and shop unique styles. Join a diverse and
     creative community of over three million users in exchanging fashion
@@ -67,7 +66,6 @@
 
 - slug: surkus
   name: Surkus
-  url: https://surkus.com
   summary: >
     Surkus is a mobile 'CrowdCasting' app that pays you to experience local
     venues and events. The app supports native iOS and Android clients as
@@ -86,7 +84,6 @@
 
 - slug: vidfolia
   name: Vidfolia
-  url: https://vidfolia.com
   summary: >
     Vidfolia is the place for videographers to share their work with prospective
     clients. This application is written in Ruby on Rails and integrates with a
@@ -101,7 +98,6 @@
 
 - slug: winescan
   name: Winescan
-  url: http://api.winescan.ca
   summary: >
     Wines are an unknown purchase for many drinkers. Wine Scan helps consumers in
     their collecting by providing important tasting information in real time. The
