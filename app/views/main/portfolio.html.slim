@@ -6,7 +6,7 @@
 - Portfolio.all.each do |portfolio|
   h1
     - if portfolio.url
-      = link_to portfolio.name, portfolio.url
+      = link_to portfolio.name, String(portfolio.url)
     - else
       = portfolio.name
   p= portfolio.summary
