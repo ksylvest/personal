@@ -5,7 +5,11 @@ RSpec.describe 'Portfolio', type: :system do
     visit portfolio_path
 
     Portfolio.all.each do |portfolio|
-      expect(page).to have_link(portfolio.name, href: portfolio.url)
+      if portfolio.url
+        expect(page).to have_link(portfolio.name, href: portfolio.url)
+      else
+        expect(page).to have_text(portfolio.name)
+      end
     end
   end
 end
