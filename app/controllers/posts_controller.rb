@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   # GET /
   def index
     @posts = Post.optimized.ordered.query(params).page(params[:page])
+    redirect_to root_path if @posts.none? && params[:page]
   end
 
   # GET /posts/:segment/:slug
