@@ -6,5 +6,5 @@
         - if page.left_outer? || page.right_outer? || page.inside_window?
           == page_tag page
         - elsif !page.was_truncated?
-          = gap_tag
+          == gap_tag
       == next_page_tag
