@@ -30,9 +30,9 @@ gem 'mini_magick'
 
 gem 'aws-sdk-s3', require: false
 
-gem 'slim-rails'
-
 gem 'sentry-rails'
+gem 'slim-rails'
+gem 'sprockets-rails'
 
 gem 'byebug', group: %i[development test]
 
@@ -42,8 +42,6 @@ group :development do
   gem 'rubocop'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-  gem 'spring'
-  gem 'spring-watcher-listen'
   gem 'web-console'
 end
 
