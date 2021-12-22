@@ -23,7 +23,7 @@ class Admin::PagesController < AdminController
     if @page.save
       redirect_to admin_pages_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -34,7 +34,7 @@ class Admin::PagesController < AdminController
     if @page.update(attributes)
       redirect_to admin_pages_path
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

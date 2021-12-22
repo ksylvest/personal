@@ -52,7 +52,7 @@ RSpec.describe ContactsController, type: :request do
         allow(Recaptcha).to receive(:verified?).and_return(false)
         expect {
           post contact_path, params: params
-          expect(response).to have_http_status(:ok)
+          expect(response).to have_http_status(:unprocessable_entity)
         }.not_to change { ActionMailer::Base.deliveries.count }
       end
     end

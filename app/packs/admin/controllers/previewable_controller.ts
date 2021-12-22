@@ -1,5 +1,5 @@
-import * as marked from "marked";
-import { Controller } from "stimulus";
+import { marked } from "marked";
+import { Controller } from "@hotwired/stimulus";
 
 export class PreviewableController extends Controller {
   public static targets = ["field", "result"];

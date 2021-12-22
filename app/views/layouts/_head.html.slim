@@ -18,8 +18,8 @@ javascript:
   ENVIRONMENT = #{{JSON.generate(Rails.env)}};
   SENTRY_DSN = #{{JSON.generate(Rails.application.credentials.sentry_dsn)}};
 
-= stylesheet_pack_tag "application", "data-turbolinks-track": "reload"
-= javascript_pack_tag "application", "data-turbolinks-track": "reload"
+= stylesheet_link_tag "application", "data-turbo-track": "reload"
+= javascript_include_tag "application", "data-turbo-track": "reload"
 
 script type="application/ld+json"
   =raw JSON.generate(ld)

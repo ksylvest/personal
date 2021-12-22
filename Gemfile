@@ -6,7 +6,6 @@ gem 'rails'
 
 gem 'pg'
 gem 'puma'
-gem 'webpacker', '6.0.0.rc.5'
 
 gem 'bootsnap', require: false
 
@@ -20,19 +19,21 @@ gem 'redcarpet'
 gem 'redis'
 gem 'rouge'
 gem 'skylight'
-gem 'turbolinks'
 
 gem 'rack-cache'
 gem 'rack-timeout'
 
 gem 'image_processing'
-gem 'mini_magick'
 
 gem 'aws-sdk-s3', require: false
 
+gem 'cssbundling-rails'
+gem 'jsbundling-rails'
 gem 'sentry-rails'
 gem 'slim-rails'
 gem 'sprockets-rails'
+gem 'stimulus-rails'
+gem 'turbo-rails'
 
 gem 'byebug', group: %i[development test]
 

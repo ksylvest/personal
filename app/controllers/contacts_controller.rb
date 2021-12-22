@@ -13,7 +13,7 @@ class ContactsController < ApplicationController
       redirect_to root_path, notice: t('contact.notice')
     else
       flash.alert = t('contact.error')
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

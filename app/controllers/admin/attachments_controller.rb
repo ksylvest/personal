@@ -23,7 +23,7 @@ class Admin::AttachmentsController < AdminController
     if @attachment.save
       redirect_to admin_attachments_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -36,7 +36,7 @@ class Admin::AttachmentsController < AdminController
     if @attachment.save
       redirect_to admin_attachments_path
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

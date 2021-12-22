@@ -26,7 +26,7 @@ RSpec.describe Admin::UsersController, type: :request do
       it 'does not save the user' do
         expect {
           patch admin_user_path, params: { user: { name: '' } }
-          expect(response).to have_http_status(:ok)
+          expect(response).to have_http_status(:unprocessable_entity)
         }.not_to change { user.reload.name }
       end
     end
