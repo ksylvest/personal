@@ -12,7 +12,7 @@ class Admin::SessionsController < AdminController
       authenticate(@session.user)
       redirect_to restore(default: admin_path)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

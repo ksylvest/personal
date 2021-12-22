@@ -23,7 +23,7 @@ class Admin::PostsController < AdminController
     if @post.save
       redirect_to admin_posts_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -34,7 +34,7 @@ class Admin::PostsController < AdminController
     if @post.update(attributes)
       redirect_to admin_posts_path
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

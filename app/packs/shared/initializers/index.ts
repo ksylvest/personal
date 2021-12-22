@@ -1,3 +1,3 @@
 import "./rails";
 import "./sentry";
-import "./turbolinks";
+import "./turbo";

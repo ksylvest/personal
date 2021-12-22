@@ -1,5 +1,5 @@
-import * as loadjs from "loadjs";
-import { Controller } from "stimulus";
+import loadjs from "loadjs";
+import { Controller } from "@hotwired/stimulus";
 
 interface IRecaptcha {
   ready(callback: () => void): void;

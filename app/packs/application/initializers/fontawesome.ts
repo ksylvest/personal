@@ -70,6 +70,6 @@ library.add(
   faTh
 );
 
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("turbo:load", () => {
   dom.i2svg();
 });
