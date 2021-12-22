@@ -30,7 +30,7 @@
     "prettier": "^2.5.1"
   },
   "scripts": {
-    "build": "esbuild ./app/packs/entrypoints/*.ts --bundle --sourcemap --outdir=app/assets/builds",
+    "build": "esbuild ./app/packs/entrypoints/*.ts --bundle --outdir=./app/assets/builds",
     "build:css": "sass ./app/packs/entrypoints:./app/assets/builds"
   }
 }
