@@ -1,6 +1,6 @@
 = form_for contact, url: contact_path do |form|
   div data-controller="recaptcha" data-recaptcha-key=Recaptcha.config.site_key
-    input name="recaptcha[response]" type="hidden" data-target="recaptcha.field"
+    input name="recaptcha[response]" type="hidden" data-target-recaptcha="field"
 
   = form.text_field :name, placeholder: "Name"
   = errors contact, :name
