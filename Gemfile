@@ -35,7 +35,7 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
-gem 'byebug', group: %i[development test]
+gem 'debug', group: %i[development test]
 
 group :development do
   gem 'brakeman'

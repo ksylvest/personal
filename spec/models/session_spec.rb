@@ -10,20 +10,17 @@ RSpec.describe Session, type: :model do
   it { is_expected.not_to allow_value('@host.com').for(:email) }
   it { is_expected.to allow_value('kevin@host.com').for(:email) }
 
-  it 'authenticates' do
-    session = Session.new(email: user.email, password: user.password)
-    expect(session.user).to eq(user)
-  end
-
-  describe 'persisted?' do
-    it 'is "false" if unauthenticated' do
-      session = Session.new
-      expect(session).not_to be_persisted
+  describe '#authenticate' do
+    it 'returns a user if authed' do
+      session = Session.new(email: user.email, password: user.password)
+      expect(session.authenticate).to eq(user)
+      expect(session.errors).to be_blank
     end
 
-    it 'is "true" if authenticated' do
-      session = Session.new(email: user.email, password: user.password)
-      expect(session).to be_persisted
+    it 'returns a nil if not authed' do
+      session = Session.new(email: user.email, password: user.password.reverse)
+      expect(session.authenticate).to be_nil
+      expect(session.errors).to be_present
     end
   end
 end

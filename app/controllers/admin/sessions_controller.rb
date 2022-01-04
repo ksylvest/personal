@@ -7,9 +7,10 @@ class Admin::SessionsController < AdminController
   # POST /session
   def create
     @session = Session.new(attributes)
+    user = @session.authenticate
 
-    if @session.valid?
-      authenticate(@session.user)
+    if user
+      authenticate(user)
       redirect_to restore(default: admin_path)
     else
       render :new, status: :unprocessable_entity

@@ -1,29 +1,34 @@
 class Session
   include ActiveModel::Model
 
+  INVALID_EMAIL_OR_PASSWORD_MESSAGE = 'the email and password entered did not match our records'.freeze
+  private_constant :INVALID_EMAIL_OR_PASSWORD_MESSAGE
+
   attr_accessor :email
   attr_accessor :password
 
-  validates :email, presence: true, format: { with: Validation::EMAIL, message: 'should be an email' }
+  validates :email, presence: true
+  validates :email, format: { with: Validation::EMAIL, message: 'must be an email' }, if: -> { email.present? }
   validates :password, presence: true
 
   validate do
-    if errors.blank?
-      errors[:email]    << 'is invalid' unless user
-      errors[:password] << 'is incorrect' unless user&.authenticate(password)
-    end
+    errors.add(:base, :invalid, message: INVALID_EMAIL_OR_PASSWORD_MESSAGE) if errors.blank? && !authed?
   end
 
-  def initialize(attributes = {})
-    self.email    = attributes[:email]
-    self.password = attributes[:password]
+  def authenticate
+    user if valid?
   end
 
-  def user
-    @user ||= User.find_by(email: email)
-  end
-
-  def persisted?
+  def authed?
     user&.authenticate(password)
   end
+
+private
+
+  def user
+    return @user if defined?(@user)
+
+    @user = User.find_by(email: email)
+  end
+
 end
