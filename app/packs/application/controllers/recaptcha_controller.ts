@@ -9,6 +9,7 @@ interface IRecaptcha {
 declare const grecaptcha: IRecaptcha;
 
 export class RecaptchaController extends Controller {
+  fieldTarget: HTMLInputElement;
   public static targets = ["field"];
 
   public initialize(): void {
@@ -22,7 +23,7 @@ export class RecaptchaController extends Controller {
     loadjs(`https://www.google.com/recaptcha/api.js?render=${key}`, () => {
       grecaptcha.ready(() => {
         grecaptcha.execute(key, { action }).then((token) => {
-          const input: HTMLInputElement = (this as any).fieldTarget;
+          const input = this.fieldTarget;
           input.value = token;
         });
       });
