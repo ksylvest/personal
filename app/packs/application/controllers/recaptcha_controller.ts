@@ -22,7 +22,7 @@ export class RecaptchaController extends Controller {
     loadjs(`https://www.google.com/recaptcha/api.js?render=${key}`, () => {
       grecaptcha.ready(() => {
         grecaptcha.execute(key, { action }).then((token) => {
-          const input = this.targets.find("field") as HTMLInputElement;
+          const input: HTMLInputElement = (this as any).fieldTarget;
           input.value = token;
         });
       });
