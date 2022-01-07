@@ -14,8 +14,6 @@ RSpec.describe Post, type: :model do
   it { is_expected.to validate_presence_of(:summary) }
   it { is_expected.to validate_presence_of(:body) }
 
-  it { is_expected.to validate_presence_of(:user) }
-
   it { is_expected.to allow_value('ruby-on-rails').for(:slug) }
   it { is_expected.not_to allow_value('Ruby on Rails').for(:slug) }
 
