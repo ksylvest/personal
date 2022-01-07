@@ -3,7 +3,8 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 3.0.0
+  TargetRubyVersion: 3.1.0
+  NewCops: enable
   Exclude:
     - Gemfile.lock
     - db/schema.rb
@@ -32,14 +33,23 @@ Layout/EmptyLinesAroundModuleBody:
 Lint/AmbiguousBlockAssociation:
   Enabled: false
 
+Lint/SymbolConversion:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 120
+
 Style/AccessorGrouping:
   EnforcedStyle: separated
+
+Style/Documentation:
+  Enabled: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Style/Documentation:
-  Enabled: false
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
 
 Style/Lambda:
   Enabled: false
@@ -67,9 +77,6 @@ Style/ExpandPathArguments:
 
 Metrics/BlockLength:
   Enabled: false
-
-Metrics/LineLength:
-  Max: 120
 
 Metrics/MethodLength:
   Enabled: false

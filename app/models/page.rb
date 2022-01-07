@@ -10,7 +10,6 @@ class Page < ApplicationRecord
   validates :summary, presence: true
   validates :body, presence: true
   validates :slug, presence: true, uniqueness: true, format: { with: Validation::PERMALINK }
-  validates :user, presence: true
 
   before_validation :defaults!
 
