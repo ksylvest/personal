@@ -6,13 +6,13 @@
 
 /* global document, Image */
 
-import $ from 'jquery';
+import $ from "jquery";
 
 const TRANSITIONS = {
-  webkitTransition: 'webkitTransitionEnd',
-  mozTransition: 'mozTransitionEnd',
-  oTransition: 'oTransitionEnd',
-  transition: 'transitionend',
+  webkitTransition: "webkitTransitionEnd",
+  mozTransition: "mozTransitionEnd",
+  oTransition: "oTransitionEnd",
+  transition: "transitionend",
 };
 
 const ESC_KEY = 27;
@@ -20,7 +20,9 @@ const ESC_KEY = 27;
 class Animation {
   static transition($el) {
     const [el] = $el;
-    const key = Object.keys(TRANSITIONS).find(type => el.style[type] !== null);
+    const key = Object.keys(TRANSITIONS).find(
+      (type) => el.style[type] !== null
+    );
     return TRANSITIONS[key];
   }
 
@@ -40,8 +42,8 @@ class Slide {
   }
 
   type() {
-    if (this.url.match(/\.(webp|jpeg|jpg|jpe|gif|png|bmp)$/i)) return 'image';
-    return 'unknown';
+    if (this.url.match(/\.(webp|jpeg|jpg|jpe|gif|png|bmp)$/i)) return "image";
+    return "unknown";
   }
 
   preload(callback) {
@@ -55,11 +57,11 @@ class Slide {
 
 class Lighten {
   static init() {
-    this.namespace = 'lighten';
+    this.namespace = "lighten";
 
     this.prototype.defaults = {
-      loading: '#{Lighten.namespace}--loading',
-      fetched: '#{Lighten.namespace}--fetched',
+      loading: "#{Lighten.namespace}--loading",
+      fetched: "#{Lighten.namespace}--fetched",
       template: `
         <div class='${Lighten.namespace} ${Lighten.namespace}--fade'>
           <div class='${Lighten.namespace}__overlay'>
@@ -79,8 +81,10 @@ class Lighten {
   }
 
   static setup($target, options) {
-    let data = $target.data('_lighten');
-    if (!data) { $target.data('_lighten', (data = new Lighten($target, options))); }
+    let data = $target.data("_lighten");
+    if (!data) {
+      $target.data("_lighten", (data = new Lighten($target, options)));
+    }
     return data;
   }
 
@@ -120,19 +124,26 @@ class Lighten {
   }
 
   type(href = this.href()) {
-    return this.settings.type || (href.match(/\.(webp|jpeg|jpg|jpe|gif|png|bmp)$/i) ? 'image' : undefined);
+    return (
+      this.settings.type ||
+      (href.match(/\.(webp|jpeg|jpg|jpe|gif|png|bmp)$/i) ? "image" : undefined)
+    );
   }
 
   process() {
     const fetched = () => {
-      this.$el.removeClass(`${Lighten.namespace}--loading`).addClass(`${Lighten.namespace}--fetched`);
+      this.$el
+        .removeClass(`${Lighten.namespace}--loading`)
+        .addClass(`${Lighten.namespace}--fetched`);
     };
 
     const loading = () => {
-      this.$el.removeClass(`${Lighten.namespace}--fetched`).addClass(`${Lighten.namespace}--loading`);
+      this.$el
+        .removeClass(`${Lighten.namespace}--fetched`)
+        .addClass(`${Lighten.namespace}--loading`);
     };
 
-    this.slide = new Slide(this.$target.attr('href'));
+    this.slide = new Slide(this.$target.attr("href"));
 
     loading();
 
@@ -143,18 +154,22 @@ class Lighten {
   }
 
   keyup(event) {
-    if (event.target.form) { return; }
-    if (event.which === ESC_KEY) { this.close(); }
+    if (event.target.form) {
+      return;
+    }
+    if (event.which === ESC_KEY) {
+      this.close();
+    }
   }
 
-  observe(method = 'on') {
-    $(document)[method]('keyup', this.keyup);
-    this.$overlay[method]('click', this.close);
-    this.$close[method]('click', this.close);
+  observe(method = "on") {
+    $(document)[method]("keyup", this.keyup);
+    this.$overlay[method]("click", this.close);
+    this.$close[method]("click", this.close);
   }
 
   hide() {
-    this.observe('off');
+    this.observe("off");
     this.$el.position();
     this.$el.addClass(`${Lighten.namespace}--fade`);
     Animation.execute(this.$el, () => this.$el.remove());
@@ -164,13 +179,13 @@ class Lighten {
     $(document.body).append(this.$el);
     this.$el.position();
     this.$el.removeClass(`${Lighten.namespace}--fade`);
-    Animation.execute(this.$el, () => this.observe('on'));
+    Animation.execute(this.$el, () => this.observe("on"));
   }
 }
 
 Lighten.init();
 
-$(document).on('click', '[data-lighten]', function fn(event) {
+$(document).on("click", "[data-lighten]", function fn(event) {
   event.preventDefault();
   event.stopPropagation();
 

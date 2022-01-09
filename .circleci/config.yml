@@ -40,7 +40,7 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
-      - run: yarn run eslint ./app/**/*.ts*
+      - run: yarn lint
 
   rubocop:
     executor: basic
