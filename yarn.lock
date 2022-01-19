@@ -108,10 +108,10 @@
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.1.4.tgz#c3c5a9f8302c429af9722b6c50ab48049016d2a3"
   integrity sha512-0LmSKJTuo2dL6BQ+9xxLnS9lbkyfz2mBGeBnQ2J7o9Bn0l0q+ZC6VuoZMZZXPvABI4QT7Nfknv5WhfKYL+boew==
 
-"@rails/ujs@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-7.0.0.tgz#5331285372956be4d3f2d858cef9904c11ce4b93"
-  integrity sha512-VU/tKKEj0+4QvhxkWBUwINCimtxYjy702ecvUpNUtDukilAsv4fmc/vTH5b/gSNuT5wVRf3h7o27W+JssTu4nQ==
+"@rails/ujs@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-7.0.1.tgz#cb515d52c85be107908dd00822042f04e52cdea7"
+  integrity sha512-ZUkgsbz5KFLfBwjIQ2D/kvyq+2w5BuNnkUJf3940VVJxov9GECu6n2BSXUTmyNAx+R6JQdibzXBuR7nz3crZYw==
 
 "@sentry/browser@^6.16.1":
   version "6.16.1"
@@ -1110,10 +1110,10 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-sass@^1.45.1:
-  version "1.45.1"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.45.1.tgz#fa03951f924d1ba5762949567eaf660e608a1ab0"
-  integrity sha512-pwPRiq29UR0o4X3fiQyCtrESldXvUQAAE0QmcJTpsI4kuHHcLzZ54M1oNBVIXybQv8QF2zfkpFcTxp8ta97dUA==
+sass@^1.49.0:
+  version "1.49.0"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.49.0.tgz#65ec1b1d9a6bc1bae8d2c9d4b392c13f5d32c078"
+  integrity sha512-TVwVdNDj6p6b4QymJtNtRS2YtLJ/CqZriGg0eIAbAKMlN8Xy6kbv33FsEZSF7FufFFM705SQviHjjThfaQ4VNw==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
