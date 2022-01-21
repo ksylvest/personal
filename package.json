@@ -19,7 +19,7 @@
     "loadjs": "^4.2.0",
     "marked": "^4.0.10",
     "sass": "^1.49.0",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.5"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.10.0",
