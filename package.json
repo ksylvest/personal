@@ -13,7 +13,7 @@
     "@sentry/browser": "^6.17.2",
     "@types/jquery": "^3.5.13",
     "@types/loadjs": "^4.0.1",
-    "@types/marked": "^4.0.1",
+    "@types/marked": "^4.0.2",
     "esbuild": "^0.14.14",
     "jquery": "^3.6.0",
     "loadjs": "^4.2.0",
