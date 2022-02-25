@@ -11,7 +11,7 @@
     "@hotwired/turbo-rails": "^7.1.1",
     "@rails/ujs": "^7.0.2",
     "@sentry/browser": "^6.17.9",
-    "@types/jquery": "^3.5.13",
+    "@types/jquery": "^3.5.14",
     "@types/loadjs": "^4.0.1",
     "@types/marked": "^4.0.2",
     "esbuild": "^0.14.23",
