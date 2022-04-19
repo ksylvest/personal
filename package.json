@@ -18,7 +18,7 @@
     "jquery": "^3.6.0",
     "loadjs": "^4.2.0",
     "marked": "^4.0.14",
-    "sass": "^1.50.0",
+    "sass": "^1.50.1",
     "typescript": "^4.6.3"
   },
   "devDependencies": {
