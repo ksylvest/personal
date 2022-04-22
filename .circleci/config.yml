@@ -1,9 +1,9 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@1.2.3
+  browser-tools: circleci/browser-tools@1.2.5
   heroku: circleci/heroku@1.2.6
-  node: circleci/node@5.0.0
-  ruby: circleci/ruby@1.2.0
+  node: circleci/node@5.0.2
+  ruby: circleci/ruby@1.7.1
 
 executors:
   basic:
@@ -19,12 +19,12 @@ executors:
   advanced:
     docker:
       - image: cimg/ruby:3.1.1-node
-      - image: circleci/postgres:13-ram
+      - image: cimg/postgres:14.2
         environment:
           POSTGRES_USER: circleci
           POSTGRES_DB: personal_test
           POSTGRES_HOST_AUTH_METHOD: trust
-      - image: circleci/redis:6-alpine
+      - image: cimg/redis:6.2
     environment:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 4
