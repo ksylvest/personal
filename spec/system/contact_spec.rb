@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe 'Search', type: :system do
-  let(:verification) { instance_double('Recaptcha::API::Response') }
+  let(:verification) { instance_double(Recaptcha::API::Response) }
 
   context 'when re-captcha verification returns true' do
     it 'flashes that the message sent' do
