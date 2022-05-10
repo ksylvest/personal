@@ -9,7 +9,7 @@
     "@hotwired/stimulus": "^3.0.1",
     "@hotwired/turbo": "^7.1.0",
     "@hotwired/turbo-rails": "^7.1.1",
-    "@rails/ujs": "^7.0.2",
+    "@rails/ujs": "^7.0.3",
     "@sentry/browser": "^6.19.7",
     "@types/jquery": "^3.5.14",
     "@types/loadjs": "^4.0.1",
