@@ -8,7 +8,7 @@ orbs:
 executors:
   basic:
     docker:
-      - image: cimg/ruby:3.1.1-node
+      - image: cimg/ruby:3.1.2-node
     environment:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 4
@@ -18,7 +18,7 @@ executors:
       RACK_ENV: test
   advanced:
     docker:
-      - image: cimg/ruby:3.1.1-node
+      - image: cimg/ruby:3.1.2-node
       - image: cimg/postgres:14.2
         environment:
           POSTGRES_USER: circleci
