@@ -1,14 +1,15 @@
 footer#footer
   .content
     nav.social
-      a href=github_url GitHub
-      a href=twitter_url Twitter
-      a href=facebook_url Facebook
-      a href=linkedin_url Linkedin
-      a href=dribbble_url Dribbble
-      a href=google_url Google
-      a href=stackoverflow_url Stack
-      a href=vimeo_url Vimeo
-      a href=feed_url(:atom) Feed
+      ul
+        li= link_to 'GitHub', github_url
+        li= link_to 'Twitter', twitter_url
+        li= link_to 'Facebook', facebook_url
+        li= link_to 'Linkedin', linkedin_url
+        li= link_to 'Dribbble', dribbble_url
+        li= link_to 'Google', google_url
+        li= link_to 'Stack', stackoverflow_url
+        li= link_to 'Vimeo', vimeo_url
+        li= link_to 'Feed', feed_url(:atom)
 
     p.copy &copy; #{Time.now.year} Kevin Sylvestre
