@@ -3,6 +3,9 @@
   = form.text_field :title, placeholder: "Title", class: 'title'
   = errors page, :title
 
+  = form.text_field :summary, placeholder: "Summary"
+  = errors page, :summary
+
   .sectioned data-controller="sectioned"
     .tabs
       a.tab href='#' data-sectioned-target="tab" data-action="click->sectioned#tab" data-index=0 Manage

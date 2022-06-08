@@ -3,13 +3,13 @@
 nav.crumbs #{link_to 'Admin', admin_path} » Attachments
 
 - cache @attachments do
-  ul.attachments.grid
+  ul.grid
     - @attachments.each do |attachment|
-      li.attachment.entry
-        span.icon
+      li.grid__entry
+        span.grid__icon
           i class=attachment.icon
-        span.title= attachment.name
-        span.options
+        span.grid__title= attachment.name
+        span.grid__options
           = link_to 'Edit', edit_admin_attachment_path(attachment), class: 'button edit'
           = link_to 'Destroy', admin_attachment_path(attachment), method: :delete, class: 'button destroy', data: { confirm: "Are you sure?" }
 

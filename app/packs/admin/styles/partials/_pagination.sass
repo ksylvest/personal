@@ -1,23 +1,14 @@
 .pagination
 
-  *
-    transition-duration: $fast
-    transition-property: background-color, border-color, color
-
-  display: block
-  position: relative
-  margin: 8px auto
-  text-align: center
-
   ul
     margin: 0
     padding: 0
-    display: inline-block
-    +clears
+    display: flex
+    align-items: center
+    justify-content: center
 
     li
       display: block
-      float: left
       margin: 0
       padding: 0
 
@@ -26,6 +17,8 @@
         color: inherit
         text-align: center
         line-height: 28px
+        transition-duration: $fast
+        transition-property: background-color, border-color, color
 
       &.page
         color: $asbestos
@@ -46,12 +39,12 @@
             background-color: $white
 
         > a, > span
-          +rounded(50%)
+          border-radius: 50%
           height: 28px
-          width:  28px
+          width: 28px
           margin: 8px
 
-      &.next,&.prev
+      &.next, &.prev, &.gap
         color: $river
         background-color: $clouds
 
@@ -76,7 +69,7 @@
           left: 2px solid $white
 
       &:first-child
-        +rounded(6px 0px 0px 6px)
+        border-radius: 6px 0 0 6px
 
       &:last-child
-        +rounded(0px 6px 6px 0px)
+        border-radius: 0 6px 6px 0
