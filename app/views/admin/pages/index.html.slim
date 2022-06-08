@@ -3,11 +3,11 @@
 nav.crumbs #{link_to 'Admin', admin_path} » Pages
 
 - cache @pages do
-  ul.pages.grid
+  ul.grid
     - @pages.each do |page|
-      li.page.entry
-        span.title= truncate page.title, length: 40
-        span.options
+      li.grid__entry
+        span.grid__title= truncate page.title, length: 40
+        span.grid__options
           = link_to 'Show', page_path(slug: page.slug), class: 'button show'
           = link_to 'Edit', edit_admin_page_path(page), class: 'button edit'
           = link_to 'Destroy', admin_page_path(page), method: :delete, class: 'button destroy', data: { confirm: "Are you sure?" }
