@@ -14,7 +14,7 @@
     "@types/jquery": "^3.5.14",
     "@types/loadjs": "^4.0.1",
     "@types/marked": "^4.0.3",
-    "esbuild": "^0.14.42",
+    "esbuild": "^0.14.43",
     "jquery": "^3.6.0",
     "loadjs": "^4.2.0",
     "marked": "^4.0.16",
