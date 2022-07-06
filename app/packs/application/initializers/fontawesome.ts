@@ -12,8 +12,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import {
+  faBrush,
   faClock,
   faComments,
+  faDatabase,
   faExclamation,
   faExpand,
   faEye,
@@ -47,9 +49,11 @@ library.add(
 );
 
 library.add(
+  faBrush,
   faClock,
   faCogs,
   faComments,
+  faDatabase,
   faExclamation,
   faExpand,
   faEye,
