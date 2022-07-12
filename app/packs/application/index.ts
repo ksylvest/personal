@@ -1,5 +1,3 @@
-import "../vendor/lighten";
-
 import "./initializers";
 
 import "./controllers";
