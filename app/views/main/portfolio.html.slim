@@ -10,11 +10,18 @@
     - else
       = portfolio.name
   p= portfolio.summary
-  .grid
-    - portfolio.images do |image|
-      = link_to image_path(image[:original]), data: { lighten: 'portfolio' }, class: 'zoomer' do
-        = image_tag image_path(image[:thumb]), size: image[:size], class: 'zoomer__image'
-        .zoomer__mask
+  div data-controller="gallery"
+    .grid
+      - portfolio.images do |image|
+        .zoomer data-action='click->gallery#zoom' data-gallery-url-param=image_path(image[:original])
+          = image_tag image_path(image[:thumb]), size: image[:size], class: 'zoomer__image'
+          .zoomer__mask
+    .lighten data-gallery-target="dialog" style="display: none"
+      .lighten__overlay data-gallery-target="overlay" data-action='click->gallery#close'
+      .lighten__container
+        img.lighten__content data-gallery-target="content"
+        a.lighten__close data-gallery-target="close" data-action='click->gallery#close' ×
+
   - portfolio.videos do |video|
     .player
       iframe width="960" height="540" src=video[:url] frameborder="0"
