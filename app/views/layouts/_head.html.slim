@@ -17,6 +17,7 @@ javascript:
   RELEASE = #{{JSON.generate(release)}};
   ENVIRONMENT = #{{JSON.generate(Rails.env)}};
   SENTRY_DSN = #{{JSON.generate(Rails.application.credentials.sentry_dsn)}};
+  SENTRY_TRACES_SAMPLE_RATE = #{{JSON.generate(Sentry.configuration.traces_sample_rate)}};
 
 = stylesheet_link_tag "application", "data-turbo-track": "reload"
 = javascript_include_tag "application", "data-turbo-track": "reload"
