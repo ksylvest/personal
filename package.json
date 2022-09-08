@@ -13,7 +13,7 @@
     "@sentry/browser": "^7.12.1",
     "@sentry/tracing": "^7.12.1",
     "@types/loadjs": "^4.0.1",
-    "@types/marked": "^4.0.6",
+    "@types/marked": "^4.0.7",
     "esbuild": "^0.15.7",
     "loadjs": "^4.2.0",
     "marked": "^4.1.0",
