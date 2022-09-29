@@ -20,8 +20,6 @@ Rails.application.routes.draw do
 
   resource :search, only: %i[show]
 
-  resource :contact, only: %i[new create]
-
   get 'admin', to: 'admin/dashboard#index', as: :admin
 
   resource :auth, only: %i[create destroy]
