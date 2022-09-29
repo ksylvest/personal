@@ -3,7 +3,9 @@ class SitemapsController < ApplicationController
 
   # GET /sitemap
   def show
-    @posts = Post.ordered
-    @pages = Page.ordered
+    http_cache_forever(public: !params[:fresh]) do
+      @posts = Post.ordered
+      @pages = Page.ordered
+    end
   end
 end
