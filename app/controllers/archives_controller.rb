@@ -1,6 +1,8 @@
 class ArchivesController < ApplicationController
   # GET /archive
   def show
-    @posts = Post.ordered
+    http_cache_forever(public: !params[:fresh]) do
+      @posts = Post.ordered
+    end
   end
 end

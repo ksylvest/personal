@@ -1,13 +1,21 @@
 class MainController < ApplicationController
   # GET /about
-  def about; end
+  def about
+    http_cache_forever(public: !params[:fresh]) { render }
+  end
 
   # GET /contact
-  def contact; end
+  def contact
+    http_cache_forever(public: !params[:fresh]) { render }
+  end
 
   # GET /projects
-  def projects; end
+  def projects
+    http_cache_forever(public: !params[:fresh]) { render }
+  end
 
   # GET /portfolio
-  def portfolio; end
+  def portfolio
+    http_cache_forever(public: !params[:fresh]) { render }
+  end
 end

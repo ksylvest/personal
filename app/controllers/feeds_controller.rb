@@ -1,6 +1,8 @@
 class FeedsController < ApplicationController
   # GET /
   def show
-    @posts = Post.all
+    http_cache_forever(public: !params[:fresh]) do
+      @posts = Post.all
+    end
   end
 end

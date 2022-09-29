@@ -3,14 +3,18 @@ class PostsController < ApplicationController
 
   # GET /
   def index
-    @posts = Post.optimized.ordered.query(params).page(params[:page])
-    redirect_to root_path if @posts.none? && params[:page]
+    http_cache_forever(public: !params[:fresh]) do
+      @posts = Post.optimized.ordered.query(params).page(params[:page])
+      redirect_to root_path if @posts.none? && params[:page]
+    end
   end
 
   # GET /posts/:segment/:slug
   def show
-    @post = Post.optimized.find_by!(attributes)
-    norobot unless @post.active?
+    http_cache_forever(public: !params[:fresh]) do
+      @post = Post.optimized.find_by!(attributes)
+      norobot unless @post.active?
+    end
   end
 
 private
