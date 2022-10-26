@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'Portfolio', type: :system do
+RSpec.describe 'Portfolio' do
   it 'links to every portfolio entry' do
     visit portfolio_path
 

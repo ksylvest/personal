@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Search, type: :model do
+RSpec.describe Search do
   subject(:search) { Search.new(query) }
 
   let!(:page) { create(:page, title: query) }

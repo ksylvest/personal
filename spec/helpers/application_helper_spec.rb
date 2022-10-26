@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe ApplicationHelper, type: :helper do
+RSpec.describe ApplicationHelper do
   describe '#markdown' do
     subject(:markdown) { helper.markdown(text) }
 

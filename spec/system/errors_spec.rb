@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'Errors', type: :system do
+RSpec.describe 'Errors' do
   it 'renders a page for missing' do
     visit missing_path
 

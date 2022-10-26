@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Session, type: :model do
+RSpec.describe Session do
   let(:user) { create(:user) }
 
   it { is_expected.to validate_presence_of(:email) }

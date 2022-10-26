@@ -6,7 +6,7 @@ shared_examples_for 'searchable' do
 
     let(:query) { 'Technology' }
 
-    it 'works' do
+    it 'searches' do
       expect { search }.not_to raise_error
     end
   end

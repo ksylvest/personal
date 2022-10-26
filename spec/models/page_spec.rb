@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe Page, type: :model do
+RSpec.describe Page do
   subject { build(:page) }
 
   it_behaves_like 'approvable'
