@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'Pages', type: :system do
+RSpec.describe 'Pages' do
   let(:entry) { create(:page) }
 
   it 'lets a visitor view a page title and body' do

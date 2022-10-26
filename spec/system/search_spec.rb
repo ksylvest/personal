@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'Search', type: :system do
+RSpec.describe 'Search' do
   let(:searchables) do
     [
       create(:page, title: 'Rails', summary: 'Rails is a web application framework.'),

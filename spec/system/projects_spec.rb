@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'Projects', type: :system do
+RSpec.describe 'Projects' do
   it 'links to every project entry' do
     visit projects_path
 

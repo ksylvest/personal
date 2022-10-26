@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'Posts', type: :system do
+RSpec.describe 'Posts' do
   let(:entry) { create(:post) }
 
   it 'lets a visitor view a post title and body' do

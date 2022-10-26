@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'Admin', type: :system do
+RSpec.describe 'Admin' do
   let(:user) { create(:user, role: :admin) }
 
   it 'lets a user authenticate with valid credentials' do
