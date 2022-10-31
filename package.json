@@ -10,7 +10,7 @@
     "@hotwired/turbo": "^7.2.2",
     "@hotwired/turbo-rails": "^7.2.4",
     "@rails/ujs": "^7.0.4",
-    "@sentry/browser": "^7.17.1",
+    "@sentry/browser": "^7.17.2",
     "@sentry/tracing": "^7.17.2",
     "@types/loadjs": "^4.0.1",
     "@types/marked": "^4.0.7",
