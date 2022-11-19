@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   browser-tools: circleci/browser-tools@1.2.5
-  heroku: circleci/heroku@1.2.6
   node: circleci/node@5.0.2
   ruby: circleci/ruby@1.7.1
 
@@ -99,8 +98,3 @@ workflows:
       - rubocop
       - rspec
       - assets
-      - heroku/deploy-via-git:
-          filters:
-            branches:
-              only:
-                - master
