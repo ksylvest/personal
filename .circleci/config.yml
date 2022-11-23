@@ -23,7 +23,6 @@ executors:
           POSTGRES_USER: circleci
           POSTGRES_DB: personal_test
           POSTGRES_HOST_AUTH_METHOD: trust
-      - image: cimg/redis:6.2
     environment:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 4
@@ -70,7 +69,6 @@ jobs:
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-      - run: dockerize -wait tcp://localhost:6379 -timeout 2m # Redis
       - run: dockerize -wait tcp://localhost:5432 -timeout 2m # Postgres
       - run: ./bin/rails test:prepare
       - ruby/rspec-test
