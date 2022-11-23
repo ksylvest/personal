@@ -5,5 +5,4 @@ test:
   adapter: test
 
 production:
-  adapter: redis
-  url: <%= ENV['REDIS_CABLE_URL'] %>
+  adapter: postgresql
