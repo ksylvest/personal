@@ -38,6 +38,6 @@ module Personal
     end
 
     config.action_mailer.default_url_options ||= {}
-    config.action_mailer.default_url_options[:host] = ENV.fetch('HOST') { 'https://ksylvest.com' }
+    config.action_mailer.default_url_options[:host] = ENV.fetch('HOST', 'https://ksylvest.com')
   end
 end
