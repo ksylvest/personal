@@ -37,12 +37,6 @@ module Personal
       config.action_controller.asset_host = ENV['HOST']
     end
 
-    if ENV.include?('REDIS_CACHE_URL')
-      config.cache_store = :redis_cache_store, {
-        url: ENV['REDIS_CACHE_URL'],
-      }
-    end
-
     config.action_mailer.default_url_options ||= {}
     config.action_mailer.default_url_options[:host] = ENV.fetch('HOST') { 'https://ksylvest.com' }
   end
