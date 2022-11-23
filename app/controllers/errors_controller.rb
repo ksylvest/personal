@@ -5,22 +5,16 @@ class ErrorsController < ApplicationController
 
   # GET /404
   def missing
-    http_cache_forever(public: !params[:fresh]) do
-      render status: 404
-    end
+    render status: 404
   end
 
   # GET /422
   def unprocessable
-    http_cache_forever(public: !params[:fresh]) do
-      render status: 422
-    end
+    render status: 422
   end
 
   # GET /500
   def exception
-    http_cache_forever(public: !params[:fresh]) do
-      render status: 500
-    end
+    render status: 500
   end
 end
