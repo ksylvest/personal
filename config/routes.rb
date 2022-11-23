@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   default_url_options(Rails.env.production? ? { host: 'ksylvest.com' } : {})
 
-  mount ActionCable.server, at: '/cable', as: :cable
-
   root to: 'posts#index'
 
   get '404', to: 'errors#missing', as: :missing
