@@ -68,6 +68,6 @@ module ApplicationHelper
   end
 
   def release
-    "#{ENV.fetch('HEROKU_APP_NAME') { 'playground' }}@#{ENV.fetch('HEROKU_RELEASE_VERSION') { 'local' }}"
+    "#{ENV.fetch('HEROKU_APP_NAME', 'playground')}@#{ENV.fetch('HEROKU_RELEASE_VERSION', 'local')}"
   end
 end
