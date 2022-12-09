@@ -9,7 +9,7 @@ module Attachable
   end
 
   def attach!(attributes: %w[title summary body])
-    return unless (changed & attributes).any?
+    return unless changed.intersect?(attributes)
 
     self.attachments = Attachment.find(Attacher.instance.ids(self, attributes))
   end
