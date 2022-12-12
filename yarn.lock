@@ -280,10 +280,10 @@
   resolved "https://registry.yarnpkg.com/@types/loadjs/-/loadjs-4.0.1.tgz#85e77dcad99d58236462393145eccbbc9dad0fe5"
   integrity sha512-UEMOleWwITwDvj+kI6T4etC9yMjmejH6UdJRAa1MWZwzDIW+Iz7T6z6Zc96N/5FeFsxAEBA/zP1ki+HluXPcHQ==
 
-"@types/marked@^4.0.7":
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-4.0.7.tgz#400a76809fd08c2bbd9e25f3be06ea38c8e0a1d3"
-  integrity sha512-eEAhnz21CwvKVW+YvRvcTuFKNU9CV1qH+opcgVK3pIMI6YZzDm6gc8o2vHjldFk6MGKt5pueSB7IOpvpx5Qekw==
+"@types/marked@^4.0.8":
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-4.0.8.tgz#b316887ab3499d0a8f4c70b7bd8508f92d477955"
+  integrity sha512-HVNzMT5QlWCOdeuBsgXP8EZzKUf0+AXzN+sLmjvaB3ZlLqO+e4u0uXrdw9ub69wBKFs+c6/pA4r9sy6cCDvImw==
 
 "@types/semver@^7.3.12":
   version "7.3.12"
