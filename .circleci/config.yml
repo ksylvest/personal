@@ -12,7 +12,7 @@ executors:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 4
       BUNDLE_PATH: vendor/bundle
-      BUNDLER_VERSION: 2.2.22
+      BUNDLER_VERSION: 2.3.26
       RAILS_ENV: test
       RACK_ENV: test
   advanced:
@@ -27,7 +27,7 @@ executors:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 4
       BUNDLE_PATH: vendor/bundle
-      BUNDLER_VERSION: 2.2.22
+      BUNDLER_VERSION: 2.3.26
       RAILS_ENV: test
       RACK_ENV: test
       PGHOST: localhost
