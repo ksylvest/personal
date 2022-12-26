@@ -1,74 +1,71 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@1.2.5
-  node: circleci/node@5.0.2
-  ruby: circleci/ruby@1.7.1
+  browser-tools: circleci/browser-tools@1.4.0
+  node: circleci/node@5.0.3
+  ruby: circleci/ruby@2.0.0
 
 executors:
-  basic:
+  default:
     docker:
-      - image: cimg/ruby:3.1.2-node
-    environment:
-      BUNDLE_JOBS: 4
-      BUNDLE_RETRY: 4
-      BUNDLE_PATH: vendor/bundle
-      BUNDLER_VERSION: 2.3.26
-      RAILS_ENV: test
-      RACK_ENV: test
-  advanced:
-    docker:
-      - image: cimg/ruby:3.1.2-node
-      - image: cimg/postgres:14.2
+      - image: cimg/base:stable
+      - image: cimg/postgres:15.1
         environment:
           POSTGRES_USER: circleci
           POSTGRES_DB: personal_test
           POSTGRES_HOST_AUTH_METHOD: trust
     environment:
-      BUNDLE_JOBS: 4
-      BUNDLE_RETRY: 4
-      BUNDLE_PATH: vendor/bundle
-      BUNDLER_VERSION: 2.3.26
       RAILS_ENV: test
       RACK_ENV: test
       PGHOST: localhost
 
-jobs:
-  eslint:
-    executor: basic
+commands:
+  setup_ruby:
     steps:
-      - checkout
+      - ruby/install:
+          version: $(cat .ruby-version)
+      - ruby/install-deps
+  setup_node:
+    steps:
+      - node/install:
+          install-yarn: true
       - node/install-packages:
           pkg-manager: yarn
+
+jobs:
+  eslint:
+    executor: default
+    steps:
+      - checkout
+      - setup_node
       - run: yarn lint
 
   rubocop:
-    executor: basic
+    executor: default
     steps:
       - checkout
-      - ruby/install-deps
+      - setup_ruby
       - ruby/rubocop-check
 
   brakeman:
-    executor: basic
+    executor: default
     steps:
       - checkout
-      - ruby/install-deps
+      - setup_ruby
       - run: bundle exec brakeman -z --format html --output tmp/brakeman.html
       - store_artifacts:
           path: tmp/brakeman.html
           destination: brakeman.html
 
   rspec:
-    executor: advanced
+    executor: default
     steps:
       - checkout
       - run: sudo apt-get update
       - run: sudo apt-get install libvips
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
-      - ruby/install-deps
-      - node/install-packages:
-          pkg-manager: yarn
+      - setup_ruby
+      - setup_node
       - run: dockerize -wait tcp://localhost:5432 -timeout 2m # Postgres
       - run: ./bin/rails test:prepare
       - ruby/rspec-test
@@ -79,12 +76,11 @@ jobs:
           ./cc-test-reporter upload-coverage
 
   assets:
-    executor: basic
+    executor: default
     steps:
       - checkout
-      - ruby/install-deps
-      - node/install-packages:
-          pkg-manager: yarn
+      - setup_ruby
+      - setup_node
       - run: ./bin/rails assets:precompile
 
 workflows:
