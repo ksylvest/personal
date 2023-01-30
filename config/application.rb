@@ -21,17 +21,6 @@ module Personal
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
 
-    if Rails.application.credentials.mailgun.present?
-      config.action_mailer.smtp_settings = {
-        address: 'smtp.mailgun.org',
-        port: 587,
-        authentication: :plain,
-        user_name: Rails.application.credentials.mailgun[:username],
-        password: Rails.application.credentials.mailgun[:password],
-        domain: Rails.application.credentials.mailgun[:domain],
-      }
-    end
-
     if ENV.include?('HOST')
       config.action_mailer.asset_host = ENV['HOST']
       config.action_controller.asset_host = ENV['HOST']
