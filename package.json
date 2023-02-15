@@ -14,7 +14,7 @@
     "@sentry/tracing": "^7.37.2",
     "@types/loadjs": "^4.0.1",
     "@types/marked": "^4.0.8",
-    "esbuild": "^0.17.7",
+    "esbuild": "^0.17.8",
     "loadjs": "^4.2.0",
     "marked": "^4.2.12",
     "sass": "^1.58.1",
