@@ -16,7 +16,7 @@
     "@types/marked": "^4.0.8",
     "esbuild": "^0.17.12",
     "loadjs": "^4.2.0",
-    "marked": "^4.2.12",
+    "marked": "^4.3.0",
     "sass": "^1.59.3",
     "typescript": "^5.0.2"
   },
