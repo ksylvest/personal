@@ -7,7 +7,7 @@ orbs:
 executors:
   default:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/ruby:3.2.2-browsers
       - image: cimg/postgres:15.1
         environment:
           POSTGRES_USER: circleci
@@ -21,13 +21,9 @@ executors:
 commands:
   setup_ruby:
     steps:
-      - ruby/install:
-          version: $(cat .ruby-version)
       - ruby/install-deps
   setup_node:
     steps:
-      - node/install:
-          install-yarn: true
       - node/install-packages:
           pkg-manager: yarn
 

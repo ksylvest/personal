@@ -3,7 +3,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 3.2.0
+  TargetRubyVersion: 3.2.2
   NewCops: enable
   Exclude:
     - Gemfile.lock
