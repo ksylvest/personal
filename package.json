@@ -17,7 +17,7 @@
     "esbuild": "^0.17.16",
     "loadjs": "^4.2.0",
     "marked": "^4.3.0",
-    "sass": "^1.61.0",
+    "sass": "^1.62.0",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
