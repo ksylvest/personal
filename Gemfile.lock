@@ -203,7 +203,7 @@ GEM
     parallel (1.23.0)
     parser (3.2.2.0)
       ast (~> 2.4.1)
-    pg (1.5.1)
+    pg (1.5.2)
     progress (3.6.0)
     public_suffix (5.0.1)
     puma (6.2.2)
