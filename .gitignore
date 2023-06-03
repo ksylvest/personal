@@ -15,7 +15,8 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
-/public/assets
+/public/assets/*
+!/public/assets/.keep
 
 /config/master.key
 
