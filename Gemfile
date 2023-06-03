@@ -19,7 +19,6 @@ gem 'propshaft'
 gem 'redcarpet'
 gem 'redis'
 gem 'rouge'
-gem 'skylight'
 
 gem 'rack-cache'
 gem 'rack-timeout'

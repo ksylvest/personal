@@ -327,8 +327,6 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    skylight (5.3.4)
-      activesupport (>= 5.2.0)
     slim (5.1.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -414,7 +412,6 @@ DEPENDENCIES
   shoulda-context
   shoulda-matchers
   simplecov
-  skylight
   slim-rails
   stimulus-rails
   turbo-rails
