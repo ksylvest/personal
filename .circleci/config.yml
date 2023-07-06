@@ -34,7 +34,14 @@ jobs:
     steps:
       - checkout
       - setup_node
-      - run: yarn lint
+      - run: yarn eslint app/packs
+
+  prettier:
+    executor: default
+    steps:
+      - checkout
+      - setup_node
+      - run: yarn prettier --check app/packs
 
   rubocop:
     executor: default
@@ -85,6 +92,7 @@ workflows:
   build:
     jobs:
       - eslint
+      - prettier
       - brakeman
       - rubocop
       - rspec

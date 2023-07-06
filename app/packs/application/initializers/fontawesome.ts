@@ -45,7 +45,7 @@ library.add(
   faLinkedin,
   faStackOverflow,
   faTwitter,
-  faVimeo
+  faVimeo,
 );
 
 library.add(
@@ -71,7 +71,7 @@ library.add(
   faServer,
   faSpinner,
   faTags,
-  faTh
+  faTh,
 );
 
 document.addEventListener("turbo:load", () => {
