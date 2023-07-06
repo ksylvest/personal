@@ -3,12 +3,9 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["prettier", "@typescript-eslint"],
   extends: [
-    "prettier",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "prettier",
   ],
-  rules: {
-    "prettier/prettier": "error",
-  },
 };
