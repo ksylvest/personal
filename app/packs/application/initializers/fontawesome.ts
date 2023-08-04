@@ -74,6 +74,4 @@ library.add(
   faTh,
 );
 
-document.addEventListener("turbo:load", () => {
-  dom.i2svg();
-});
+dom.watch();
