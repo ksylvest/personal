@@ -51,7 +51,6 @@ group :test do
   gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
-  gem 'shoulda-context'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'webdrivers'
