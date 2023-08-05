@@ -30,7 +30,6 @@ gem 'aws-sdk-s3', require: false
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 gem 'sentry-rails'
-gem 'slim-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 

@@ -1,0 +1,19 @@
+<title><%= yield(:title) %> | Kevin Sylvestre"</title>
+
+<%= tag.meta charset: "UTF-8" %>
+<%= tag.meta name: "description", content: yield(:description) %>
+<%= tag.meta name: "keywords", content: yield(:keywords) %>
+<%= tag.meta name: "viewport", content: viewport %>
+
+<%= favicon_link_tag("favicon.ico", sizes: "16x16 24x24 32x32 48x48 64x64") %>
+
+<%= csrf_meta_tags %>
+
+<script>
+  RELEASE = <%= raw JSON.generate(release) %>;
+  ENVIRONMENT = <%= raw JSON.generate(Rails.env) %>;
+  SENTRY_DSN = <%= raw JSON.generate(Rails.application.credentials.sentry_dsn) %>;
+</script>
+
+<%= stylesheet_link_tag "admin", "data-turbo-track": "reload" %>
+<%= javascript_include_tag "admin", "data-turbo-track": "reload" %>

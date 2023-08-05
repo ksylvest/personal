@@ -1,0 +1,9 @@
+<%- cache page do -%>
+  <article class="page summary">
+    <h1 class="title"><%= page.title %></h1>
+    <p class="time"><%= time_tag(page.date, l(page.date, format: :human)) %></p>
+    <%= render 'pages/tags', tags: page.tags %>
+    <section class=summary"><%= page.summary %></section>
+    <%= link_to "More", page_path(slug: page.slug), class: "more" %>
+  </article>
+<%- end %>

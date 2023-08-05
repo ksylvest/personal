@@ -1,0 +1,17 @@
+<%- provide :title, "Archive" -%>
+<%- provide :keywords, "kevin, sylvestre, software, engineer, archive" -%>
+<%- provide :description, "An archive of content by a Ruby and iOS developer and designer." -%>
+<%- provide :head -%>
+
+<%- archive = nil -%>
+<div class="archives">
+  <%- @posts.each do |post| -%>
+    <%- unless archive.eql?(post.date.strftime('%B %Y')) -%>
+      <%- archive = post.date.strftime('%B %Y') -%>%
+      <h1 class="segment"><%= archive %>%
+    <%- end -%>
+    <div class="archive">
+      <%= render partial: 'posts/archive', locals: { post: post } %>
+    </div>
+  <%- end -%>
+</div>
