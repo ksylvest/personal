@@ -1,0 +1,24 @@
+<%- provide :title, "Admin » Pages" -%>
+
+<nav class="crumbs">
+  <%= link_to 'Admin', admin_path %> » Pages
+</nav>
+
+<ul class="grid">
+  <%- @pages.each do |page| -%>
+    <li class="grid__entry">
+      <span class="grid__title"><%= truncate page.title, length: 40 %></span>
+      <span class="grid__options">
+        <%= link_to 'Show', page_path(slug: page.slug), class: 'button show' %>
+        <%= link_to 'Edit', edit_admin_page_path(page), class: 'button edit' %>
+        <%= link_to 'Destroy', admin_page_path(page), method: :delete, class: 'button destroy', data: { confirm: "Are you sure?" } %>
+      </span>
+    </li>
+  <%- end -%>
+</ul>
+
+<%= paginate @pages %>
+
+<div class="actions">
+  <%= link_to 'New', new_admin_page_path, class: 'button' %>
+</div>

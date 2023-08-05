@@ -1,0 +1,16 @@
+<%- provide :title, "Projects" -%>
+<%- provide :keywords, "attached, formula, erroneous, identifier, serializer, setup, age, carousel, gridly, growl, lighter, modal, obsere, spin" -%>
+<%- provide :description, "Links to Ruby, Rails, iOS, JS and Bash projects." -%>
+<%- provide :head -%>
+
+<div class="grid">
+  <%- Project.all.each do |project| -%>
+    <%= link_to(String(URI.parse(project.url)), class: "card") do %>
+      <div class="card__icon">
+        <%= tag.i class: project.icon %>
+      </div>
+      <h1 class="card__name"><%= project.name %></h1>
+      <p class="card__description"><%= project.description %></p>
+    <% end %>
+  <%- end %>
+</div>

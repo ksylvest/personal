@@ -1,0 +1,8 @@
+<section id="content">
+  <div class="content">
+    <%- flash.map do |type, message| -%>
+      <%= tag.div(message, class: "flash #{type}") %>
+    <%- end -%>
+    <%= yield %>
+  </div>
+</section>

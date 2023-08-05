@@ -1,0 +1,9 @@
+<%- cache post do -%>
+  <article class="post summary">
+    <h1 class="title"><%= post.title %></h1>
+    <p class="time"><%= time_tag(post.date, l(post.date, format: :human)) %></p>
+    <%= render 'posts/tags', tags: post.tags %>
+    <section class="summary"><%= post.summary %></section>
+    <p class="actions"><%= link_to 'More', post_path(segment: post.segment, slug: post.slug), class: 'more' %></p>
+  </article>
+<%- end -%>

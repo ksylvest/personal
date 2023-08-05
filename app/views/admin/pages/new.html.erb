@@ -1,0 +1,7 @@
+<%- provide :title, "Admin » Pages » New" -%>
+
+<nav class="crumbs">
+  <%= link_to 'Admin', admin_path %> » <%= link_to 'Pages', admin_pages_path %> » New
+</nav>
+
+<%= render 'form', page: @page %>

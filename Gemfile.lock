@@ -327,18 +327,9 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    slim (5.1.1)
-      temple (~> 0.10.0)
-      tilt (>= 2.1.0)
-    slim-rails (3.6.2)
-      actionpack (>= 3.1)
-      railties (>= 3.1)
-      slim (>= 3.0, < 6.0, != 5.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
-    temple (0.10.2)
     thor (1.2.2)
-    tilt (2.1.0)
     timeout (0.4.0)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -407,7 +398,6 @@ DEPENDENCIES
   sentry-rails
   shoulda-matchers
   simplecov
-  slim-rails
   stimulus-rails
   turbo-rails
   web-console
