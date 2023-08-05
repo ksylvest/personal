@@ -322,7 +322,6 @@ GEM
       sentry-ruby (~> 5.10.0)
     sentry-ruby (5.10.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    shoulda-context (2.0.0)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
     simplecov (0.22.0)
@@ -413,7 +412,6 @@ DEPENDENCIES
   rubocop-rspec
   selenium-webdriver
   sentry-rails
-  shoulda-context
   shoulda-matchers
   simplecov
   slim-rails
