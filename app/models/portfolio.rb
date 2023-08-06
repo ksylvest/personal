@@ -1,14 +1,12 @@
 class Portfolio
   attr_reader :name
   attr_reader :summary
-  attr_reader :url
 
   def self.all
     @all ||= YAML.load_file(Rails.root.join('config/portfolio.yml')).map { |config| new(config) }
   end
 
   def initialize(config)
-    @url = config['url']
     @slug = config['slug']
     @name = config['name']
     @summary = config['summary']
