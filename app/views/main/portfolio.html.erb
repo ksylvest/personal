@@ -4,13 +4,7 @@
 <%- provide :head -%>
 
 <%- Portfolio.all.each do |portfolio| -%>
-  <h1>
-    <%- if portfolio.url -%>
-      <%= link_to(portfolio.name, portfolio.url) %>
-    <%- else -%>
-      <%= portfolio.name %>
-    <%- end -%>
-  </h1>
+  <h1><%= portfolio.name %></h1>
 
   <p><%= portfolio.summary %></p>
 
