@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   browser-tools: circleci/browser-tools@1.4.0
+  docker: circleci/docker@2.2.0
   node: circleci/node@5.0.3
   ruby: circleci/ruby@2.0.0
 
@@ -91,6 +92,10 @@ workflows:
   version: 2.1
   build:
     jobs:
+      - docker/hadolint
+      - docker/publish:
+          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          tag: << pipeline.git.revision >>
       - eslint
       - prettier
       - brakeman
