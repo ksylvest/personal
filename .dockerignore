@@ -1,0 +1,17 @@
+/.bundle
+
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+/storage/*
+!/storage/.keep
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+/public/assets/*
+!/public/assets/.keep
+
+/coverage
