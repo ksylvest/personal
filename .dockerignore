@@ -15,5 +15,6 @@
 !/public/assets/.keep
 
 /coverage
+/doc
 
 /node_modules
