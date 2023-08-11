@@ -19,3 +19,8 @@ COPY yarn.lock .
 RUN yarn install && yarn cache clean
 
 COPY . .
+
+RUN bundle exec bootsnap precompile --gemfile app/ lib/
+
+EXPOSE $PORT
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
