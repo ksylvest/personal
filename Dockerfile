@@ -1,13 +1,13 @@
 ARG RUBY_VERSION=3.2.2
 
 FROM ruby:${RUBY_VERSION}-alpine AS core
+WORKDIR /app
 
 RUN \
   apk update && \
   apk upgrade && \
   apk add --update --no-cache build-base libpq-dev tzdata nodejs yarn
 
-WORKDIR /app
 
 RUN bundle config set --local deployment on
 
