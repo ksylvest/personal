@@ -35,38 +35,6 @@ module ApplicationHelper
     }
   end
 
-  def github_url
-    'https://github.com/ksylvest'
-  end
-
-  def twitter_url
-    'https://twitter.com/ksylvest'
-  end
-
-  def facebook_url
-    'https://facebook.com/ksylvest'
-  end
-
-  def dribbble_url
-    'https://dribbble.com/ksylvest'
-  end
-
-  def linkedin_url
-    'https://www.linkedin.com/in/ksylvest'
-  end
-
-  def vimeo_url
-    'https://vimeo.com/ksylvest'
-  end
-
-  def google_url
-    'https://plus.google.com/+KevinSylvestre'
-  end
-
-  def stackoverflow_url
-    'https://stackoverflow.com/users/259900/kevin-sylvestre?rel=author'
-  end
-
   def release
     "#{ENV.fetch('HEROKU_APP_NAME', 'playground')}@#{ENV.fetch('HEROKU_RELEASE_VERSION', 'local')}"
   end
