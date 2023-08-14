@@ -35,8 +35,39 @@ Rails.application.routes.draw do
   get 'posts/:segment/:slug', to: 'posts#show', as: :post
   get 'pages/:slug', to: 'pages#show', as: :page
 
+  direct :github do
+    'https://github.com/ksylvest'
+  end
+
+  direct :twitter do
+    'https://twitter.com/ksylvest'
+  end
+
+  direct :facebook do
+    'https://facebook.com/ksylvest'
+  end
+
+  direct :dribbble do
+    'https://dribbble.com/ksylvest'
+  end
+
+  direct :linkedin do
+    'https://www.linkedin.com/in/ksylvest'
+  end
+
+  direct :vimeo do
+    'https://vimeo.com/ksylvest'
+  end
+
+  direct :google do
+    'https://plus.google.com/+KevinSylvestre'
+  end
+
+  direct :stackoverflow do
+    'https://stackoverflow.com/users/259900/kevin-sylvestre?rel=author'
+  end
+
   %w[wp-login.php].each do |path|
     get path, to: redirect('/')
   end
-
 end
