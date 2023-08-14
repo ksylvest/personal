@@ -5,6 +5,8 @@
 !/log/.keep
 !/tmp/.keep
 
+/config/master.key
+
 /storage/*
 !/storage/.keep
 
