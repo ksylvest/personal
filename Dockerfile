@@ -34,7 +34,7 @@ COPY package.json .
 COPY yarn.lock .
 RUN yarn install && yarn cache clean
 COPY . .
-RUN bundle exec rake assets:precompile
+RUN SECRET_KEY_BASE="SKIP" bundle exec rake assets:precompile
 
 # default:
 
