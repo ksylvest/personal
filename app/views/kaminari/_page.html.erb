@@ -1,3 +1,5 @@
-<li class="page <%= 'active' if page.current? %>">
-  <%= link_to page, url, remote: remote, rel: ((page.next? && 'next') || (page.prev? && 'prev')) || '' %>
-</li>
+<%= link_to(page, url,
+  class: "p-4",
+  remote: remote,
+  rel: ((page.next? && "next") || (page.prev? && "prev")) || ""
+) %>

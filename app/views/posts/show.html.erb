@@ -4,13 +4,8 @@
 <%- provide :head %>
 
 <%- cache @post do -%>
-  <div class="post details">
-    <header class="header">
-      <h1 class="title"><%= @post.title %></h1>
-      <p class="time"><%= time_tag(@post.date, l(@post.date, format: :human)) %></p>
-      <%= render 'posts/tags', tags: @post.tags %>
-    <section class="body">
-      <%= markdown @post.body %>
-    </section>
-  </div>
+  <h1><%= @post.title %></h1>
+  <p><%= time_tag(@post.date, l(@post.date, format: :human)) %></p>
+  <%= render "posts/tags", tags: @post.tags %>
+  <%= markdown @post.body %>
 <%- end -%>

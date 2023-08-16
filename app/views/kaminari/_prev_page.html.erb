@@ -1,3 +1,13 @@
-<li class="prev <%= 'disabled' if current_page.first? %>">
-  <%= link_to raw(t 'views.pagination.previous'), (current_page.first? ? '#' : url), rel: 'prev', remote: remote %>
-</li>
+<div class="flex flex-1 w-0 justify-start">
+  <%- if current_page.first? %>
+    <span class="p-4 pl-0 text-slate-200">
+      <%= raw(t("views.pagination.previous")) %>
+    </span>
+  <%- else -%>
+    <%= link_to(raw(t("views.pagination.previous")), url,
+      rel: "prev",
+      remote: remote,
+      class: "p-4 pl-0"
+    ) %>
+  <%- end -%>
+</div>

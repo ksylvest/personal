@@ -3,17 +3,9 @@
 <%- provide :description, "Search through posts and pages to find the results you are looking for." %>
 <%- provide :head %>
 
-<%= render 'form', search: @search %>
+<%= render "form", search: @search %>
 
 <%- if @search.present? -%>
-  <%- cache @posts do -%>
-    <div class="posts">
-      <%= render partial: 'posts/summary', collection: @posts, as: :post %>
-    </div>
-  <%- end %>
-  <%- cache @pages do -%>
-    <div class="pages">
-      <%= render partial: 'pages/summary', collection: @pages, as: :page %>
-    </div>
-  <%- end %>
+  <%= render partial: "posts/summary", collection: @posts, as: :post %>
+  <%= render partial: "pages/summary", collection: @pages, as: :page %>
 <%- end -%>

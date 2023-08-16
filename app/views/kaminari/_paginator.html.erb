@@ -1,7 +1,7 @@
 <%= paginator.render do %>
-  <div class="pagination">
-    <ul>
-      <%= prev_page_tag %>
+  <nav class="flex items-center justify-between border-t border-slate-200 text-lg mt-8">
+    <%= prev_page_tag %>
+    <div class="flex">
       <%- each_page do |page| -%>
         <%- if page.left_outer? || page.right_outer? || page.inside_window? -%>
           <%= page_tag page %>
@@ -9,7 +9,7 @@
           <%= gap_tag %>
         <%- end -%>
       <%- end -%>
-      <%= next_page_tag %>
-    </ul>
+    </div>
+    <%= next_page_tag %>
   </div>
 <% end %>

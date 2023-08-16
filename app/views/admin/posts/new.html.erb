@@ -1,7 +1,11 @@
 <%- provide :title, "Admin » Posts » New" -%>
 
-<nav class="crumbs">
-  <%= link_to 'Admin', admin_path %> » <%= link_to 'Posts', admin_posts_path %> » New
+<nav class="breadcrumb">
+  <%= link_to "Admin", admin_path %>
+  <span>/</span>
+  <%= link_to "Posts", admin_posts_path %>
+  <span>/</span>
+  <span>New</span>
 </nav>
 
-<%= render 'form', post: @post %>
+<%= render "form", post: @post %>

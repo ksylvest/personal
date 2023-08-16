@@ -1,20 +1,20 @@
-<header id="header">
-  <div class="content">
-    <%= link_to 'Admin', admin_path, class: "logo #{'active' if active?("admin/dashboard")}" %>
-    <%- if authenticated? -%>
-      <nav class="navigation global">
-        <ul>
-          <li><%=  link_to 'Pages', admin_pages_path, class: ('active' if active?("admin/pages")) %></li>
-          <li><%=  link_to 'Posts', admin_posts_path, class: ('active' if active?("admin/posts")) %></li>
-          <li><%=  link_to 'Attachments', admin_attachments_path, class: ('active' if active?("admin/attachments")) %></li>
-        </ul>
-      </nav>
-      <nav class="navigation account">
-        <ul>
-          <li><%=  link_to 'Account', edit_admin_user_path, class: ('active' if active?("admin/users")) %></li>
-          <li><%=  link_to 'Logout', admin_session_path, method: 'delete' %></li>
-        </ul>
-      </nav>
-    <%- end -%>
+<header class="navbar">
+  <div class="navbar__content">
+    <nav class="flex gap-4">
+      <%= link_to "Admin", admin_path, class: active?("admin/dashboard") ? "navbar__item" : "navbar__link" %>
+      <%- if authenticated? -%>
+        <%= link_to "Pages", admin_pages_path, class: active?("admin/pages") ? "navbar__item" : "navbar__link" %>
+        <%= link_to "Posts", admin_posts_path, class: active?("admin/posts") ? "navbar__item" : "navbar__link" %>
+        <%= link_to "Attachments", admin_attachments_path, class: active?("admin/attachments") ? "navbar__item" : "navbar__link"  %>
+      <%- end -%>
+    </nav>
+    <nav class="navbar__nav">
+      <%- if authenticated? -%>
+        <%= link_to "Account", edit_admin_user_path, class: active?("admin/users") ? "navbar__item" : "navbar__link" %>
+        <%= link_to "Logout", admin_session_path, class: "navbar__link", method: "delete" %>
+      <%- else %>
+        <%= link_to "Login", new_admin_session_path, class: active?("admin/sessions") ? "navbar__item" : "navbar__link" %>
+      <%- end -%>
+    </nav>
   </div>
 </header>

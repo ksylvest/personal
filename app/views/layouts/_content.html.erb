@@ -1,8 +1,6 @@
-<section id="content">
-  <div class="content">
-    <%- flash.each do |type, message| -%>
-      <%= tag.div(message, class: "flash #{type}") %>
-    <%- end -%>
-    <%= yield %>
-  </div>
+<section class="my-8">
+  <%- flash.each do |type, message| -%>
+    <%= tag.div(message, class: "flash #{type}") %>
+  <%- end -%>
+  <%= yield %>
 </section>

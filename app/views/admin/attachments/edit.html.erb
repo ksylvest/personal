@@ -1,7 +1,11 @@
 <%- provide :title, "Admin » Attachments » Edit" -%>
 
-<nav class="crumbs">
-  <%= link_to 'Admin', admin_path %> » <%=link_to 'Attachments', admin_attachments_path %> » Edit
+<nav class="breadcrumb">
+  <%= link_to "Admin", admin_path %>
+  <span>/</span>
+  <%= link_to "Attachments", admin_attachments_path %>
+  <span>/</span>
+  <span>Edit</span>
 </nav>
 
-<%= render 'form', attachment: @attachment %>
+<%= render "form", attachment: @attachment %>

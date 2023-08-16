@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%= render 'layouts/head' %>
-    <%= render 'layouts/metadata' %>
+    <%= render "layouts/head" %>
+    <%= render "layouts/metadata" %>
   </head>
   <body>
-    <div id="application">
-      <div class="wrapper">
-        <%= render 'layouts/header' %>
-        <%= render 'layouts/content' %>
-        <div class="push"></div>
-      </div>
-      <%= render 'layouts/footer' %>
-    <%= render 'layouts/analytics' %>
+    <main class="container mx-auto my-8 px-8 max-w-5xl">
+      <%= render "layouts/header" %>
+      <%= render "layouts/content" %>
+      <%= render "layouts/footer" %>
+      <%= render "layouts/analytics" %>
+    </main>
   </body>
 </html>

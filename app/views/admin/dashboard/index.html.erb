@@ -1,13 +1,13 @@
 <%- provide :title, "Admin » Dashboard" -%>
 
-<nav class="crumbs">
-  <%= link_to 'Admin', admin_path %> » Dashboard
+<nav class="breadcrumb">
+  <%= link_to "Admin", admin_path %>
+  <span>/</span>
+  <span>Dashboard</span>
 </nav>
 
-<div class="hero">
-  <h1>Welcome</h1>
-  <div class="buttons">
-    <%= link_to 'Create a new Post', new_admin_post_path, class: 'button' %>
-    <%= link_to 'Create a new Page', new_admin_page_path, class: 'button' %>
-  </div>
+<h1>Welcome</h1>
+<div class="flex gap-4">
+  <%= link_to "Create a new Post", new_admin_post_path, class: "button" %>
+  <%= link_to "Create a new Page", new_admin_page_path, class: "button" %>
 </div>

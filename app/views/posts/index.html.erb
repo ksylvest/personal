@@ -3,10 +3,11 @@
 <%- provide :description, "Writings of Ruby and iOS developer and designer.#{page(params[:page])}" %>
 <%- provide :head, rel_next_prev_link_tags(@posts) %>
 
-<%- cache @posts do -%>
-  <div class="posts">
-    <%= render partial: 'summary', collection: @posts, as: :post %>
-  </div>
-<%- end %>
+
+<div class="space-y-16">
+  <%- cache @posts do -%>
+    <%= render partial: "summary", collection: @posts, as: :post %>
+  <%- end %>
+</div>
 
 <%= paginate @posts %>

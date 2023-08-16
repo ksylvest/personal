@@ -11,12 +11,13 @@
     "@hotwired/turbo-rails": "^7.3.0",
     "@rails/ujs": "^7.0.8",
     "@sentry/browser": "^7.68.0",
+    "@tailwindcss/forms": "^0.5.6",
     "@types/loadjs": "^4.0.2",
-    "@types/marked": "^5.0.1",
+    "autoprefixer": "^10.4.15",
     "esbuild": "^0.19.2",
     "loadjs": "^4.2.0",
-    "marked": "^9.0.0",
-    "sass": "^1.66.1",
+    "postcss": "^8.4.27",
+    "tailwindcss": "^3.3.3",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
@@ -29,7 +30,8 @@
   },
   "scripts": {
     "build": "esbuild app/packs/entrypoints/*.ts --bundle --sourcemap --minify --outdir=app/assets/builds",
-    "build:css": "sass ./app/packs/entrypoints:./app/assets/builds --style=compressed",
+    "build:css": "tailwindcss --input ./app/packs/entrypoints/application.tailwind.css --output ./app/assets/builds/application.css --minify",
+    "build:css:admin": "tailwindcss --input ./app/packs/entrypoints/admin.tailwind.css --output ./app/assets/builds/admin.css --minify",
     "lint": "eslint app/packs --ext .js,.jsx,.ts,.tsx"
   }
 }

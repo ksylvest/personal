@@ -1,10 +1,8 @@
-<%- provide :title, 'Unprocessable' -%>
-<%- provide :description, 'Something went wrong.' -%>
+<%- provide :title, "Unprocessable" -%>
+<%- provide :description, "Something went wrong." -%>
 <%- provide :keywords -%>
 <%- provide :head -%>
 
-<section class="error unprocessable">
-  <h1>The change you wanted was rejected.</h1>
-  <h2>Maybe you tried to change something you do not have access to.</h2>
-  <p>If you continue to experience problems please contact us at <%= mail_to 'info@ksylvest.com' %>.</p>
-</section>
+<h1>The change you wanted was rejected.</h1>
+<h2>Maybe you tried to change something you do not have access to.</h2>
+<p>If you continue to experience problems please contact us at <%= mail_to "info@ksylvest.com" %>.</p>

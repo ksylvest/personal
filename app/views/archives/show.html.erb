@@ -4,14 +4,13 @@
 <%- provide :head -%>
 
 <%- archive = nil -%>
-<div class="archives">
-  <%- @posts.each do |post| -%>
-    <%- unless archive.eql?(post.date.strftime('%B %Y')) -%>
-      <%- archive = post.date.strftime('%B %Y') -%>%
-      <h1 class="segment"><%= archive %>%
-    <%- end -%>
-    <div class="archive">
-      <%= render partial: 'posts/archive', locals: { post: post } %>
-    </div>
+
+<%- @posts.each do |post| -%>
+
+  <%- unless archive.eql?(post.date.strftime("%B %Y")) -%>
+    <%- archive = post.date.strftime("%B %Y") -%>
+    <h1 class="segment"><%= archive %></h1>
   <%- end -%>
-</div>
+
+  <%= render partial: "posts/summary", locals: { post: post } %>
+<%- end -%>

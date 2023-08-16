@@ -1,24 +1,30 @@
 <%- provide :title, "Admin » Pages" -%>
 
-<nav class="crumbs">
-  <%= link_to 'Admin', admin_path %> » Pages
+<nav class="breadcrumb">
+  <%= link_to "Admin", admin_path %>
+  <span>/</span>
+  <span>Pages</span>
 </nav>
 
-<ul class="grid">
-  <%- @pages.each do |page| -%>
-    <li class="grid__entry">
-      <span class="grid__title"><%= truncate page.title, length: 40 %></span>
-      <span class="grid__options">
-        <%= link_to 'Show', page_path(slug: page.slug), class: 'button show' %>
-        <%= link_to 'Edit', edit_admin_page_path(page), class: 'button edit' %>
-        <%= link_to 'Destroy', admin_page_path(page), method: :delete, class: 'button destroy', data: { confirm: "Are you sure?" } %>
-      </span>
-    </li>
-  <%- end -%>
-</ul>
+<div class="my-4 text-right">
+  <%= link_to "New", new_admin_page_path, class: "button" %>
+</div>
+
+<table class="max-w-full min-w-full">
+  <tbody class="divide-y divide-gray-200">
+    <%- @pages.each do |page| -%>
+      <tr>
+        <td class="py-4"><%= truncate page.title, length: 40 %></span>
+        <td class="py-4">
+          <div class="flex justify-end gap-4">
+            <%= link_to "Show", page_path(slug: page.slug) %>
+            <%= link_to "Edit", edit_admin_page_path(page) %>
+            <%= link_to "Destroy", admin_page_path(page), method: :delete, data: { confirm: "Are you sure?" } %>
+          </div>
+        </td>
+      </tr>
+    <%- end -%>
+  </tbody>
+</table>
 
 <%= paginate @pages %>
-
-<div class="actions">
-  <%= link_to 'New', new_admin_page_path, class: 'button' %>
-</div>

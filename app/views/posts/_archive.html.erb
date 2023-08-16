@@ -1,7 +1,0 @@
-<%- cache post do -%>
-  <article>
-    <h1 class="title"><%= link_to post.title, post_path(segment: post.segment, slug: post.slug) %></h1>
-    <section class="summary"><%= post.summary %></section>
-    <p class="actions"><%= link_to 'More', post_path(segment: post.segment, slug: post.slug), class: 'more' %></p>
-  </article>
-<%- end -%>

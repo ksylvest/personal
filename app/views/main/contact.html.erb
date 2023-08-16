@@ -3,60 +3,60 @@
 <%- provide :description, "How to get in touch. Try GitHub, Stack, Twitter, Facebook, LinkedIn, Google or Vimeo." -%>
 <%- provide :head -%>
 
-<div class="grid">
-  <%= link_to github_url, class: "card" do %>
-    <div class="card__icon">
+<div class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+  <%= link_to github_url, class: "text-center rounded-2xl p-8 bg-slate-100 hover:bg-slate-200" do %>
+    <div class="font-normal text-6xl text-slate-400 my-4 first:mt-0 last:mb-0">
       <i class="fab fa-github"></i>
     </div>
-    <h1 class="card__name">GitHub</h1>
+    <h1 class="font-black text-2xl text-slate-800 mt-4">GitHub</h1>
   <% end %>
 
-  <%= link_to stackoverflow_url, class: "card" do %>
-    <div class="card__icon">
+  <%= link_to stackoverflow_url, class: "text-center rounded-2xl p-8 bg-slate-100 hover:bg-slate-200" do %>
+    <div class="font-normal text-6xl text-slate-400 mb-4">
       <i class="fab fa-stack-overflow"></i>
     </div>
-    <h1 class="card__name">StackOverflow</h1>
+    <h1 class="font-black text-2xl text-slate-800 mt-4">StackOverflow</h1>
   <% end %>
 
-  <%= link_to twitter_url, class: "card" do %>
-    <div class="card__icon">
+  <%= link_to twitter_url, class: "text-center rounded-2xl p-8 bg-slate-100 hover:bg-slate-200" do %>
+    <div class="font-normal text-6xl text-slate-400 mb-4">
       <i class="fab fa-twitter"></i>
     </div>
-    <h1 class="card__name">Twitter</h1>
+    <h1 class="font-black text-2xl text-slate-800 mt-4">Twitter</h1>
   <% end %>
 
-  <%= link_to facebook_url, class: "card" do %>
-    <div class="card__icon">
+  <%= link_to facebook_url, class: "text-center rounded-2xl p-8 bg-slate-100 hover:bg-slate-200" do %>
+    <div class="font-normal text-6xl text-slate-400 mb-4">
       <i class="fab fa-facebook"></i>
     </div>
-    <h1 class="card__name">Facebook</h1>
+    <h1 class="font-black text-2xl text-slate-800 mt-4">Facebook</h1>
   <% end %>
 
-  <%= link_to linkedin_url, class: "card" do %>
-    <div class="card__icon">
+  <%= link_to linkedin_url, class: "text-center rounded-2xl p-8 bg-slate-100 hover:bg-slate-200" do %>
+    <div class="font-normal text-6xl text-slate-400 mb-4">
       <i class="fab fa-linkedin"></i>
     </div>
-    <h1 class="card__name">LinkedIn</h1>
+    <h1 class="font-black text-2xl text-slate-800 mt-4">LinkedIn</h1>
   <% end %>
 
-  <%= link_to dribbble_url, class: "card" do %>
-    <div class="card__icon">
+  <%= link_to dribbble_url, class: "text-center rounded-2xl p-8 bg-slate-100 hover:bg-slate-200" do %>
+    <div class="font-normal text-6xl text-slate-400 mb-4">
       <i class="fab fa-dribbble"></i>
     </div>
-    <h1 class="card__name">Dribbble</h1>
+    <h1 class="font-black text-2xl text-slate-800 mt-4">Dribbble</h1>
   <% end %>
 
-  <%= link_to google_url, class: "card" do %>
-    <div class="card__icon">
+  <%= link_to google_url, class: "text-center rounded-2xl p-8 bg-slate-100 hover:bg-slate-200" do %>
+    <div class="font-normal text-6xl text-slate-400 mb-4">
       <i class="fab fa-google"></i>
     </div>
-    <h1 class="card__name">Google</h1>
+    <h1 class="font-black text-2xl text-slate-800 mt-4">Google</h1>
   <% end %>
 
-  <%= link_to vimeo_url, class: "card" do %>
-    <div class="card__icon">
+  <%= link_to vimeo_url, class: "text-center rounded-2xl p-8 bg-slate-100 hover:bg-slate-200" do %>
+    <div class="font-normal text-6xl text-slate-400 mb-4">
       <i class="fab fa-vimeo"></i>
     </div>
-    <h1 class="card__name">Vimeo</h1>
+    <h1 class="font-black text-2xl text-slate-800 mt-4">Vimeo</h1>
   <% end %>
 </div>

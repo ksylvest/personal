@@ -1,22 +1,18 @@
-<header id="header">
-  <div class="content">
-    <%= link_to root_path, class: 'avatar' do %>
+<header>
+  <div class="mb-4 flex items-center justify-center">
+    <%= link_to root_path do %>
       <picture>
-        <source type="image/webp" srcset="<%= srcset('avatar/default', sizes: %w[100w 200w 300w 400w 500w 600w], format: 'webp') %>">
-        <%= image_tag image_path('avatar/default.jpg'), alt: 'Kevin Sylvestre', class: 'image', srcset: srcset('avatar/default', sizes: %w[100w 200w 300w 400w 500w 600w], format: 'jpg') %>
+        <source type="image/webp" srcset="<%= srcset("avatar/default", sizes: %w[100w 200w 300w 400w 500w 600w], format: "webp") %>">
+        <source type="image/jpeg" srcset="<%= srcset("avatar/default", sizes: %w[100w 200w 300w 400w 500w 600w], format: "jpg") %>">
+        <%= image_tag image_path("avatar/default.jpg"), alt: "Kevin Sylvestre", class: "block rounded-2xl w-48 h-48" %>
       </picture>
     <% end %>
-    <h1 class="title">Kevin Sylvestre</h1>
-    <h2 class="subtitle">A Ruby and iOS developer and designer.</h2>
-    <nav class="links">
-      <ul>
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'About', about_path %></li>
-        <li><%= link_to 'Contact', contact_path %></li>
-        <li><%= link_to 'Projects', projects_path %></li>
-        <li><%= link_to 'Portfolio', portfolio_path %></li>
-        <li><%= link_to 'Search', search_path %></li>
-      </ul>
-    </nav>
   </div>
+  <h1 class="my-4 title">Kevin Sylvestre</h1>
+  <h2 class="my-4 subtitle">A Ruby and Swift developer and designer.</h2>
+  <nav class="mt-4 nav">
+    <%- header_nav.each do |(text,link)| %>
+      <%= link_to text, link %>
+    <%- end -%>
+  </nav>
 </header>

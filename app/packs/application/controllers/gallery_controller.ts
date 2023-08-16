@@ -3,11 +3,11 @@ import { Controller } from "@hotwired/stimulus";
 const ESC_KEY = 27;
 
 export class GalleryController extends Controller {
-  fieldTarget: HTMLInputElement;
   public static targets = ["dialog", "content"];
 
   public zoom(event): void {
-    this.content.src = event.params.url;
+    const link = event.target.closest("a");
+    this.content.src = link.href;
     this.show();
   }
 
