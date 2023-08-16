@@ -1,9 +1,19 @@
 <%- cache page do -%>
-  <article class="page summary">
-    <h1 class="title"><%= page.title %></h1>
-    <p class="time"><%= time_tag(page.date, l(page.date, format: :human)) %></p>
-    <%= render 'pages/tags', tags: page.tags %>
-    <section class=summary"><%= page.summary %></section>
-    <%= link_to "More", page_path(slug: page.slug), class: "more" %>
+  <article>
+    <h3 class="mb-2">
+      <%= link_to(page.title, page_path(slug: page.slug)) %>
+    </h3>
+
+    <p class="my-2">
+      <%= time_tag(page.date, l(page.date, format: :human), class: "text-slate-400") %>
+    </p>
+
+    <div class="my-2">
+      <%= render "pages/tags", tags: page.tags %>
+    </div>
+
+    <p class="mt-2">
+      <%= page.summary %>
+    </p>
   </article>
-<%- end %>
+<%- end -%>

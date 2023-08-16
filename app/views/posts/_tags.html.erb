@@ -1,9 +1,7 @@
-<ul class="tags">
+<nav class="flex gap-2">
   <%- tags.each do |tag| -%>
-    <li class="tag">
-      <%= link_to posts_path(tag: tag) do %>
-        #<%= tag %>
-      <% end %>
-    </li>
+    <%= link_to posts_path(tag: tag) do %>
+      #<%= tag %>
+    <% end %>
   <%- end -%>
-</ul>
+</nav>

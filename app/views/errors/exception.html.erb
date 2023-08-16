@@ -1,10 +1,8 @@
-<%- provide :title, 'Exception' -%>
-<%- provide :description, 'Something went wrong.' -%>
+<%- provide :title, "Exception" -%>
+<%- provide :description, "Something went wrong." -%>
 <%- provide :keywords -%>
 <%- provide :head -%>
 
-<section class="error exception">
-  <h1>Something went wrong.</h1>
-  <h2>We have been notified of the issue and will try and fix it.</h2>
-  <p>If you continue to experience problems please contact us at <%= mail_to 'info@ksylvest.com' %>.</p>
-</section>
+<h1>Something went wrong.</h1>
+<h2>We have been notified of the issue and will try and fix it.</h2>
+<p>If you continue to experience problems please contact us at <%= mail_to "info@ksylvest.com" %>.</p>

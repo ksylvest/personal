@@ -1,27 +1,21 @@
 <%= form_for user, url: admin_user_path do |form| %>
-  <div class="input">
-    <div class="icon">
-      <i class="fas fa-user"></i>
-    </div>
+  <div class="my-4">
+    <%= form.label :name %>
     <%= form.text_field :name, placeholder: "Name" %>
+    <%= errors user, :name %>
   </div>
-  <%= errors user, :name %>
 
-  <div class="input">
-    <div class="icon">
-      <i class="fas fa-envelope"></i>
-    </div>
+  <div class="my-4">
+    <%= form.label :email %>
     <%= form.email_field :email, placeholder: "Email" %>
+    <%= errors user, :email %>
   </div>
-  <%= errors user, :email %>
 
-  <div class="input">
-    <div class="icon">
-      <i class="fas fa-lock"></i>
-    </div>
+  <div class="my-4">
+    <%= form.label :password %>
     <%= form.password_field :password, placeholder: "Password" %>
+    <%= errors user, :password %>
   </div>
-  <%= errors user, :password %>
 
-  <%= form.submit commit, class: "submit" %>
+  <%= form.submit commit %>
 <% end %>

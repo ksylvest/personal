@@ -1,18 +1,8 @@
-<footer id="footer">
-  <div class="content">
-    <nav class="social">
-      <ul>
-        <li><%= link_to 'GitHub', github_url %></li>
-        <li><%= link_to 'Twitter', twitter_url %></li>
-        <li><%= link_to 'Facebook', facebook_url %></li>
-        <li><%= link_to 'Linkedin', linkedin_url %></li>
-        <li><%= link_to 'Dribbble', dribbble_url %></li>
-        <li><%= link_to 'Google', google_url %></li>
-        <li><%= link_to 'Stack', stackoverflow_url %></li>
-        <li><%= link_to 'Vimeo', vimeo_url %></li>
-        <li><%= link_to 'Feed', feed_url(:atom) %></li>
-      </ul>
-    </nav>
-    <p class="copy"> &copy; <%= Time.now.year %> Kevin Sylvestre</p>
-  </div>
+<footer>
+  <nav class="mb-4 nav">
+    <%- footer_nav.each do |(text, link)| -%>
+      <%= link_to text, link %>
+    <%- end -%>
+  </nav>
+  <p class="mt-4 copy"> &copy; <%= Time.current.year %> Kevin Sylvestre</p>
 </footer>

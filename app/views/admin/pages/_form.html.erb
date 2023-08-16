@@ -1,37 +1,23 @@
 <%= form_for [:admin, page] do |form| %>
-
-  <%= form.text_field :title, placeholder: "Title", class: 'title' %>
-  <%= errors page, :title %>
-
-  <%= form.text_field :summary, placeholder: "Summary" %>
-  <%= errors page, :summary %>
-
-  <div class="sectioned" data-controller="sectioned">
-    <div class="tabs">
-      <a class="tab" href='#' data-sectioned-target="tab" data-action="click->sectioned#tab" data-index=0>Manage</a>
-      <a class="tab" href='#' data-sectioned-target="tab" data-action="click->sectioned#tab" data-index=1> Preview</a>
-    </div>
-    <div class="panels" data-controller="previewable">
-      <div class="panel" data-sectioned-target="panel" data-index=0>
-         <%= form.text_area :body, placeholder: "Body", class: 'body', data: { previewable_target: "field", action: "change->previewable#change" } %>
-         <%= errors page, :body %>
-      </div>
-      <div class="panel" data-sectioned-target="panel" data-index=1>
-        <div class="result" data-previewable-target="result"></div>
-      </div>
-    </div>
+  <div class="my-4">
+    <%= form.text_field :title, placeholder: "Title" %>
+    <%= errors page, :title %>
   </div>
 
-  <div class="input">
-    <div class="icon">
-      <i class="fas fa-tags"></i>
-    </div>
-    <%= form.text_field :taggables, placeholder: "Tags", class: 'tags' %>
-  </div>
-  <%= errors page, :tags %>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="my-4">
+    <%= form.text_field :summary, placeholder: "Summary" %>
+    <%= errors page, :summary %>
   </div>
 
+  <div class="my-4">
+    <%= form.text_area :body, placeholder: "Body" %>
+    <%= errors page, :body %>
+  </div>
+
+  <div class="my-4">
+    <%= form.text_field :taggables, placeholder: "Tags" %>
+    <%= errors page, :tags %>
+  </div>
+
+  <%= form.submit %>
 <% end %>

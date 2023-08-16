@@ -1,14 +1,14 @@
-<%= render 'entry', path: root_url, frequency: 'weekly', priority: 1.0 %>
-<%= render 'entry', path: about_url, frequency: 'weekly', priority: 1.0 %>
-<%= render 'entry', path: contact_url, frequency: 'weekly', priority: 1.0 %>
-<%= render 'entry', path: projects_url, frequency: 'weekly', priority: 1.0 %>
-<%= render 'entry', path: portfolio_url, frequency: 'weekly', priority: 1.0 %>
-<%= render 'entry', path: search_url, frequency: 'weekly', priority: 1.0 %>
+<%= render "entry", path: root_url, frequency: "weekly", priority: 1.0 %>
+<%= render "entry", path: about_url, frequency: "weekly", priority: 1.0 %>
+<%= render "entry", path: contact_url, frequency: "weekly", priority: 1.0 %>
+<%= render "entry", path: projects_url, frequency: "weekly", priority: 1.0 %>
+<%= render "entry", path: portfolio_url, frequency: "weekly", priority: 1.0 %>
+<%= render "entry", path: search_url, frequency: "weekly", priority: 1.0 %>
 
 <%- cache @pages do -%>
-  <%= render partial: 'page', collection: @pages, as: :page %>
+  <%= render partial: "page", collection: @pages, as: :page %>
 <%- end -%>
 
 <%- cache @posts do -%>
-  <%= render partial: 'post', collection: @posts, as: :post %>
+  <%= render partial: "post", collection: @posts, as: :post %>
 <%- end -%>

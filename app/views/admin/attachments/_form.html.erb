@@ -1,12 +1,13 @@
 <%= form_for [:admin, attachment.becomes(Attachment)] do |form| %>
-
-  <%= form.text_field :name, placeholder: "Name" %>
-  <%= errors attachment, :name %>
-
-  <%= form.file_field :file, class: 'file' %>
-  <%= errors attachment, :file %>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="my-4">
+    <%= form.text_field :name, placeholder: "Name" %>
+    <%= errors attachment, :name %>
   </div>
+
+  <div class="my-4">
+    <%= form.file_field :file %>
+    <%= errors attachment, :file %>
+  </div>
+
+  <%= form.submit %>
 <% end %>

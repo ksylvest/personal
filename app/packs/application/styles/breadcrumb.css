@@ -1,0 +1,5 @@
+@layer components {
+  .breadcrumb {
+    @apply bg-slate-100 mb-4 p-4 rounded-md flex gap-4;
+  }
+}

@@ -1,24 +1,32 @@
 <%- provide :title, "Admin » Posts" -%>
 
-<nav class="crumbs">
-  <%= link_to 'Admin', admin_path %> » Posts
+<nav class="breadcrumb">
+  <%= link_to "Admin", admin_path %>
+  <span>/</span>
+  <span>Posts</span>
 </nav>
 
-<ul class="grid">
-  <%- @posts.each do |post| -%>
-    <li class="grid__entry">
-      <span class="grid__title"><%= truncate post.title, length: 40 %></span>
-      <span class="grid__options">
-        <%= link_to 'Show', post_path(segment: post.segment, slug: post.slug), class: 'button show' %>
-        <%= link_to 'Edit', edit_admin_post_path(post), class: 'button edit' %>
-        <%= link_to 'Destroy', admin_post_path(post), method: :delete, class: 'button destroy', data: { confirm: "Are you sure?" } %>
-      </span>
-    </li>
-  <%- end -%>
-</ul>
+<div class="my-4 text-right">
+  <%= link_to "New", new_admin_post_path, class: "button" %>
+</div>
+
+<table class="max-w-full min-w-full">
+  <tbody class="divide-y divide-gray-200">
+    <%- @posts.each do |post| -%>
+      <tr>
+        <td class="py-4">
+          <%= truncate post.title, length: 40 %>
+        </td>
+        <td class="py-4">
+          <div class="flex justify-end gap-4">
+            <%= link_to "Show", post_path(segment: post.segment, slug: post.slug) %>
+            <%= link_to "Edit", edit_admin_post_path(post) %>
+            <%= link_to "Destroy", admin_post_path(post), method: :delete, data: { confirm: "Are you sure?" } %>
+          </div>
+        </td>
+      </tr>
+    <%- end -%>
+  </tbody>
+</table>
 
 <%= paginate @posts %>
-
-<div class="actions">
-  <%= link_to 'New', new_admin_post_path, class: 'button' %>
-</div>

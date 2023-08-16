@@ -1,21 +1,15 @@
 <%= form_for session, url: admin_session_path do |form| %>
   <%= errors session, :base %>
 
-  <div class="input">
-    <div class="icon">
-      <i class="fas fa-envelope"></i>
-    </div>
+  <div class="my-4">
     <%= form.email_field :email, placeholder: "Email" %>
+    <%= errors session, :email %>
   </div>
-  <%= errors session, :email %>
 
-  <div class="input">
-    <div class="icon">
-      <i class="fas fa-lock"></i>
-    </div>
+  <div class="my-4">
     <%= form.password_field :password, placeholder: "Password" %>
+    <%= errors session, :password %>
   </div>
-  <%= errors session, :password %>
 
-  <%= form.submit commit, class: "submit" %>
+  <%= form.submit commit %>
 <% end %>

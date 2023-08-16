@@ -1,33 +1,30 @@
 <%- provide :title, "Portfolio" -%>
-<%- provide :keywords, "clutter, pose, hearts, vidfolia, pickupfc, productwiki" -%>
-<%- provide :description, "iOS and web apps designed or developed including Pose, Hearts, Vidfolia, Winescan, PickupFC and More!" -%>
+<%- provide :keywords, "clutter, pose, hearts, vidfolia, winescan" -%>
+<%- provide :description, "iOS and web apps designed or developed including Pose, Hearts, Vidfolia, Winescan and More!" -%>
 <%- provide :head -%>
 
-<%- Portfolio.all.each do |portfolio| -%>
-  <h1><%= portfolio.name %></h1>
+<div class="flex flex-col gap-8">
+  <%- Portfolio.all.each do |portfolio| -%>
+    <section>
+      <h3 class="mb-8 text-4xl"><%= portfolio.name %></h1>
 
-  <p><%= portfolio.summary %></p>
+      <p class="my-8"><%= portfolio.summary %></p>
 
-  <div data-controller="gallery">
-    <div class="grid">
-      <%- portfolio.images do |image| -%>
-        <div class="zoomer" data-action='click->gallery#zoom' data-gallery-url-param="<%= image_path(image[:original]) %>">
-          <%= image_tag image_path(image[:thumb]), size: image[:size], class: 'zoomer__image' %>
-          <div class="zoomer__mask"></div>
+      <div class="mt-8" data-controller="gallery">
+        <div class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+          <%- portfolio.images do |image| -%>
+            <%= link_to image_path(image[:original]), data: { action: "click->gallery#zoom:prevent:stop" }, target: "_blank" do %>
+              <%= image_tag image_path(image[:thumb]), size: image[:size], class: "rounded-2xl" %>
+            <% end %>
+          <%- end -%>
         </div>
-      <%- end -%>
-    </div>
-    <div class="lighten" data-gallery-target="dialog" style="display: none">
-      <div class="lighten__overlay" data-gallery-target="overlay" data-action='click->gallery#close'></div>
-      <div class="lighten__container">
-        <img class="lighten__content" data-gallery-target="content">
-        <a class="lighten__close" data-gallery-target="close" data-action='click->gallery#close'>×</a>
+        <div class="lighten" data-gallery-target="dialog" style="display: none" data-action="click->gallery#close:prevent:stop">
+          <div class="lighten__container">
+            <img class="lighten__content" data-gallery-target="content">
+            <button class="lighten__close" data-gallery-target="close" data-action="click->gallery#close:prevent:stop">×</a>
+          </div>
+        </div>
       </div>
-    </div>
-
-  <%- portfolio.videos do |video| -%>
-    <div class="player">
-      <%= tag.iframe width: 960, height: 540, frameborder: 0, src: video[:url] %>
-    </div>
+    </section>
   <%- end -%>
-<%- end -%>
+</div>

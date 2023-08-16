@@ -1,26 +1,33 @@
 <%- provide :title, "Admin » Attachments" -%>
 
-<nav class="crumbs">
-  <%= link_to 'Admin', admin_path %> » Attachments
-</nav>
+<div class="my-4">
+  <nav class="breadcrumb">
+    <%= link_to "Admin", admin_path %>
+    <span>/</span>
+    <span>Attachments</span>
+  </nav>
+</div>
 
-<ul class="grid">
-  <%- @attachments.each do |attachment| -%>
-    <li class="grid__entry">
-      <span class="grid__icon">
-        <%= tag.i class: attachment.icon %>
-      </span>
-      <span class="grid__title"><%= attachment.name %></span>
-      <span class="grid__options">
-        <%= link_to 'Edit', edit_admin_attachment_path(attachment), class: 'button edit' %>
-        <%= link_to 'Destroy', admin_attachment_path(attachment), method: :delete, class: 'button destroy', data: { confirm: "Are you sure?" } %>
-      </span>
-    </li>
-  <%- end -%>
-</ul>
+<div class="my-4 text-right">
+  <%= link_to "New", new_admin_attachment_path, class: "button" %>
+</div>
+
+<div class="my-4">
+  <table class="max-w-full min-w-full">
+    <tbody class="divide-y divide-gray-200">
+      <%- @attachments.each do |attachment| -%>
+        <tr>
+          <td class="py-4"><%= attachment.name %></td>
+          <td class="py-4">
+            <div class="flex justify-end gap-4">
+              <%= link_to "Edit", edit_admin_attachment_path(attachment) %>
+              <%= link_to "Destroy", admin_attachment_path(attachment), method: :delete, data: { confirm: "Are you sure?" } %>
+            </div>
+          </td>
+        </tr>
+      <%- end -%>
+    </tbody>
+  </table>
+</div>
 
 <%= paginate @attachments %>
-
-<div class="actions">
-  <%= link_to 'New', new_admin_attachment_path, class: 'button' %>
-</div>

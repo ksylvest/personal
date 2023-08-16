@@ -1,0 +1,147 @@
+@layer components {
+  .highlight code {
+    @apply block rounded-2xl p-8 my-4 bg-slate-50;
+  }
+
+  /* Comments */
+  .highlight .c,
+  .highlight .c1,
+  .highlight .c2,
+  .highlight .cm {
+    @apply text-sky-600;
+  }
+
+  /* Processors */
+  .highlight .cp,
+  .highlight .cs {
+    @apply text-emerald-600;
+  }
+
+  /* Keywords */
+  .highlight .k,
+  .highlight .kc,
+  .highlight .kd,
+  .highlight .kn,
+  .highlight .kp,
+  .highlight .kr,
+  .highlight .kt {
+    @apply text-purple-600;
+  }
+
+  /* Operator */
+  .highlight .o {
+    @apply text-teal-600;
+  }
+
+  /* Numbers */
+  .highlight .m,
+  .highlight .mf,
+  .highlight .mh,
+  .highlight .mi,
+  .highlight .mo {
+    @apply text-orange-600;
+  }
+
+  /* Strings */
+  .highlight .s,
+  .highlight .s1,
+  .highlight .s2,
+  .highlight .sb,
+  .highlight .sc,
+  .highlight .sd,
+  .highlight .se,
+  .highlight .sh,
+  .highlight .si,
+  .highlight .sx {
+    @apply text-green-600;
+  }
+
+  /* Symbol */
+  .highlight .ss {
+    @apply text-cyan-600;
+  }
+
+  /* Regex */
+  .highlight .sr {
+    @apply text-red-600;
+  }
+
+  /* Names */
+  .highlight .n {
+    @apply text-red-600;
+  }
+
+  /* Class */
+  .highlight .nc {
+    @apply text-amber-600;
+  }
+
+  /* Decorator */
+  .highlight .nd {
+    @apply text-purple-600;
+  }
+
+  /* Others */
+  .highlight .nb,
+  .highlight .ni,
+  .highlight .nt,
+  .highlight .no {
+    @apply text-amber-600;
+  }
+
+  /* Others */
+  .highlight .na,
+  .highlight .ne,
+  .highlight .nf,
+  .highlight .nl {
+    @apply text-blue-600;
+  }
+
+  /* Variables */
+  .highlight .v,
+  .highlight .vc,
+  .highlight .vg,
+  .highlight .vi {
+    @apply text-rose-600;
+  }
+
+  /* Punctuation */
+  .highlight .p {
+    @apply text-amber-600;
+  }
+
+  /* Prompt */
+  .highlight .gp {
+    @apply text-slate-600;
+  }
+
+  /* Errors */
+  .highlight .gr {
+    @apply text-red-600;
+  }
+
+  /* Emphasis */
+  .highlight .ge {
+    @apply text-white bg-yellow-600 italic;
+  }
+
+  /* Strong */
+  .highlight .gs {
+    @apply text-white bg-orange-600 italic;
+  }
+
+  /* Deleted */
+  .highlight .gd {
+    @apply text-white bg-pink-600 italic;
+  }
+
+  /* Inserted */
+  .highlight .gi {
+    @apply text-white bg-green-600 italic;
+  }
+
+  /* Error */
+  .highlight .err {
+    @apply text-white bg-red-600 italic;
+  }
+}

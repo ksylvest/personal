@@ -1,8 +1,6 @@
-<section id="content">
-  <div class="content">
-    <%- flash.map do |type, message| -%>
-      <%= tag.div(message, class: "flash #{type}") %>
-    <%- end -%>
-    <%= yield %>
-  </div>
+<section class="container mx-auto my-8 px-8 max-w-6xl">
+  <%- flash.map do |_, message| -%>
+    <%= tag.div(message, class: "bg-slate-100 mb-4 p-4 rounded-md") %>
+  <%- end -%>
+  <%= yield %>
 </section>
