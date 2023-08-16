@@ -26,7 +26,7 @@
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "^3.0.1"
+    "prettier": "^3.0.2"
   },
   "scripts": {
     "build": "esbuild app/packs/entrypoints/*.ts --bundle --sourcemap --minify --outdir=app/assets/builds",
