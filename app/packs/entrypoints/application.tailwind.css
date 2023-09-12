@@ -45,25 +45,3 @@
     @apply rounded-md px-4 py-2 font-semibold text-white bg-indigo-600 hover:text-white hover:bg-indigo-400 cursor-pointer;
   }
 }
-
-@layer components {
-  .title {
-    @apply font-black text-4xl text-center text-slate-600;
-  }
-
-  .subtitle {
-    @apply font-semibold text-2xl text-center text-slate-400;
-  }
-
-  .copy {
-    @apply font-light text-lg text-center text-slate-400;
-  }
-
-  .nav {
-    @apply font-black text-lg flex flex-wrap items-center justify-center gap-4;
-  }
-
-  .tag {
-    @apply relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100;
-  }
-}
