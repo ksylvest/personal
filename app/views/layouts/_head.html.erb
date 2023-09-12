@@ -21,7 +21,7 @@
 </script>
 
 <%= stylesheet_link_tag "application" %>
-<%= javascript_include_tag "application" %>
+<%= javascript_include_tag "application", async: "async" %>
 
 <script type="application/ld+json">
   <%= raw JSON.generate(ld) %>
