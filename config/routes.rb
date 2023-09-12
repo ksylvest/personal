@@ -10,8 +10,7 @@ Rails.application.routes.draw do
   get 'about', to: 'main#about', as: :about
   get 'contact', to: 'main#contact', as: :contact
   get 'projects', to: 'main#projects', as: :projects
-
-  get 'portfolio', to: 'portfolio#index', as: :portfolio
+  get 'portfolio', to: 'main#portfolio', as: :portfolio
 
   resource :feed, only: :show
   resource :archive, only: :show
