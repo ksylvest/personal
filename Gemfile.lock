@@ -129,6 +129,7 @@ GEM
     foreman (0.87.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    hiredis (0.6.3)
     http (5.1.1)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
@@ -378,6 +379,7 @@ DEPENDENCIES
   erroneous
   factory_bot_rails
   foreman
+  hiredis
   http
   image_processing
   jsbundling-rails
