@@ -1,5 +1,4 @@
 @import "../application/styles/breadcrumb";
-@import "../application/styles/lighten";
 @import "../application/styles/highlight";
 @import "../application/styles/navbar";
 
@@ -39,9 +38,7 @@
     @apply block w-full cursor-pointer rounded-md border border-slate-200 py-2 text-slate-800 placeholder:text-slate-400;
   }
 
-  button,
-  .button,
-  input[type="submit"] {
+  .button {
     @apply rounded-md px-4 py-2 font-semibold text-white bg-indigo-600 hover:text-white hover:bg-indigo-400 cursor-pointer;
   }
 }

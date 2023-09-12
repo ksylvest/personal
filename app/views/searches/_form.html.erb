@@ -1,6 +1,6 @@
 <%= form_for search, method: :get, url: search_path do |form| %>
   <div class="flex gap-4">
     <%= text_field_tag :query, search.query, placeholder: "Search", autocomplete: "nope" %>
-    <%= submit_tag "Search" %>
+    <%= submit_tag "Search", class: "button" %>
   </div>
 <% end %>
