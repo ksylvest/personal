@@ -1,8 +1,10 @@
 <footer>
-  <nav class="mb-4 nav">
+  <nav class="mb-4 font-black text-lg flex flex-wrap items-center justify-center gap-4">
     <%- footer_nav.each do |(text, link)| -%>
       <%= link_to text, link %>
     <%- end -%>
   </nav>
-  <p class="mt-4 copy"> &copy; <%= Time.current.year %> Kevin Sylvestre</p>
+  <p class="mt-4 font-light text-lg text-center text-slate-400">
+    &copy; <%= Time.current.year %> Kevin Sylvestre
+  </p>
 </footer>
