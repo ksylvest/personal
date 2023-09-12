@@ -35,7 +35,6 @@ export class GalleryController extends Controller {
   }
 
   private keyup = (event: KeyboardEvent): void => {
-    console.log(event.key);
     if (event.which === ESC_KEY) {
       this.close();
     }
