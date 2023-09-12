@@ -27,7 +27,7 @@
   }
 
   a {
-    @apply text-indigo-500 hover:text-indigo-700;
+    @apply text-indigo-600 hover:text-indigo-700;
   }
 
   input[type="text"],
