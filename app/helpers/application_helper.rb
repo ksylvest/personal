@@ -3,10 +3,6 @@ module ApplicationHelper
     mode.include?(params[:controller]) || mode.include?(params[:action])
   end
 
-  def srcset(path, format:, sizes: %w[1x 2x 3x])
-    sizes.map { |size| "#{image_path("#{path}-#{size}.#{format}")} #{size}" }.join(',')
-  end
-
   def markdown(text)
     render = Redcarpet::Render::Advanced.new
     render.helper = self

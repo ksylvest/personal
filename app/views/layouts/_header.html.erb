@@ -2,9 +2,16 @@
   <div class="mb-4 flex items-center justify-center">
     <%= link_to root_path do %>
       <picture>
-        <source type="image/webp" srcset="<%= srcset("avatar/default", sizes: %w[100w 200w 300w 400w 500w 600w], format: "webp") %>">
-        <source type="image/jpeg" srcset="<%= srcset("avatar/default", sizes: %w[100w 200w 300w 400w 500w 600w], format: "jpg") %>">
-        <%= image_tag image_path("avatar/default.jpg"), alt: "Kevin Sylvestre", class: "block rounded-2xl w-48 h-48" %>
+        <%- %w[avif webp jpeg].each do |ext| -%>
+          <%= tag.source(
+            type: "image/#{ext}",
+            srcset:
+              "#{image_path("avatar/default-3x.#{ext}")} 3x, " \
+              "#{image_path("avatar/default-2x.#{ext}")} 2x, " \
+              "#{image_path("avatar/default.#{ext}")}"
+          ) %>
+        <%- end -%>
+        <%= image_tag image_path("avatar/default.jpeg"), alt: "Kevin Sylvestre", class: "block rounded-2xl w-48 h-48" %>
       </picture>
     <% end %>
   </div>
