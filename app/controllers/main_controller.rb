@@ -7,7 +7,4 @@ class MainController < ApplicationController
 
   # GET /projects
   def projects; end
-
-  # GET /portfolio
-  def portfolio; end
 end
