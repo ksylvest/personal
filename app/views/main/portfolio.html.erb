@@ -3,28 +3,35 @@
 <%- provide :description, "iOS and web apps designed or developed including Pose, Hearts, Vidfolia, Winescan and More!" -%>
 <%- provide :head -%>
 
-<div class="flex flex-col gap-8">
-  <%- Portfolio.all.each do |portfolio| -%>
-    <section>
-      <h3 class="mb-8 text-4xl"><%= portfolio.name %></h1>
+<div data-controller="gallery">
+  <div class="flex flex-col gap-8">
+    <%- Portfolio.find_each do |portfolio| -%>
+      <section>
+        <h3 class="mb-8 text-4xl"><%= portfolio.name %></h1>
 
-      <p class="my-8"><%= portfolio.summary %></p>
+        <p class="my-8"><%= portfolio.summary %></p>
 
-      <div class="mt-8" data-controller="gallery">
-        <div class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-          <%- portfolio.images do |image| -%>
-            <%= link_to image_path(image[:original]), data: { action: "click->gallery#zoom:prevent:stop" }, target: "_blank" do %>
-              <%= image_tag image_path(image[:thumb]), size: image[:size], class: "rounded-2xl" %>
-            <% end %>
-          <%- end -%>
-        </div>
-        <div class="flex fixed inset-0 w-screen h-screen items-center justify-center bg-white bg-opacity-80" data-gallery-target="dialog" style="display:none" data-action="click->gallery#close:prevent:stop">
-          <div class="relative">
-            <img class="shadow block max-w-[calc(100vw-40px)] max-h-[calc(100vh-40px)]" data-gallery-target="content">
-            <button class="absolute left-0 top-0 h-8 w-8 -m-4 rounded-full text-white font-black bg-slate-600 hover:bg-slate-800" data-gallery-target="close" data-action="click->gallery#close:prevent:stop">×</a>
+        <div class="mt-8" >
+          <div class="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+            <%- portfolio.images.each do |image| -%>
+              <%= link_to url_for(image), data: { action: "click->gallery#zoom:prevent:stop" }, target: "_blank" do %>
+                <picture>
+                  <%= tag.source type: "image/avif", srcset: url_for(image.variant(resize_to_limit: [960, nil], saver: { strip: true, quality: 80, format: :avif })) %>
+                  <%= tag.source type: "image/webp", srcset: url_for(image.variant(resize_to_limit: [960, nil], saver: { strip: true, quality: 80, format: :webp })) %>
+                  <%= image_tag image.variant(resize_to_limit: [960, nil], saver: { strip: true, quality: 80, format: :jpeg }), class: "rounded-2xl" %>
+                </picture>
+              <% end %>
+            <%- end -%>
           </div>
         </div>
-      </div>
-    </section>
-  <%- end -%>
+      </section>
+    <%- end -%>
+  </div>
+
+  <div class="flex fixed inset-0 w-screen h-screen items-center justify-center bg-white bg-opacity-80 " data-gallery-target="dialog" style="display:none" data-action="click->gallery#close:prevent:stop">
+    <div class="relative">
+      <img class="shadow block max-w-[calc(100vw-40px)] max-h-[calc(100vh-40px)] rounded-2xl" data-gallery-target="content">
+      <button class="absolute left-0 top-0 h-8 w-8 -m-4 rounded-full text-white font-black bg-slate-600 hover:bg-slate-800" data-gallery-target="close" data-action="click->gallery#close:prevent:stop">×</a>
+    </div>
+  </div>
 </div>
