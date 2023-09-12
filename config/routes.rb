@@ -59,10 +59,6 @@ Rails.application.routes.draw do
     'https://vimeo.com/ksylvest'
   end
 
-  direct :google do
-    'https://plus.google.com/+KevinSylvestre'
-  end
-
   direct :stackoverflow do
     'https://stackoverflow.com/users/259900/kevin-sylvestre?rel=author'
   end
