@@ -3,7 +3,7 @@
 <%- provide :description, "Links to Ruby, Rails, iOS, JS and Bash projects." -%>
 <%- provide :head -%>
 
-<div class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+<div class="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
   <%- Project.all.each do |project| -%>
     <%= link_to(String(URI.parse(project.url)), class: "text-center rounded-2xl p-8 bg-slate-100 hover:bg-slate-200") do %>
       <div class="font-normal text-6xl text-slate-400 mb-4">

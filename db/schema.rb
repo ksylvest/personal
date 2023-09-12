@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_09_203441) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_080648) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "pg_trgm"
@@ -79,6 +78,14 @@ ActiveRecord::Schema.define(version: 2020_12_09_203441) do
     t.index ["slug"], name: "index_pages_on_slug", unique: true
     t.index ["tags"], name: "index_pages_on_tags", using: :gin
     t.index ["user_id"], name: "index_pages_on_user_id"
+  end
+
+  create_table "portfolios", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "summary", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_portfolios_on_name", unique: true
   end
 
   create_table "posts", id: :serial, force: :cascade do |t|

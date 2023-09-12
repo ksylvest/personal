@@ -10,14 +10,9 @@
     stores millions of belongings in Los Angeles, New York, San Francisco,
     San Diego, Chicago, Seattle, Philadelphia and many more cities.
   images:
-    size: 640x640
-    files:
-      - 01.jpg
-      - 02.jpg
-      - 03.jpg
-  videos:
-    urls:
-      - https://www.youtube.com/embed/SDughwDukB0
+    - 01.jpg
+    - 02.jpg
+    - 03.jpg
 
 - slug: pose
   name: Pose
@@ -29,20 +24,18 @@
     browse and follow celebrities, and much more. Pose's universal iOS app has
     been featured by Apple as 'App of the Week' and 'App Store Best'.
   images:
-    size: 640x640
-    files:
-      - 01.jpg
-      - 02.jpg
-      - 03.jpg
-      - 04.jpg
-      - 05.jpg
-      - 06.jpg
-      - 07.jpg
-      - 08.jpg
-      - 09.jpg
-      - 10.jpg
-      - 11.jpg
-      - 12.jpg
+    - 01.jpg
+    - 02.jpg
+    - 03.jpg
+    - 04.jpg
+    - 05.jpg
+    - 06.jpg
+    - 07.jpg
+    - 08.jpg
+    - 09.jpg
+    - 10.jpg
+    - 11.jpg
+    - 12.jpg
 
 - slug: hearts
   name: Hearts
@@ -53,14 +46,12 @@
     artificial intelligence. The app broke through the top hundred paid app list
     in the store.
   images:
-    size: 640x640
-    files:
-      - 01.jpg
-      - 02.jpg
-      - 03.jpg
-      - 04.jpg
-      - 05.jpg
-      - 06.jpg
+    - 01.jpg
+    - 02.jpg
+    - 03.jpg
+    - 04.jpg
+    - 05.jpg
+    - 06.jpg
 
 - slug: surkus
   name: Surkus
@@ -71,14 +62,12 @@
     with geo-location tracking and push-notifications to handle visits at
     different venues.
   images:
-    size: 640x640
-    files:
-      - 01.jpg
-      - 02.jpg
-      - 03.jpg
-      - 04.jpg
-      - 05.jpg
-      - 06.jpg
+    - 01.jpg
+    - 02.jpg
+    - 03.jpg
+    - 04.jpg
+    - 05.jpg
+    - 06.jpg
 
 - slug: vidfolia
   name: Vidfolia
@@ -88,11 +77,9 @@
     cloud based video processing services to provide high definition portfolios.
     Advanced searching allows clients to find the perfect video professional.
   images:
-    size: 512x512
-    files:
-      - 01.jpg
-      - 02.jpg
-      - 03.jpg
+    - 01.jpg
+    - 02.jpg
+    - 03.jpg
 
 - slug: winescan
   name: Winescan
@@ -103,17 +90,15 @@
     tasting notes for nearly ten thousand wines. In addition, barcode scanning lets
     drinkers save their favourite wines to their cellar.
   images:
-    size: 512x512
-    files:
-      - 01.jpg
-      - 02.jpg
-      - 03.jpg
-      - 04.jpg
-      - 05.jpg
-      - 06.jpg
-      - 07.jpg
-      - 08.jpg
-      - 09.jpg
-      - 10.jpg
-      - 11.jpg
-      - 12.jpg
+    - 01.jpg
+    - 02.jpg
+    - 03.jpg
+    - 04.jpg
+    - 05.jpg
+    - 06.jpg
+    - 07.jpg
+    - 08.jpg
+    - 09.jpg
+    - 10.jpg
+    - 11.jpg
+    - 12.jpg
