@@ -339,10 +339,6 @@ GEM
     stringio (3.0.8)
     thor (1.2.2)
     timeout (0.4.0)
-    turbo-rails (1.4.0)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
@@ -407,7 +403,6 @@ DEPENDENCIES
   shoulda-matchers
   simplecov
   stimulus-rails
-  turbo-rails
   web-console
   webdrivers
 

@@ -20,8 +20,8 @@
   SENTRY_TRACES_SAMPLE_RATE = <%= raw JSON.generate(Sentry.configuration.traces_sample_rate) %>;
 </script>
 
-<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-<%= javascript_include_tag "application", "data-turbo-track": "reload" %>
+<%= stylesheet_link_tag "application" %>
+<%= javascript_include_tag "application" %>
 
 <script type="application/ld+json">
   <%= raw JSON.generate(ld) %>
