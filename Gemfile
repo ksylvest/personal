@@ -31,7 +31,6 @@ gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 gem 'sentry-rails'
 gem 'stimulus-rails'
-gem 'turbo-rails'
 
 gem 'debug', group: %i[development test]
 

@@ -7,8 +7,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@hotwired/stimulus": "^3.2.2",
-    "@hotwired/turbo": "^7.2.2",
-    "@hotwired/turbo-rails": "^7.3.0",
     "@rails/ujs": "^7.0.8",
     "@sentry/browser": "^7.68.0",
     "@tailwindcss/forms": "^0.5.6",
