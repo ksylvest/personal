@@ -55,7 +55,6 @@ module ApplicationHelper
       ['Facebook', facebook_url],
       ['Linkedin', linkedin_url],
       ['Dribbble', dribbble_url],
-      ['Google', google_url],
       ['Stack', stackoverflow_url],
       ['Vimeo', vimeo_url],
       ['Feed', feed_url(:atom)],

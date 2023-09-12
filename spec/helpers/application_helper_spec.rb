@@ -50,7 +50,7 @@ RSpec.describe ApplicationHelper do
     end
   end
 
-  %w[github twitter facebook dribbble linkedin vimeo google stackoverflow].each do |service|
+  %w[github twitter facebook dribbble linkedin vimeo stackoverflow].each do |service|
     describe "##{service}_url" do
       it 'returns a valid URL' do
         expect(helper.send("#{service}_url")).to match(Validation::URL)
