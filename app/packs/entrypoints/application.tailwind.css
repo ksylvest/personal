@@ -8,15 +8,15 @@
 
 @layer base {
   h1 {
-    @apply font-black text-4xl text-slate-800 my-4 first:mt-0 last:mb-0;
+    @apply font-light text-4xl text-slate-800 my-4 first:mt-0 last:mb-0;
   }
 
   h2 {
-    @apply font-black text-3xl text-slate-800 my-4 first:mt-0 last:mb-0;
+    @apply font-light text-3xl text-slate-800 my-4 first:mt-0 last:mb-0;
   }
 
   h3 {
-    @apply font-black text-2xl text-slate-800 my-4 first:mt-0 last:mb-0;
+    @apply font-light text-2xl text-slate-800 my-4 first:mt-0 last:mb-0;
   }
 
   ul,
