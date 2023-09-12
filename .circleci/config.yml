@@ -1,6 +1,5 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@1.4.5
   docker: circleci/docker@2.2.0
   node: circleci/node@5.1.0
   ruby: circleci/ruby@2.1.0
@@ -8,7 +7,7 @@ orbs:
 executors:
   default:
     docker:
-      - image: cimg/ruby:3.2.2-browsers
+      - image: cimg/ruby:3.2.2-node
       - image: cimg/postgres:15.2
         environment:
           POSTGRES_USER: circleci
@@ -67,8 +66,7 @@ jobs:
       - checkout
       - run: sudo apt-get update
       - run: sudo apt-get install libvips
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
+      - run: npx @puppeteer/browsers install chrome@stable
       - setup_ruby
       - setup_node
       - run: dockerize -wait tcp://localhost:5432 -timeout 2m # Postgres
