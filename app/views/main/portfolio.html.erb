@@ -18,10 +18,10 @@
             <% end %>
           <%- end -%>
         </div>
-        <div class="lighten" data-gallery-target="dialog" style="display: none" data-action="click->gallery#close:prevent:stop">
-          <div class="lighten__container">
-            <img class="lighten__content" data-gallery-target="content">
-            <button class="lighten__close" data-gallery-target="close" data-action="click->gallery#close:prevent:stop">×</a>
+        <div class="flex fixed inset-0 w-screen h-screen items-center justify-center bg-white bg-opacity-80" data-gallery-target="dialog" style="display:none" data-action="click->gallery#close:prevent:stop">
+          <div class="relative">
+            <img class="shadow block max-w-[calc(100vw-40px)] max-h-[calc(100vh-40px)]" data-gallery-target="content">
+            <button class="absolute left-0 top-0 h-8 w-8 -m-4 rounded-full text-white font-black bg-slate-600 hover:bg-slate-800" data-gallery-target="close" data-action="click->gallery#close:prevent:stop">×</a>
           </div>
         </div>
       </div>
