@@ -29,7 +29,6 @@
   "scripts": {
     "build": "esbuild app/packs/entrypoints/*.ts --bundle --sourcemap --minify --outdir=app/assets/builds",
     "build:css": "tailwindcss --input ./app/packs/entrypoints/application.tailwind.css --output ./app/assets/builds/application.css --minify",
-    "build:css:admin": "tailwindcss --input ./app/packs/entrypoints/admin.tailwind.css --output ./app/assets/builds/admin.css --minify",
     "lint": "eslint app/packs --ext .js,.jsx,.ts,.tsx"
   }
 }
