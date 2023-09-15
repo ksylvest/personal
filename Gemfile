@@ -31,7 +31,6 @@ gem 'aws-sdk-s3', require: false
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 gem 'sentry-rails'
-gem 'stimulus-rails'
 
 gem 'debug', group: %i[development test]
 

@@ -1,5 +1,5 @@
 ARG RUBY_VERSION="3.2.2"
-ARG BUNDLER_VERSION="2.4.18"
+ARG BUNDLER_VERSION="2.4.19"
 
 FROM ruby:${RUBY_VERSION}-slim AS base
 WORKDIR /rails
@@ -8,18 +8,22 @@ ENV BUNDLE_DEPLOYMENT="on" BUNDLE_WITHOUT="development:test"
 
 FROM base AS build
 
+ENV PATH="/root/.bun/bin:$PATH"
+
 RUN \
   apt-get update -qq && \
-  apt-get install --no-install-recommends -y build-essential libpq-dev npm && \
+  apt-get install --no-install-recommends -y build-essential libpq-dev curl zip unzip && \
   rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
+
+RUN curl -fsSL https://bun.sh/install | bash
 
 COPY Gemfile .
 COPY Gemfile.lock .
 RUN bundle install
 
 COPY package.json .
-COPY yarn.lock .
-RUN npm install -g yarn && yarn install
+COPY bun.lockb .
+RUN bun install
 
 COPY . .
 

@@ -1,34 +1,18 @@
 {
   "name": "personal",
-  "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
-    "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@hotwired/stimulus": "^3.2.2",
     "@rails/ujs": "^7.0.8",
     "@sentry/browser": "^7.69.0",
     "@tailwindcss/forms": "^0.5.6",
-    "@types/loadjs": "^4.0.2",
-    "autoprefixer": "^10.4.15",
-    "esbuild": "^0.19.3",
-    "loadjs": "^4.2.0",
-    "postcss": "^8.4.29",
-    "tailwindcss": "^3.3.3",
-    "typescript": "^5.2.2"
+    "tailwindcss": "^3.3.3"
   },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
-    "eslint": "^8.49.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "prettier": "^3.0.3"
-  },
+  "private": true,
   "scripts": {
-    "build": "esbuild app/packs/entrypoints/*.ts --bundle --sourcemap --minify --outdir=app/assets/builds",
-    "build:css": "tailwindcss --input ./app/packs/entrypoints/application.tailwind.css --output ./app/assets/builds/application.css --minify",
-    "lint": "eslint app/packs --ext .js,.jsx,.ts,.tsx"
+    "build": "bun build ./app/packs/entrypoints/application.ts --outdir ./app/assets/builds --sourcemap=external --minify",
+    "build:css": "tailwindcss --input ./app/packs/entrypoints/application.tailwind.css --output ./app/assets/builds/application.css --minify"
   }
 }
