@@ -94,6 +94,9 @@ workflows:
     jobs:
       - docker/hadolint
       - docker/publish:
+          executor:
+            name: docker/machine
+            image: ubuntu-2204:2023.02.1
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
           tag: << pipeline.git.revision >>
       - eslint
