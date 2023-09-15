@@ -1,47 +1,43 @@
 ARG RUBY_VERSION="3.2.2"
 ARG BUNDLER_VERSION="2.4.18"
 
-# core:
+FROM ruby:${RUBY_VERSION}-slim AS base
+WORKDIR /rails
 
-FROM ruby:${RUBY_VERSION}-alpine AS core
-WORKDIR /app
+ENV BUNDLE_DEPLOYMENT="on" BUNDLE_WITHOUT="development:test"
 
-ENV NODE_ENV="production"
-ENV RAILS_ENV="production"
-ENV RAILS_SERVE_STATIC_FILES="on"
-ENV RAILS_LOG_TO_STDOUT="on"
+FROM base AS build
 
 RUN \
-  apk update && \
-  apk upgrade && \
-  apk add --no-cache libpq-dev tzdata && \
-  gem install bundler --version="${BUNDLER_VERSION}" && \
-  bundle config set --local deployment on
+  apt-get update -qq && \
+  apt-get install --no-install-recommends -y build-essential libpq-dev npm && \
+  rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
-# runtime:
-
-FROM core AS runtime
-RUN apk add --no-cache build-base
 COPY Gemfile .
 COPY Gemfile.lock .
-RUN bundle check || bundle install
+RUN bundle install
 
-# assets:
-
-FROM runtime AS assets
-RUN apk add --no-cache nodejs yarn
 COPY package.json .
 COPY yarn.lock .
-RUN yarn install && yarn cache clean
+RUN npm install -g yarn && yarn install
+
 COPY . .
+
 RUN SECRET_KEY_BASE="SKIP" bundle exec rake assets:precompile
 
-# default:
+FROM base
 
-FROM core
+RUN \
+  apt-get update -qq && \
+  apt-get install --no-install-recommends -y libpq-dev && \
+  rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
+
+COPY --from=build /rails/public/assets /rails/public/assets
+COPY --from=build /rails/vendor/bundle /rails/vendor/bundle
+
 COPY . .
-COPY --from=runtime /app /app
-COPY --from=assets /app/public/assets /app/public/assets
+
+RUN bundle exec bootsnap precompile --gemfile /app /lib
 
 EXPOSE $PORT
 CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
