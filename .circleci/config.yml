@@ -98,7 +98,7 @@ workflows:
             name: docker/machine
             image: ubuntu-2204:2023.02.1
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
-          tag: << pipeline.git.revision >>`if [ '<< pipeline.git.branch >>' -eq 'main' ]; then echo ",latest"; fi`
+          tag: << pipeline.git.revision >>`if [ '<< pipeline.git.branch >>' == 'main' ]; then echo ",latest"; fi`
       - eslint
       - prettier
       - brakeman
