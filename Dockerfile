@@ -29,7 +29,7 @@ FROM base
 
 RUN \
   apt-get update -qq && \
-  apt-get install --no-install-recommends -y libpq-dev && \
+  apt-get install --no-install-recommends -y libpq-dev libvips && \
   rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 COPY --from=build /rails/public/assets /rails/public/assets
