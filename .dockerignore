@@ -1,5 +1,7 @@
-/.bundle
 /.git
+/.bundle
+/.circleci
+/.github
 
 /log/*
 /tmp/*
