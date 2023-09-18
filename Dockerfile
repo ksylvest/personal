@@ -42,4 +42,4 @@ RUN bundle exec bootsnap precompile --gemfile /app /lib
 ENTRYPOINT ["/rails/bin/entrypoint"]
 
 EXPOSE $PORT
-CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+CMD ["./bin/rails", "server"]
