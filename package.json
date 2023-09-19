@@ -27,7 +27,7 @@
     "prettier": "^3.0.3"
   },
   "scripts": {
-    "build": "esbuild app/packs/entrypoints/*.ts --bundle --sourcemap --minify --outdir=app/assets/builds",
+    "build": "esbuild app/packs/entrypoints/*.ts --bundle --minify --outdir=app/assets/builds",
     "build:css": "tailwindcss --input ./app/packs/entrypoints/application.tailwind.css --output ./app/assets/builds/application.css --minify",
     "lint": "eslint app/packs --ext .js,.jsx,.ts,.tsx"
   }

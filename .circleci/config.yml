@@ -1,21 +1,30 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@1.4.6
   docker: circleci/docker@2.3.0
-  node: circleci/node@5.1.0
   ruby: circleci/ruby@2.1.0
 
 executors:
-  default:
+  container:
+    parameters:
+      image:
+        type: string
+        default: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+      tag:
+        type: string
+        default: << pipeline.git.revision >>
     docker:
-      - image: cimg/ruby:3.2.2-browsers
+      - image: << parameters.image >>:<< parameters.tag >>
+        auth:
+          username: $DOCKER_LOGIN
+          password: $DOCKER_PASSWORD
+        environment:
+          CI: on
+          DATABASE_URL: postgres://circleci@localhost/db
       - image: cimg/postgres:16.0
         environment:
+          POSTGRES_DB: db
           POSTGRES_USER: circleci
           POSTGRES_HOST_AUTH_METHOD: trust
-    environment:
-      CI: on
-      PGHOST: localhost
 
 commands:
   setup:
@@ -76,40 +85,37 @@ jobs:
       - run: curl $DEPLOY_URL
 
   brakeman:
-    executor: default
+    executor: container
+    working_directory: /rails
     steps:
-      - setup
       - run: bundle exec brakeman -z --format html --output tmp/brakeman.html
       - store_artifacts:
           path: tmp/brakeman.html
           destination: brakeman.html
 
   eslint:
-    executor: default
+    executor: container
+    working_directory: /rails
     steps:
-      - setup
       - run: yarn eslint app/packs
 
   prettier:
-    executor: default
+    executor: container
+    working_directory: /rails
     steps:
-      - setup
       - run: yarn prettier --check app/packs
 
   rubocop:
-    executor: default
+    executor: container
+    working_directory: /rails
     steps:
-      - setup
       - ruby/rubocop-check
 
   rspec:
-    executor: default
+    executor: container
+    working_directory: /rails
     steps:
-      - setup
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
-      - run: dockerize -wait tcp://localhost:5432 -timeout 2m # Postgres
-      - run: bin/rails db:test:prepare test:prepare
+      - run: bin/rails db:schema:load
       - ruby/rspec-test
       - run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-$CC_TEST_REPORTER_VERSION > ./cc-test-reporter
@@ -122,14 +128,28 @@ workflows:
   build:
     jobs:
       - containerize
-      - brakeman
-      - eslint
-      - prettier
-      - rubocop
-      - rspec
+      - brakeman:
+          requires:
+            - containerize
+      - eslint:
+          requires:
+            - containerize
+      - prettier:
+          requires:
+            - containerize
+      - rubocop:
+          requires:
+            - containerize
+      - rspec:
+          requires:
+            - containerize
       - deploy:
           requires:
             - containerize
+            - eslint
+            - prettier
+            - rubocop
+            - rspec
           filters:
             branches:
               only:
