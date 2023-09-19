@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  database:
+    image: postgres
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: postgres
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    environment:
+      DATABASE_URL: postgres://postgres@database
+    volumes:
+      - ${PWD}:/rails
+      - bundle:/usr/local/bundle
+
+volumes:
+  bundle:
