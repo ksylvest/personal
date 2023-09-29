@@ -9,10 +9,9 @@ executors:
   default:
     docker:
       - image: cimg/ruby:3.2.2-browsers
-      - image: cimg/postgres:15.2
+      - image: cimg/postgres:16.0
         environment:
           POSTGRES_USER: circleci
-          POSTGRES_DB: personal_test
           POSTGRES_HOST_AUTH_METHOD: trust
     environment:
       CI: on
@@ -110,7 +109,7 @@ jobs:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run: dockerize -wait tcp://localhost:5432 -timeout 2m # Postgres
-      - run: bin/rails test:prepare
+      - run: bin/rails db:test:prepare test:prepare
       - ruby/rspec-test
       - run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-$CC_TEST_REPORTER_VERSION > ./cc-test-reporter
