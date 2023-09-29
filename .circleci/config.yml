@@ -17,7 +17,6 @@ executors:
     environment:
       CI: on
       RAILS_ENV: test
-      RACK_ENV: test
       PGHOST: localhost
 
 commands:
