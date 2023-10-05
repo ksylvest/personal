@@ -3,16 +3,20 @@ ARG RUBY_VERSION="3.2.2"
 FROM ruby:${RUBY_VERSION}-slim AS base
 
 ARG BUNDLER_VERSION="2.4.22"
-ARG YARN_VERSION="1.22.19"
 
-ENV BUNDLE_DEPLOYMENT="on" BUNDLE_PATH="/usr/local/bundle"
+ENV \
+  BUNDLE_DEPLOYMENT="on" \
+  BUNDLE_PATH="/usr/local/bundle" \
+  BUNDLE_WITHOUT="development:test" \
+  RAILS_ENV="production" \
+  PATH="/root/.bun/bin:$PATH"
 
 WORKDIR /rails
 
 RUN \
   apt-get update -qq && \
-  apt-get install --no-install-recommends -y curl libpq-dev libvips npm wget && \
-  npm install -g yarn@${YARN_VERSION} && \
+  apt-get install --no-install-recommends -y curl libpq-dev libvips npm curl unzip && \
+  curl -fsSL https://bun.sh/install | bash && \
   gem install bundler:${BUNDLER_VERSION} && \
   rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
@@ -30,8 +34,8 @@ RUN bundle install && \
   rm -rf "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
 COPY package.json .
-COPY yarn.lock .
-RUN yarn install
+COPY bun.lockb .
+RUN bun install
 
 COPY . .
 
