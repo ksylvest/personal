@@ -20,14 +20,12 @@ commands:
   setup:
     steps:
       - checkout
-      - ruby/install-deps:
-          key: gems-v2
-      - bun/install
-      - run: >
-        curl -fsSL https://bun.sh/install | bash
-        echo 'export BUN_INSTALL="$HOME/.bun"' >> "$BASH_ENV"
-        echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> "$BASH_ENV"
-        bun install
+      - ruby/install-deps
+      - run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo 'export BUN_INSTALL="$HOME/.bun"' >> "$BASH_ENV"
+          echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> "$BASH_ENV"
+      - run: bun install
 
 jobs:
   containerize:
@@ -85,13 +83,13 @@ jobs:
     executor: default
     steps:
       - setup
-      - run: yarn eslint app/packs
+      - run: bun run eslint app/packs
 
   prettier:
     executor: default
     steps:
       - setup
-      - run: yarn prettier --check app/packs
+      - run: bun run prettier --check app/packs
 
   rubocop:
     executor: default

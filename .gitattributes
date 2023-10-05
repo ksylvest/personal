@@ -1,2 +1,3 @@
 config/credentials/*.yml.enc diff=rails_credentials
 config/credentials.yml.enc diff=rails_credentials
+*.lockb diff=lockb
