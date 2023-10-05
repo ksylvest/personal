@@ -6,7 +6,7 @@ Bundler.require(*Rails.groups)
 
 module Personal
   class Application < Rails::Application
-    config.load_defaults 7.0
+    config.load_defaults 7.1
 
     config.middleware.use Rack::Deflater
 
@@ -27,5 +27,7 @@ module Personal
 
     config.action_mailer.default_url_options ||= {}
     config.action_mailer.default_url_options[:host] = ENV.fetch('HOST', 'https://ksylvest.com')
+
+    config.autoload_lib(ignore: %w[assets tasks])
   end
 end

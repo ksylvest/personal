@@ -8,6 +8,8 @@ require 'rspec/rails'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |file| require file }
 
+ActiveJob::Base.queue_adapter = :test
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|

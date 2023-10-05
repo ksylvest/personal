@@ -20,9 +20,6 @@ gem 'redcarpet'
 gem 'redis'
 gem 'rouge'
 
-gem 'rack-cache'
-gem 'rack-timeout'
-
 gem 'image_processing'
 
 gem 'aws-sdk-s3', require: false
@@ -38,6 +35,8 @@ group :development do
   gem 'brakeman'
   gem 'listen'
   gem 'rubocop'
+  gem 'rubocop-capybara'
+  gem 'rubocop-factory_bot'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
   gem 'web-console'

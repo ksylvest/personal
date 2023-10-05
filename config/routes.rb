@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   default_url_options(Rails.env.production? ? { host: 'ksylvest.com' } : {})
 
+  get 'up', to: 'rails/health#show'
+
   root to: 'posts#index'
 
   get '404', to: 'errors#missing', as: :missing

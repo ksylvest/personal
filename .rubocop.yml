@@ -1,4 +1,6 @@
 require:
+  - rubocop-capybara
+  - rubocop-factory_bot
   - rubocop-rails
   - rubocop-rspec
 
@@ -94,6 +96,9 @@ RSpec/ExampleLength:
   Enabled: false
 
 RSpec/MultipleExpectations:
+  Enabled: false
+
+Rails/FindEach:
   Enabled: false
 
 Rails/HttpStatus:
