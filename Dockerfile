@@ -2,7 +2,7 @@ ARG RUBY_VERSION="3.2.2"
 
 FROM ruby:${RUBY_VERSION}-slim AS base
 
-ARG BUNDLER_VERSION="2.4.19"
+ARG BUNDLER_VERSION="2.4.20"
 ARG YARN_VERSION="1.22.19"
 
 ENV BUNDLE_DEPLOYMENT="on" BUNDLE_PATH="/usr/local/bundle"
@@ -25,6 +25,7 @@ RUN \
 
 COPY Gemfile .
 COPY Gemfile.lock .
+COPY .ruby-version .
 RUN bundle install && \
   rm -rf "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
