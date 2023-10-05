@@ -2,7 +2,6 @@ version: 2.1
 orbs:
   browser-tools: circleci/browser-tools@1.4.6
   docker: circleci/docker@2.3.0
-  node: circleci/node@5.1.0
   ruby: circleci/ruby@2.1.0
 
 executors:
@@ -21,16 +20,14 @@ commands:
   setup:
     steps:
       - checkout
-      - setup_ruby
-      - setup_node
-  setup_ruby:
-    steps:
       - ruby/install-deps:
           key: gems-v2
-  setup_node:
-    steps:
-      - node/install-packages:
-          pkg-manager: yarn
+      - bun/install
+      - run: >
+        curl -fsSL https://bun.sh/install | bash
+        echo 'export BUN_INSTALL="$HOME/.bun"' >> "$BASH_ENV"
+        echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> "$BASH_ENV"
+        bun install
 
 jobs:
   containerize:
