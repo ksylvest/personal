@@ -223,7 +223,7 @@ GEM
       activesupport (>= 7.0.0)
       rack
       railties (>= 7.0.0)
-    psych (5.1.0)
+    psych (5.1.1)
       stringio
     public_suffix (5.0.3)
     puma (6.4.0)
@@ -350,7 +350,7 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    stimulus-rails (1.2.2)
+    stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.0.8)
     thor (1.2.2)
