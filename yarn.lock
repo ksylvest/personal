@@ -346,10 +346,10 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
   integrity sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==
 
-"@types/loadjs@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/@types/loadjs/-/loadjs-4.0.2.tgz#235b5d2aa6799dd8bf5789f3119c6ae276aeb568"
-  integrity sha512-tsPs2Pv+T+MYU6wh+a5IZS9ryHrQza27j+yJ84yiPCLQgDjjM7aBfjAKPgDi9ks1x5vY0tESvux/SwHRAlMqLQ==
+"@types/loadjs@^4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@types/loadjs/-/loadjs-4.0.3.tgz#39522b693f5c52e7aff9f13da91407c3d6925503"
+  integrity sha512-n9RhnQPmNidxN38Q+Tbko1LoKZ9cOgmesj+85jNGQW+VSVUhxKRvae6ViBV3bs+84AKw3ATj3KZ2/5IXk36QXw==
 
 "@types/semver@^7.3.12":
   version "7.3.12"
