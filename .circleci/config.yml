@@ -21,16 +21,8 @@ commands:
   setup:
     steps:
       - checkout
-      - setup_ruby
-      - setup_node
-  setup_ruby:
-    steps:
-      - ruby/install-deps:
-          key: gems-v2
-  setup_node:
-    steps:
-      - node/install-packages:
-          pkg-manager: yarn
+      - ruby/install-deps
+      - node/install-packages
 
 jobs:
   containerize:
@@ -88,13 +80,13 @@ jobs:
     executor: default
     steps:
       - setup
-      - run: yarn eslint app/packs
+      - run: npx eslint app/packs
 
   prettier:
     executor: default
     steps:
       - setup
-      - run: yarn prettier --check app/packs
+      - run: npx prettier --check app/packs
 
   rubocop:
     executor: default

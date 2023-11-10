@@ -1,6 +1,3 @@
-brew 'git'
-brew 'hub'
-brew 'postgres'
+brew 'node'
 brew 'rbenv'
 brew 'vips'
-brew 'yarn'
