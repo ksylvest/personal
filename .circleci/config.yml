@@ -38,7 +38,7 @@ jobs:
         default: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
       tag:
         type: string
-        default: << pipeline.git.revision >>
+        default: << pipeline.git.revision >>`if [ '<< pipeline.git.branch >>' == 'main' ]; then echo ",latest"; fi`
     steps:
       - checkout
       - docker/check
@@ -48,27 +48,11 @@ jobs:
       - docker/push:
           image: << parameters.image >>
           tag: << parameters.tag >>
-
-  deploy:
-    executor:
-      name: docker/machine
-      dlc: true
-    parameters:
-      image:
-        type: string
-        default: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
-      tag:
-        type: string
-        default: << pipeline.git.revision >>
-    steps:
-      - docker/check
-      - docker/pull:
-          images: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:<< pipeline.git.revision >>
-      - run: docker tag $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:<< pipeline.git.revision >> $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:latest
-      - docker/push:
-          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
-          tag: << pipeline.git.revision >>
-      - run: curl $DEPLOY_URL
+      - when:
+          condition:
+            equal: [main, << pipeline.git.branch >>]
+          steps:
+            - run: curl $DEPLOY_URL
 
   brakeman:
     executor: default
@@ -122,10 +106,3 @@ workflows:
       - prettier
       - rubocop
       - rspec
-      - deploy:
-          requires:
-            - containerize
-          filters:
-            branches:
-              only:
-                - main
