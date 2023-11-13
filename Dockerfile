@@ -13,28 +13,19 @@ ENV \
 
 WORKDIR /rails
 
-RUN \
-  apt-get update -qq && \
-  apt-get install --no-install-recommends -y curl libpq-dev libvips npm curl unzip && \
-  curl -fsSL https://bun.sh/install | bash && \
-  gem install bundler:${BUNDLER_VERSION} && \
-  rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
-
 FROM base AS build
 
 RUN \
   apt-get update -qq && \
-  apt-get install --no-install-recommends -y build-essential && \
+  apt-get install --no-install-recommends -y build-essential curl libpq-dev npm zip unzip && \
+  curl -fsSL https://bun.sh/install | bash && \
   rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
-COPY Gemfile .
-COPY Gemfile.lock .
-COPY .ruby-version .
+COPY Gemfile Gemfile.lock ./
 RUN bundle install && \
   rm -rf "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
-COPY package.json .
-COPY bun.lockb .
+COPY package.json bun.lockb ./
 RUN bun install
 
 COPY . .
@@ -42,6 +33,11 @@ COPY . .
 RUN SECRET_KEY_BASE="SKIP" ./bin/rails assets:precompile
 
 FROM base
+
+RUN \
+  apt-get update -qq && \
+  apt-get install --no-install-recommends -y curl libvips postgresql-client && \
+  rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 COPY . .
 COPY --from=build /usr/local/bundle /usr/local/bundle
