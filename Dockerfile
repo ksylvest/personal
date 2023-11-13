@@ -43,8 +43,9 @@ RUN SECRET_KEY_BASE="SKIP" ./bin/rails assets:precompile
 
 FROM base
 
+COPY . .
 COPY --from=build /usr/local/bundle /usr/local/bundle
-COPY --from=build /rails /rails
+COPY --from=build /rails/public/assets /rails/public/assets
 
 RUN bundle exec bootsnap precompile --gemfile /app /lib
 
