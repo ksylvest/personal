@@ -4,8 +4,6 @@ ARG RUBY_VERSION="3.2.2"
 
 FROM ruby:${RUBY_VERSION}-slim AS base
 
-ARG BUNDLER_VERSION="2.4.22"
-
 ENV \
   BUNDLE_DEPLOYMENT="on" \
   BUNDLE_PATH="/usr/local/bundle" \
@@ -41,8 +39,9 @@ RUN \
   apt-get install --no-install-recommends -y curl libvips postgresql-client && \
   rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
+COPY . .
 COPY --from=build /usr/local/bundle /usr/local/bundle
-COPY --from=build /rails /rails
+COPY --from=build /rails/public/assets /rails/public/assets
 
 RUN bundle exec bootsnap precompile --gemfile /app /lib
 
