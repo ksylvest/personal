@@ -19,6 +19,10 @@ executors:
 commands:
   setup:
     steps:
+      - run: sudo apt-get update
+      - run: sudo apt-get install postgresql-common
+      - run: sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
+      - run: sudo apt-get install postgresql-16-pgvector
       - checkout
       - ruby/install-deps
       - run: |
