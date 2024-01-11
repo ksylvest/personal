@@ -1,27 +1,9 @@
 # Personal
 
-## Configuration
+## Setup
 
 ```bash
-./bin/setup
-```
-
-## Deployment
-
-```bash
-heroku create personal
-heroku addons:add redis
-heroku addons:add scheduler
-heroku addons:add papertrail
-heroku domains:add ksylvest.com
-git push heroku master
-heroku run rake db:setup
-```
-
-## Configuration
-
-```bash
-EDITOR="atom --wait" bin/rails credentials:edit
+docker compose watch
 ```
 
 ## Status
