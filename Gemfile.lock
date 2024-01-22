@@ -344,7 +344,7 @@ GEM
       sentry-ruby (~> 5.16.1)
     sentry-ruby (5.16.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    shoulda-matchers (6.0.0)
+    shoulda-matchers (6.1.0)
       activesupport (>= 5.2.0)
     simplecov (0.22.0)
       docile (~> 1.1)
