@@ -1,6 +1,6 @@
-<%- provide :title, "Home#{page(params[:page])}" %>
+<%- provide :title, "Home#{filters(params)}" %>
 <%- provide :keywords, "ruby, rails, ios, ipad, iphone, cocoa, coffeescript, sass, haml, neat, bourbon, backbone" %>
-<%- provide :description, "Writings of Ruby and iOS developer and designer.#{page(params[:page])}" %>
+<%- provide :description, "Writings of Ruby and iOS developer and designer.#{filters(params)}" %>
 <%- provide :head, rel_next_prev_link_tags(@posts) %>
 
 
