@@ -40,13 +40,13 @@ RSpec.describe ApplicationHelper do
     end
   end
 
-  describe '#page' do
+  describe '#filters' do
     it 'returns nothing unless a page is specified' do
-      expect(helper.page('')).to be_blank
+      expect(helper.filters({})).to be_blank
     end
 
     it 'returns something if a page is specified' do
-      expect(helper.page('Amazing')).to be_present
+      expect(helper.filters(page: 2, tag: 'Ruby')).to be_present
     end
   end
 

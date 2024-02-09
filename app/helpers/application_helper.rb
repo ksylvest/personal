@@ -14,8 +14,14 @@ module ApplicationHelper
     'width=device-width,initial-scale=1.0'
   end
 
-  def page(page)
-    " | Page #{page}" if page.present?
+  def filters(filters = {})
+    page = filters[:page]
+    tag = filters[:tag]
+
+    [
+      (" | ##{tag}" if tag.present?),
+      (" | Page #{page}" if page.present?),
+    ].compact.join
   end
 
   def ld
