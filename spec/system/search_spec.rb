@@ -13,7 +13,7 @@ RSpec.describe 'Search' do
 
     searchables.each do |entry|
       fill_in('Search', with: entry.title)
-      click_button('Search')
+      click_on('Search')
       expect(page).to have_text(entry.title)
       expect(page).to have_text(entry.summary)
     end
