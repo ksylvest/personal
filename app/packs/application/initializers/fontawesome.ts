@@ -35,8 +35,10 @@ import {
   faRandom,
   faServer,
   faSpinner,
+  faSun,
   faTags,
   faTh,
+  faUpload,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -74,8 +76,10 @@ library.add(
   faRandom,
   faServer,
   faSpinner,
+  faSun,
   faTags,
   faTh,
+  faUpload,
 );
 
 dom.watch();
