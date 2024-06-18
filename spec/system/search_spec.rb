@@ -12,8 +12,10 @@ RSpec.describe 'Search' do
     visit search_path
 
     searchables.each do |entry|
-      fill_in('Search', with: entry.title)
-      click_button('Search')
+      within('form') do
+        fill_in('Search', with: entry.title)
+        click_on('Search')
+      end
       expect(page).to have_text(entry.title)
       expect(page).to have_text(entry.summary)
     end
