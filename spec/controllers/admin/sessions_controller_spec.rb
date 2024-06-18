@@ -21,7 +21,7 @@ RSpec.describe Admin::SessionsController, type: :request do
     context 'with invalid parameters' do
       it 'does not authenticate' do
         post admin_session_url, params: { session: { email: user.password, password: user.email } }
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end
