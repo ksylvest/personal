@@ -43,7 +43,7 @@ RSpec.describe Admin::PostsController, type: :request do
       it 'does not save a post' do
         expect {
           post admin_posts_path, params: { post: invalid_attributes }
-          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response).to have_http_status(:unprocessable_content)
         }.not_to change(Post, :count)
       end
     end
@@ -63,7 +63,7 @@ RSpec.describe Admin::PostsController, type: :request do
       it 'does not save the page' do
         expect {
           patch admin_post_path(entry), params: { post: invalid_attributes }
-          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response).to have_http_status(:unprocessable_content)
         }.not_to change { entry.reload.title }
       end
     end

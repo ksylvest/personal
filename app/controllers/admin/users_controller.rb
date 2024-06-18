@@ -13,7 +13,7 @@ class Admin::UsersController < AdminController
     if @user.update(attributes)
       redirect_to(restore(default: admin_path))
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 

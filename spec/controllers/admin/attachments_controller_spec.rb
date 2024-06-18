@@ -43,7 +43,7 @@ RSpec.describe Admin::AttachmentsController, type: :request do
       it 'does not save' do
         expect {
           post admin_attachments_path, params: { attachment: invalid_attributes }
-          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response).to have_http_status(:unprocessable_content)
         }.not_to change(Attachment, :count)
       end
     end
@@ -63,7 +63,7 @@ RSpec.describe Admin::AttachmentsController, type: :request do
       it 'does not save' do
         expect {
           patch admin_attachment_path(attachment), params: { attachment: invalid_attributes }
-          expect(response).to have_http_status(:unprocessable_entity)
+          expect(response).to have_http_status(:unprocessable_content)
         }.not_to change { attachment.reload.name }
       end
     end

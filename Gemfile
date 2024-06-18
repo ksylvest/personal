@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
-ruby '3.3.0'
+
+ruby '3.3.3'
+
+gem 'net-pop', github: 'ruby/net-pop' # TODO: delete w/ ruby 3.3.4
 
 gem 'rails'
 
