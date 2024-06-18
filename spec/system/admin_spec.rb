@@ -8,7 +8,7 @@ RSpec.describe 'Admin' do
     within('form') do
       fill_in('Email', with: user.email)
       fill_in('Password', with: user.password)
-      click_button('Login')
+      click_on('Login')
     end
     expect(page).to have_text('Account')
     expect(page).to have_text('Logout')
@@ -19,9 +19,9 @@ RSpec.describe 'Admin' do
     within('form') do
       fill_in('Email', with: '')
       fill_in('Password', with: '')
-      click_button('Login')
+      click_on('Login')
     end
-    expect(page).not_to have_text('Account')
-    expect(page).not_to have_text('Logout')
+    expect(page).to have_no_text('Account')
+    expect(page).to have_no_text('Logout')
   end
 end

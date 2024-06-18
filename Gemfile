@@ -39,6 +39,7 @@ group :development do
   gem 'rubocop-factory_bot'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+  gem 'rubocop-rspec_rails'
   gem 'web-console'
 end
 
