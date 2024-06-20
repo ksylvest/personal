@@ -1,5 +1,6 @@
 <url>
   <loc><%= path %></loc>
-  <changefreq><%= frequency %></changefreq>
-  <priority><%= priority %></priority>
+  <%- if defined?(lastmod) -%>
+  <lastmod><%= lastmod.xmlschema %></lastmod>
+  <%- end -%>
 </url>
