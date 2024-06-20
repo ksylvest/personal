@@ -49,6 +49,6 @@ class Admin::PagesController < AdminController
 private
 
   def attributes
-    params.require(:page).permit(:title, :body, :summary, :taggables)
+    params.require(:page).permit(:title, :body, :summary, :taggables, :canonical_url)
   end
 end

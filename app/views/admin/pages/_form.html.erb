@@ -19,5 +19,10 @@
     <%= errors page, :tags %>
   </div>
 
+    <div class="my-4">
+    <%= form.text_field :canonical_url, placeholder: "Canonical URL" %>
+    <%= errors page, :canonical_url %>
+  </div>
+
   <%= form.submit class: "button" %>
 <% end %>

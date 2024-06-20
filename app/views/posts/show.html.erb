@@ -1,7 +1,10 @@
 <%- provide :title, @post.title %>
 <%- provide :description, @post.summary %>
 <%- provide :keywords, @post.keywords %>
-<%- provide :head %>
+
+<%- provide :head do %>
+<%= tag.link rel: "canonical", href: @post.canonical_url || post_url(segment: @post.segment, slug: @post.slug) %>
+<%- end -%>
 
 <%- cache @post do -%>
   <h1><%= @post.title %></h1>

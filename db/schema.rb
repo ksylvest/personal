@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2020_12_09_203441) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_20_090502) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "pg_trgm"
@@ -74,6 +74,7 @@ ActiveRecord::Schema[7.1].define(version: 2020_12_09_203441) do
     t.text "tags", default: [], null: false, array: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "canonical_url"
     t.index "to_tsvector('english'::regconfig, (((((COALESCE(title, ''::character varying))::text || ' '::text) || COALESCE(summary, ''::text)) || ' '::text) || COALESCE(body, ''::text)))", name: "index_pages_on_tsvector", using: :gin
     t.index ["slug"], name: "index_pages_on_slug", unique: true
     t.index ["tags"], name: "index_pages_on_tags", using: :gin
@@ -91,6 +92,7 @@ ActiveRecord::Schema[7.1].define(version: 2020_12_09_203441) do
     t.text "tags", default: [], null: false, array: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "canonical_url"
     t.index "to_tsvector('english'::regconfig, (((((COALESCE(title, ''::character varying))::text || ' '::text) || COALESCE(summary, ''::text)) || ' '::text) || COALESCE(body, ''::text)))", name: "index_posts_on_tsvector", using: :gin
     t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["tags"], name: "index_posts_on_tags", using: :gin
