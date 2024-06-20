@@ -1,18 +1,18 @@
 <%- cache post do -%>
-  <article>
-    <h3 class="mb-2">
+  <article class="space-y-2">
+    <h2>
       <%= link_to(post.title, post_path(segment: post.segment, slug: post.slug)) %>
-    </h3>
+    </h2>
 
-    <p class="my-2">
-      <%= time_tag(post.date, l(post.date, format: :human), class: "text-slate-400") %>
+    <p class="font-semibold">
+      <%= time_tag(post.date, l(post.date, format: :human)) %>
     </p>
 
-    <div class="my-2">
+    <div>
       <%= render "posts/tags", tags: post.tags %>
     </div>
 
-    <p class="mt-2">
+    <p>
       <%= post.summary %>
     </p>
   </article>
