@@ -1,8 +1,6 @@
 atom_feed do |feed|
-  cache do
-    feed.title 'Kevin Sylvestre'
-    feed.updated @posts.maximum(:updated_at) || @posts.maximum(:created_at)
-  end
+  feed.title 'Kevin Sylvestre'
+  feed.updated @posts.maximum(:updated_at) || @posts.maximum(:created_at)
 
   cache @posts do
     @posts.each do |post|
