@@ -1,18 +1,18 @@
 <%- cache page do -%>
-  <article>
-    <h3 class="mb-2">
+  <article class="space-y-2">
+    <h3>
       <%= link_to(page.title, page_path(slug: page.slug)) %>
     </h3>
 
-    <p class="my-2">
-      <%= time_tag(page.date, l(page.date, format: :human), class: "text-slate-400") %>
+    <p>
+      <%= time_tag(page.date, l(page.date, format: :human)) %>
     </p>
 
-    <div class="my-2">
+    <div>
       <%= render "pages/tags", tags: page.tags %>
     </div>
 
-    <p class="mt-2">
+    <p>
       <%= page.summary %>
     </p>
   </article>
