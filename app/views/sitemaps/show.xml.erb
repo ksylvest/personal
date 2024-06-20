@@ -1,9 +1,9 @@
-<%= render "entry", path: root_url, frequency: "weekly", priority: 1.0 %>
-<%= render "entry", path: about_url, frequency: "weekly", priority: 1.0 %>
-<%= render "entry", path: contact_url, frequency: "weekly", priority: 1.0 %>
-<%= render "entry", path: projects_url, frequency: "weekly", priority: 1.0 %>
-<%= render "entry", path: portfolio_url, frequency: "weekly", priority: 1.0 %>
-<%= render "entry", path: search_url, frequency: "weekly", priority: 1.0 %>
+<%= render "entry", path: root_url %>
+<%= render "entry", path: about_url %>
+<%= render "entry", path: contact_url %>
+<%= render "entry", path: projects_url %>
+<%= render "entry", path: portfolio_url %>
+<%= render "entry", path: search_url %>
 
 <%- cache @pages do -%>
   <%= render partial: "page", collection: @pages, as: :page %>
