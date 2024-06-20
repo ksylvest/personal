@@ -49,6 +49,6 @@ class Admin::PostsController < AdminController
 private
 
   def attributes
-    params.require(:post).permit(:title, :body, :summary, :taggables)
+    params.require(:post).permit(:title, :body, :summary, :taggables, :canonical_url)
   end
 end
