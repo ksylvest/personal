@@ -34,7 +34,9 @@ Rails.application.routes.draw do
 
   get '(tagged/:tag)/(page/:page)', to: 'posts#index', as: :posts
 
-  get 'posts/:segment/:slug', to: 'posts#show', as: :post
+  get 'posts/:segment/:slug', to: 'posts#show' # legacy
+
+  get 'posts/:slug', to: 'posts#show', as: :post
   get 'pages/:slug', to: 'pages#show', as: :page
 
   direct :github do

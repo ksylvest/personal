@@ -1,3 +1,3 @@
 <%- cache post do -%>
-  <%= render "entry", path: post_url(segment: post.segment, slug: post.slug), frequency: "monthly", priority: 0.8 %>
+  <%= render "entry", path: post_url(slug: post.slug), frequency: "monthly", priority: 0.8 %>
 <%- end -%>
