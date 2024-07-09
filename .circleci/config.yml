@@ -7,7 +7,7 @@ orbs:
 executors:
   default:
     docker:
-      - image: cimg/ruby:3.3.3-browsers
+      - image: cimg/ruby:3.3.4-browsers
       - image: cimg/postgres:16.3
         environment:
           POSTGRES_USER: circleci
@@ -44,6 +44,7 @@ jobs:
       - docker/build:
           image: << parameters.image >>
           tag: << parameters.tag >>
+          use-buildkit: true
       - docker/push:
           image: << parameters.image >>
           tag: << parameters.tag >>

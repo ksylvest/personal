@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:1
 
-ARG RUBY_VERSION=3.3.3
+ARG RUBY_VERSION=3.3.4
 
 FROM docker.io/library/ruby:${RUBY_VERSION}-slim AS base
 
@@ -23,7 +23,7 @@ RUN \
   rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 COPY Gemfile Gemfile.lock ./
-RUN bundle install && \
+RUN gem install bundler && bundle install && \
   rm -rf "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
 COPY package.json bun.lockb ./
@@ -37,7 +37,7 @@ FROM base
 
 RUN \
   apt-get update -qq && \
-  apt-get install --no-install-recommends -y curl libvips postgresql-client && \
+  apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
   rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 COPY . .
