@@ -1,12 +1,16 @@
-/.git
 /.bundle
 /.circleci
+/.env
+/.git
 /.github
 
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+
+/tmp/pids/*
+!/tmp/pids/.keep
 
 /config/master.key
 

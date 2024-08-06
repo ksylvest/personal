@@ -1,21 +1,36 @@
 version: "3.9"
+
 services:
-  database:
-    image: postgres
+  app:
+    build:
+      context: .
+      target: build
+    develop:
+      watch:
+        - action: rebuild
+          path: ./Gemfile
+        - action: rebuild
+          path: ./Gemfile.lock
+        - path: ./package.json
+          action: rebuild
+        - path: ./bun.lockb
+          action: rebuild
+        - action: sync
+          path: ./
+          target: /rails
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
-      POSTGRES_USER: postgres
-  web:
-    build: .
+      DATABASE_URL: postgres://localhost
     ports:
       - "3000:3000"
-    depends_on:
-      - database
-    environment:
-      DATABASE_URL: postgres://postgres@database
-    volumes:
-      - ${PWD}:/rails
-      - bundle:/usr/local/bundle
 
-volumes:
-  bundle:
+  js:
+    build:
+      context: .
+      target: local
+    command: ["bun", build", "./app/packs/entrypoints/application.ts", "--outdir", "./app/assets/builds"]
+
+  css:
+    build:
+      context: .
+      target: local
+    command: ["tailwindcss", "--input", "./app/packs/entrypoints/application.tailwind.css", "--output", "./app/assets/builds/application.css"]
