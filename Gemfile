@@ -9,6 +9,7 @@ gem 'puma'
 
 gem 'bootsnap', require: false
 
+gem 'analytic'
 gem 'bcrypt'
 gem 'erroneous'
 gem 'foreman'

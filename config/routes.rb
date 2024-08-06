@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   default_url_options(Rails.env.production? ? { host: 'ksylvest.com' } : {})
 
+  mount Analytic::Engine, at: '/analytic'
+
   get 'up', to: 'rails/health#show'
 
   root to: 'posts#index'
