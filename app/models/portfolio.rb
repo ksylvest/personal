@@ -21,7 +21,7 @@ class Portfolio
     files = @images['files']
     files.each do |file|
       yield({
-        size: size,
+        size:,
         original: "portfolio/originals/#{@slug}/#{file}",
         thumb: "portfolio/thumbs/#{@slug}/#{file}",
       })
@@ -33,7 +33,7 @@ class Portfolio
 
     urls = @videos['urls']
     urls.each do |url|
-      yield({ url: url })
+      yield({ url: })
     end
   end
 end

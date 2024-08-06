@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Admin::PostsController, type: :request do
-  let!(:entry) { create(:post, user: user) }
+  let!(:entry) { create(:post, user:) }
   let(:user) { create(:user, role: 'admin') }
   let(:valid_attributes) { { title: 'Sorbet', summary: 'Sorbet', body: 'Sorbet...' } }
   let(:invalid_attributes) { { title: '', body: '' } }

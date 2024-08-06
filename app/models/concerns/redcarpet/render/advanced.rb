@@ -7,7 +7,7 @@ class Redcarpet::Render::Advanced < Redcarpet::Render::HTML
   attr_accessor :helper
 
   def image(link, title, alt)
-    helper.image_tag(internalize(link), title: title, alt: alt)
+    helper.image_tag(internalize(link), title:, alt:)
   end
 
 protected
