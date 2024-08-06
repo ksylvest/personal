@@ -51,9 +51,6 @@ Style/Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Style/HashSyntax:
-  EnforcedShorthandSyntax: never
-
 Style/Lambda:
   Enabled: false
 
