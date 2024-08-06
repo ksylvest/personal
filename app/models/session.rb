@@ -12,15 +12,11 @@ class Session
   validates :password, presence: true
 
   validate do
-    errors.add(:base, :invalid, message: INVALID_EMAIL_OR_PASSWORD_MESSAGE) if errors.blank? && !authed?
+    errors.add(:base, :invalid, message: INVALID_EMAIL_OR_PASSWORD_MESSAGE) if errors.blank? && !user
   end
 
   def authenticate
     user if valid?
-  end
-
-  def authed?
-    user&.authenticate(password)
   end
 
 private
@@ -28,7 +24,7 @@ private
   def user
     return @user if defined?(@user)
 
-    @user = User.find_by(email: email)
+    @user = User.authenticate_by(email:, password:)
   end
 
 end
