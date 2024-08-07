@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
+  include Analytic::Trackable
+
   etag { user&.id }
 
   protect_from_forgery with: :exception
 
   helper_method :user
   helper_method :authenticated?
+
+  before_action :analytic_track!, if: -> { request.format.html? }
 
 protected
 

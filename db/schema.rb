@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_20_090502) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_06_083101) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
   enable_extension "pg_trgm"
@@ -46,6 +46,24 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_090502) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "analytic_views", force: :cascade do |t|
+    t.uuid "visitor_id", null: false
+    t.uuid "session_id", null: false
+    t.inet "ip", null: false
+    t.string "path", null: false
+    t.string "host", null: false
+    t.jsonb "params", default: {}, null: false
+    t.datetime "timestamp", null: false
+    t.text "referrer"
+    t.text "user_agent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["timestamp", "path"], name: "index_analytic_views_on_timestamp_and_path"
+    t.index ["timestamp", "referrer"], name: "index_analytic_views_on_timestamp_and_referrer"
+    t.index ["timestamp", "session_id"], name: "index_analytic_views_on_timestamp_and_session_id"
+    t.index ["timestamp", "visitor_id"], name: "index_analytic_views_on_timestamp_and_visitor_id"
   end
 
   create_table "attachings", id: :serial, force: :cascade do |t|
