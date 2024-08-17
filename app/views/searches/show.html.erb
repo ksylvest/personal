@@ -3,9 +3,13 @@
 <%- provide :description, "Search through posts and pages to find the results you are looking for." %>
 <%- provide :head %>
 
-<%= render "form", search: @search %>
+<div class="space-y-16">
+  <%= render "form", search: @search %>
 
-<%- if @search.present? -%>
-  <%= render partial: "posts/summary", collection: @posts, as: :post %>
-  <%= render partial: "pages/summary", collection: @pages, as: :page %>
-<%- end -%>
+  <%- if @search.present? -%>
+    <h1>“<%= @search.query %>” (<%= pluralize(@posts.count + @pages.count, "article") %>)</h1>
+
+    <%= render partial: "posts/summary", collection: @posts, as: :post %>
+    <%= render partial: "pages/summary", collection: @pages, as: :page %>
+  <%- end -%>
+</div>
