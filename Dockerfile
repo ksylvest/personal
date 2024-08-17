@@ -5,12 +5,12 @@ ARG RUBY_VERSION=3.3.4
 FROM docker.io/library/ruby:${RUBY_VERSION}-slim AS base
 
 ENV \
-  BUNDLE_DEPLOYMENT="on" \
+  BUNDLE_DEPLOYMENT="1" \
   BUNDLE_PATH="/usr/local/bundle" \
   BUNDLE_WITHOUT="development:test" \
   NODE_ENV="production" \
   RAILS_ENV="production" \
-  PATH="/root/.bun/bin:$PATH"
+  RUBY_YJIT_ENABLE="1"
 
 WORKDIR /rails
 
