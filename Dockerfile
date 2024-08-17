@@ -19,15 +19,14 @@ FROM base AS build
 RUN \
   apt-get update -qq && \
   apt-get install --no-install-recommends -y build-essential curl git libpq-dev npm zip unzip && \
-  curl -fsSL https://bun.sh/install | bash && \
   rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler && bundle install && \
   rm -rf "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
 
-COPY package.json bun.lockb ./
-RUN bun install
+COPY package.json package-lock.json ./
+RUN npm ci
 
 COPY . .
 
