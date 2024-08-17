@@ -6,7 +6,7 @@ Bundler.require(*Rails.groups)
 
 module Personal
   class Application < Rails::Application
-    config.load_defaults 7.1
+    config.load_defaults 7.2
 
     config.middleware.use Rack::Deflater
 
