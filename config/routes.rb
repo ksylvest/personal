@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   end
 
   direct :twitter do
-    'https://twitter.com/ksylvest'
+    'https://x.com/ksylvest'
   end
 
   direct :facebook do
