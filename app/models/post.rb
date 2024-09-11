@@ -18,6 +18,8 @@ class Post < ApplicationRecord
 
   before_validation :defaults!
 
+  scope :canonical, -> { where(canonical_url: nil) }
+
   scope :ordered, -> { order('id DESC') }
   scope :optimized, -> { includes(:user) }
 
