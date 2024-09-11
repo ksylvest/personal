@@ -3,7 +3,7 @@ class SitemapsController < ApplicationController
 
   # GET /sitemap
   def show
-    @posts = Post.ordered
-    @pages = Page.ordered
+    @posts = Post.canonical.ordered
+    @pages = Page.canonical.ordered
   end
 end

@@ -16,6 +16,8 @@ class Page < ApplicationRecord
   scope :ordered, -> { order('id DESC') }
   scope :optimized, -> { includes(:user) }
 
+  scope :canonical, -> { where(canonical_url: nil) }
+
   def date
     created_at || updated_at
   end
