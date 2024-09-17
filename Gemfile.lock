@@ -282,7 +282,7 @@ GEM
       io-console (~> 0.5)
     rexml (3.3.6)
       strscan
-    rouge (4.3.0)
+    rouge (4.4.0)
     rspec-core (3.13.1)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.2)
