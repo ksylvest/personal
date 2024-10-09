@@ -21,7 +21,7 @@
     "typescript-eslint": "^8.8.1"
   },
   "scripts": {
-    "build": "esbuild ./app/packs/entrypoints/application.ts --outfile=./app/assets/builds/application.js --bundle --sourcemap",
+    "build": "esbuild ./app/packs/entrypoints/application.ts --outfile=./app/assets/builds/application.js --bundle --sourcemap --minify",
     "build:css": "tailwindcss --input ./app/packs/entrypoints/application.tailwind.css --output ./app/assets/builds/application.css --minify",
     "lint": "eslint app/packs --ext .js,.jsx,.ts,.tsx"
   }
