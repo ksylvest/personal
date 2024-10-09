@@ -53,4 +53,4 @@ USER rails:rails
 ENTRYPOINT ["/rails/bin/entrypoint"]
 
 EXPOSE $PORT
-CMD ["./bin/rails", "server"]
+CMD ["./bin/thrust", "./bin/rails", "server"]

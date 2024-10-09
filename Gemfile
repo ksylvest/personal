@@ -8,6 +8,7 @@ gem 'pg'
 gem 'puma'
 
 gem 'bootsnap', require: false
+gem 'thruster', require: false
 
 gem 'bcrypt'
 gem 'erroneous'
