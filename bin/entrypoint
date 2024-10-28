@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-if [ "${*}" == "./bin/thrust ./bin/rails server" ]; then
+if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
   ./bin/rails db:prepare
 fi
 
