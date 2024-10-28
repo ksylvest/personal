@@ -29,6 +29,7 @@ EDITOR="atom --wait" bin/rails credentials:edit
 [![Circle CI](https://dl.circleci.com/status-badge/img/gh/ksylvest/personal/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ksylvest/personal/tree/main)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6c1a7c3b1e87c843246e/maintainability)](https://codeclimate.com/github/ksylvest/personal/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/6c1a7c3b1e87c843246e/test_coverage)](https://codeclimate.com/github/ksylvest/personal/test_coverage)
+[![Better Stack](https://uptime.betterstack.com/status-badges/v1/monitor/1mhv2.svg)](https://uptime.betterstack.com/)
 
 ## Copyright
 
