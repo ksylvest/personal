@@ -37,6 +37,10 @@ Rails.application.routes.draw do
   get 'posts/:segment/:slug', to: 'posts#show', as: :post
   get 'pages/:slug', to: 'pages#show', as: :page
 
+  direct :status do
+    'https://status.ksylvest.com'
+  end
+
   direct :github do
     'https://github.com/ksylvest'
   end
