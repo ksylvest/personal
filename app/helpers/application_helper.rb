@@ -59,6 +59,7 @@ module ApplicationHelper
       ['Dribbble', dribbble_url],
       ['Stack', stackoverflow_url],
       ['Vimeo', vimeo_url],
+      ['Status', status_url],
       ['Feed', feed_url(:atom)],
     ]
   end
