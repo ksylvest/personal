@@ -13,6 +13,7 @@ import {
 
 import {
   faBrush,
+  faChartLine,
   faClock,
   faCogs,
   faComments,
@@ -55,6 +56,7 @@ library.add(
 
 library.add(
   faBrush,
+  faChartLine,
   faClock,
   faCogs,
   faCompass,
