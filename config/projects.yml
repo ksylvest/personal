@@ -53,7 +53,7 @@
 - name: "Formula"
   icon: "fas fa-flask"
   description: "A Rails gem for creating rich forms with minimal markup."
-  url: "https://ksylvest.github.io/formula/"
+  url: "https://formula.ksylvest.com/"
 - name: "Erroneous"
   icon: "fas fa-exclamation"
   description: "A Rails gem for converting errors to human readable forms."
