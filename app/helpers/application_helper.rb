@@ -3,6 +3,20 @@ module ApplicationHelper
     mode.include?(params[:controller]) || mode.include?(params[:action])
   end
 
+  def prose(&)
+    tag.div(class: [
+      'prose',
+      'prose-slate',
+      'prose-a:text-indigo-600',
+      'prose-pre:bg-slate-50',
+      'prose-pre:text-slate-800',
+      'prose-pre:text-base',
+      'prose-pre:p-4',
+      'max-w-none',
+      'min-w-none',
+    ].join(' '), &)
+  end
+
   def markdown(text)
     render = Redcarpet::Render::Advanced.new
     render.helper = self

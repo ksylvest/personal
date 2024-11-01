@@ -8,5 +8,7 @@
 <%- cache @page do -%>
   <h1><%= @page.title %></h1>
   <%= render "pages/tags", tags: @page.tags %>
-  <section class="body"><%= markdown @page.body %></section>
+  <%= prose do %>
+    <%= markdown @page.body %>
+  <% end %>
 <%- end -%>

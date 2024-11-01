@@ -10,5 +10,7 @@
   <h1><%= @post.title %></h1>
   <p><%= time_tag(@post.date, l(@post.date, format: :human)) %></p>
   <%= render "posts/tags", tags: @post.tags %>
-  <%= markdown @post.body %>
+  <%= prose do %>
+    <%= markdown @post.body %>
+  <% end %>
 <%- end -%>
