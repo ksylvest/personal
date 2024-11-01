@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
-module.exports = {
+import forms from "@tailwindcss/forms";
+import typography from "@tailwindcss/typography";
+
+export default {
   content: [
     "./app/views/**/*.html.erb",
     "./app/helpers/**/*.rb",
@@ -8,6 +11,6 @@ module.exports = {
     "./app/packs/**/*.js",
     "./app/packs/**/*.ts",
   ],
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [forms, typography],
   safelist: ["highlight"],
 };
