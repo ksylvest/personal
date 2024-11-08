@@ -13,7 +13,6 @@ ActiveJob::Base.queue_adapter = :test
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  config.fixture_path = Rails.root.join('spec/fixtures')
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
 
