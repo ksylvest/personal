@@ -25,6 +25,7 @@ gem 'rouge'
 gem 'image_processing'
 
 gem 'aws-sdk-s3', require: false
+gem 'cloudflare-ips'
 
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
