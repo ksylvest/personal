@@ -42,6 +42,7 @@ import {
   faTags,
   faTh,
   faUpload,
+  faWarehouse,
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -86,6 +87,7 @@ library.add(
   faTags,
   faTh,
   faUpload,
+  faWarehouse,
 );
 
 dom.watch();
