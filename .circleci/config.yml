@@ -28,6 +28,7 @@ jobs:
   containerize:
     executor:
       name: docker/machine
+      dlc: true
     parameters:
       image:
         type: string
