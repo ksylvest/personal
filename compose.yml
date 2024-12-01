@@ -4,7 +4,7 @@ services:
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_USER: postgres
-  web:
+  app:
     build: .
     ports:
       - "3000:3000"
@@ -14,7 +14,3 @@ services:
       DATABASE_URL: postgres://postgres@database
     volumes:
       - ${PWD}:/rails
-      - bundle:/usr/local/bundle
-
-volumes:
-  bundle:
