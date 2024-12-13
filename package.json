@@ -8,7 +8,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@hotwired/stimulus": "^3.2.2",
     "@rails/ujs": "^7.1.501",
-    "@sentry/browser": "^8.43.0",
+    "@sentry/browser": "^8.44.0",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
     "esbuild": "^0.24.0",
