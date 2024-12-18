@@ -134,3 +134,7 @@
   icon: "fas fa-warehouse"
   description: "A scraper for publicstorage.com."
   url: "https://publicstorage.ksylvest.com/"
+- name: "U-Haul"
+  icon: "fas fa-warehouse"
+  description: "A scraper for uhaul.com."
+  url: "https://uhaul.ksylvest.com/"
