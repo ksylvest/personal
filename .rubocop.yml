@@ -6,7 +6,7 @@ require:
   - rubocop-rspec_rails
 
 AllCops:
-  TargetRubyVersion: 3.3.5
+  TargetRubyVersion: 3.4.1
   NewCops: enable
   Exclude:
     - Gemfile.lock
