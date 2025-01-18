@@ -1,7 +1,7 @@
-require 'spec_helper'
+require "spec_helper"
 
-RSpec.describe 'Projects' do
-  it 'links to every project entry' do
+RSpec.describe "Projects" do
+  it "links to every project entry" do
     visit projects_path
 
     Project.all.each do |project|

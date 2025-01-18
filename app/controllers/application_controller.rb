@@ -37,7 +37,7 @@ protected
     return if authenticated? && user.role.eql?(role)
 
     store
-    redirect_to new_admin_session_path, alert: 'You must be authenticated.'
+    redirect_to new_admin_session_path, alert: "You must be authenticated."
   end
 
   def store

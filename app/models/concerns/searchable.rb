@@ -10,7 +10,7 @@ module Searchable
   class Tokenizer
     include Singleton
 
-    LANGUAGE = 'english'.freeze
+    LANGUAGE = "english".freeze
     SEPARATOR = /\W+/
 
     def generate(query, fields, sanitizer)
@@ -23,7 +23,7 @@ module Searchable
       tsvector(fields.map { |field| "coalesce(#{field}, '')" }.join(conjunction))
     end
 
-    def tokens(query, sanitizer, conjunction = ' && ')
+    def tokens(query, sanitizer, conjunction = " && ")
       query.split(SEPARATOR).map { |term| tsquery(term, sanitizer) }.join(conjunction)
     end
 

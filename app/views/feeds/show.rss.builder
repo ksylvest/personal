@@ -1,8 +1,8 @@
-xml.instruct! :xml, version: '1.0'
-xml.rss version: '2.0' do
+xml.instruct! :xml, version: "1.0"
+xml.rss version: "2.0" do
   xml.channel do
-    xml.title 'Kevin Sylvestre'
-    xml.description 'A Ruby and iOS developer and designer.'
+    xml.title "Kevin Sylvestre"
+    xml.description "A Ruby and iOS developer and designer."
     xml.link root_url
 
     cache @posts do

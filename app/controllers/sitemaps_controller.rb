@@ -1,5 +1,5 @@
 class SitemapsController < ApplicationController
-  layout 'sitemap'
+  layout "sitemap"
 
   # GET /sitemap
   def show

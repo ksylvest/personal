@@ -1,3 +1,3 @@
 class AdminController < ApplicationController
-  layout 'admin/application'
+  layout "admin/application"
 end

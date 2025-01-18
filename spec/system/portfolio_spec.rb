@@ -1,7 +1,7 @@
-require 'spec_helper'
+require "spec_helper"
 
-RSpec.describe 'Portfolio' do
-  it 'links to every portfolio entry' do
+RSpec.describe "Portfolio" do
+  it "links to every portfolio entry" do
     visit portfolio_path
 
     Portfolio.all.each do |portfolio|

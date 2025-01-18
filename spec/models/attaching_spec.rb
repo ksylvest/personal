@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe Attaching do
   it { is_expected.to belong_to(:attachment) }

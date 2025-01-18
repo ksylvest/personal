@@ -1,6 +1,6 @@
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
+require "rails/all"
 
 Bundler.require(*Rails.groups)
 
@@ -17,16 +17,16 @@ module Personal
       g.stylesheets false
       g.javascripts false
       g.test_framework :rspec, fixture: true, views: false
-      g.fixture_replacement :factory_bot, dir: 'spec/factories'
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
 
-    if ENV.include?('HOST')
-      config.action_mailer.asset_host = ENV['HOST']
-      config.action_controller.asset_host = ENV['HOST']
+    if ENV.include?("HOST")
+      config.action_mailer.asset_host = ENV["HOST"]
+      config.action_controller.asset_host = ENV["HOST"]
     end
 
     config.action_mailer.default_url_options ||= {}
-    config.action_mailer.default_url_options[:host] = ENV.fetch('HOST', 'https://ksylvest.com')
+    config.action_mailer.default_url_options[:host] = ENV.fetch("HOST", "https://ksylvest.com")
 
     config.autoload_lib(ignore: %w[assets tasks])
   end
