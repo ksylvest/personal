@@ -1,2 +1,2 @@
-brew 'rbenv'
-brew 'vips'
+brew "rbenv"
+brew "vips"

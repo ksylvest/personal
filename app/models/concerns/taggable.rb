@@ -10,11 +10,11 @@ module Taggable
   end
 
   def keywords
-    tags.join(',')
+    tags.join(",")
   end
 
   def taggables
-    tags.join(' ')
+    tags.join(" ")
   end
 
   def taggables=(value)

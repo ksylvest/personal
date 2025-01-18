@@ -1,3 +1,6 @@
+inherit_gem:
+  rubocop-basic: rubocop.yml
+
 require:
   - rubocop-capybara
   - rubocop-factory_bot
@@ -7,7 +10,6 @@ require:
 
 AllCops:
   TargetRubyVersion: 3.4.1
-  NewCops: enable
   Exclude:
     - Gemfile.lock
     - db/schema.rb
@@ -17,12 +19,6 @@ AllCops:
     - log/**/*
     - tmp/**/*
     - vendor/**/*
-
-Layout/AccessModifierIndentation:
-  EnforcedStyle: outdent
-
-Layout/ParameterAlignment:
-  EnforcedStyle: with_fixed_indentation
 
 Layout/EmptyLinesAroundBlockBody:
   Enabled: false
@@ -65,12 +61,6 @@ Style/ClassAndModuleChildren:
 
 Style/EmptyCaseCondition:
   Enabled: false
-
-Style/TrailingCommaInArrayLiteral:
-  EnforcedStyleForMultiline: consistent_comma
-
-Style/TrailingCommaInHashLiteral:
-  EnforcedStyleForMultiline: consistent_comma
 
 Style/ExpandPathArguments:
   Enabled: false

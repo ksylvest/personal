@@ -1,9 +1,9 @@
-require 'spec_helper'
+require "spec_helper"
 
-RSpec.describe 'Pages' do
+RSpec.describe "Pages" do
   let(:entry) { create(:page) }
 
-  it 'lets a visitor view a page title and body' do
+  it "lets a visitor view a page title and body" do
     visit page_path(slug: entry.slug)
 
     expect(page).to have_text(entry.title)

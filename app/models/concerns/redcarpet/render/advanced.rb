@@ -1,5 +1,5 @@
-require 'rouge'
-require 'rouge/plugins/redcarpet'
+require "rouge"
+require "rouge/plugins/redcarpet"
 
 class Redcarpet::Render::Advanced < Redcarpet::Render::HTML
   include Rouge::Plugins::Redcarpet
@@ -17,10 +17,10 @@ protected
     file = Attachment.find(attributes[:id]).file
 
     case attributes[:variant]
-    when 'original' then file
-    when 'small' then file.variant(resize: '480x480')
-    when 'large' then file.variant(resize: '960x960')
-    when 'square' then file.variant(thumbnail: '120x120')
+    when "original" then file
+    when "small" then file.variant(resize: "480x480")
+    when "large" then file.variant(resize: "960x960")
+    when "square" then file.variant(thumbnail: "120x120")
     end
   end
 

@@ -1,7 +1,7 @@
 module Auth
   module Helpers
     def authenticate(user)
-      post(auth_path, params: { token: user.to_signed_global_id(for: 'auth') })
+      post(auth_path, params: { token: user.to_signed_global_id(for: "auth") })
     end
 
     def deauthenticate

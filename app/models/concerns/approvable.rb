@@ -2,8 +2,8 @@ module Approvable
   extend ActiveSupport::Concern
 
   module Status
-    ACTIVE = 'active'.freeze
-    PENDING = 'pending'.freeze
+    ACTIVE = "active".freeze
+    PENDING = "pending".freeze
   end
 
   STATUSES = [

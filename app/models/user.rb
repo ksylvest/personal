@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   module Role
-    ADMIN = 'admin'.freeze
-    GUEST = 'guest'.freeze
+    ADMIN = "admin".freeze
+    GUEST = "guest".freeze
   end
 
   ROLES = [
@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :pages, dependent: :nullify
 
   validates :name, presence: true
-  validates :email, presence: true, uniqueness: true, format: { with: Validation::EMAIL, message: 'should be an email' }
+  validates :email, presence: true, uniqueness: true, format: { with: Validation::EMAIL, message: "should be an email" }
   validates :password, length: { in: 4..64 }, presence: true, unless: ->(user) { user.password_digest.present? }
   validates :role, inclusion: { in: ROLES }
 
