@@ -27,6 +27,6 @@ class Admin::SessionsController < AdminController
 private
 
   def attributes
-    params.require(:session).permit(:email, :password)
+    params.expect(session: %i[email password])
   end
 end

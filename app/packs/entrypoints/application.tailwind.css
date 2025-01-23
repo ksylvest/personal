@@ -2,9 +2,7 @@
 @import "../application/styles/highlight";
 @import "../application/styles/navbar";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   h1 {

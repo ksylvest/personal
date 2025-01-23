@@ -20,6 +20,6 @@ class Admin::UsersController < AdminController
 private
 
   def attributes
-    params.require(:user).permit(:name, :email, :password)
+    params.expect(user: %i[name email password])
   end
 end

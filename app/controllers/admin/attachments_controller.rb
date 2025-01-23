@@ -51,6 +51,6 @@ class Admin::AttachmentsController < AdminController
 private
 
   def attributes
-    params.require(:attachment).permit(:name, :file)
+    params.expect(attachment: %i[name file])
   end
 end
