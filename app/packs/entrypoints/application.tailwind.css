@@ -1,8 +1,8 @@
+@import "tailwindcss";
+
 @import "../application/styles/breadcrumb.tailwind";
 @import "../application/styles/highlight.tailwind";
 @import "../application/styles/navbar.tailwind";
-
-@import "tailwindcss";
 
 @layer base {
   h1 {
