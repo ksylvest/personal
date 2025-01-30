@@ -1,8 +1,21 @@
 @import "tailwindcss";
 
-@import "../application/styles/breadcrumb.tailwind";
-@import "../application/styles/highlight.tailwind";
-@import "../application/styles/navbar.tailwind";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+@utility prose {
+  code::before {
+    display: none;
+  }
+
+  code::after {
+    display: none;
+  }
+}
+
+@import "../application/styles/breadcrumb.tailwind.css";
+@import "../application/styles/highlight.tailwind.css";
+@import "../application/styles/navbar.tailwind.css";
 
 @layer base {
   h1 {
