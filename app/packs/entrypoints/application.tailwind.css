@@ -1,6 +1,6 @@
-@import "../application/styles/breadcrumb";
-@import "../application/styles/highlight";
-@import "../application/styles/navbar";
+@import "../application/styles/breadcrumb.tailwind";
+@import "../application/styles/highlight.tailwind";
+@import "../application/styles/navbar.tailwind";
 
 @import "tailwindcss";
 
