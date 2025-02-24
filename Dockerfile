@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:1
 
-ARG RUBY_VERSION=3.4.1
+ARG RUBY_VERSION=3.4.2
 
 FROM docker.io/library/ruby:${RUBY_VERSION}-slim AS base
 
@@ -23,7 +23,7 @@ FROM base AS build
 
 RUN \
   apt-get update -qq && \
-  apt-get install --no-install-recommends -y build-essential gnupg git libpq-dev node-gyp pkg-config && \
+  apt-get install --no-install-recommends -y build-essential gnupg git libpq-dev libyaml-dev node-gyp pkg-config && \
   rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 ARG NODE_VERSION=23.3.0
