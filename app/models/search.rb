@@ -15,7 +15,5 @@ class Search
     @pages ||= Page.search(@query) if present?
   end
 
-  def present?
-    @query.present?
-  end
+  delegate :present?, to: :@query
 end
