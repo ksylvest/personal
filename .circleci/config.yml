@@ -1,15 +1,15 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@1.4.9
-  docker: circleci/docker@2.8.1
-  node: circleci/node@6.3.0
-  ruby: circleci/ruby@2.3.1
+  browser-tools: circleci/browser-tools@2.1.0
+  docker: circleci/docker@2.8.2
+  node: circleci/node@7.1.0
+  ruby: circleci/ruby@2.5.3
 
 executors:
   default:
     docker:
-      - image: cimg/ruby:3.4.2-browsers
-      - image: cimg/postgres:17.0
+      - image: cimg/ruby:3.4.4-browsers
+      - image: cimg/postgres:17.5
         environment:
           POSTGRES_USER: circleci
           POSTGRES_HOST_AUTH_METHOD: trust
@@ -83,8 +83,8 @@ jobs:
     executor: default
     steps:
       - setup
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
+      - browser-tools/install_chrome
+      - browser-tools/install_chromedriver
       - run: dockerize -wait tcp://localhost:5432 -timeout 2m # Postgres
       - run: bin/rails db:test:prepare test:prepare
       - ruby/rspec-test
