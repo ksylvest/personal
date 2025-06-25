@@ -1,7 +1,10 @@
 <%- provide :title, "Portfolio" -%>
 <%- provide :keywords, "clutter, pose, hearts, vidfolia, winescan" -%>
 <%- provide :description, "iOS and web apps designed or developed including Pose, Hearts, Vidfolia, Winescan and More!" -%>
-<%- provide :head -%>
+
+<%- provide :head do -%>
+<%= tag.link rel: "canonical", href: portfolio_url %>
+<%- end -%>
 
 <div data-controller="gallery">
   <div class="flex flex-col gap-8">

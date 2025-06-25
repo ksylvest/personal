@@ -2,11 +2,7 @@ module Taggable
   extend ActiveSupport::Concern
 
   included do
-    scope :tagged, ->(tags) { where('"tags" @> ARRAY[?]', tags) }
-
-    scope :query, ->(filters) {
-      tagged(filters[:tag]) if filters[:tag]
-    }
+    scope :tagged, ->(tag) { where('"tags" @> ARRAY[?]', tag) if tag }
   end
 
   def keywords

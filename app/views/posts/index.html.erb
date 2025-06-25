@@ -1,12 +1,15 @@
-<%- provide :title, "Home#{filters(params)}" %>
+<%- provide :title, "Home#{filters(page: @page, tag: @tag)}" %>
 <%- provide :keywords, "ruby, rails, ios, ipad, iphone, cocoa, coffeescript, sass, haml, neat, bourbon, backbone" %>
-<%- provide :description, "Writings of Ruby and iOS developer and designer.#{filters(params)}" %>
-<%- provide :head, rel_next_prev_link_tags(@posts) %>
+<%- provide :description, "Writings of Ruby and iOS developer and designer.#{filters(page: @page, tag: @tag)}" %>
 
+<%- provide :head do -%>
+<%= tag.link rel: "canonical", href: posts_url(tag: @tag, page: @page) %>
+<%= rel_next_prev_link_tags(@posts) %>
+<%- end -%>
 
 <div class="space-y-16">
-  <%- if params[:tag] -%>
-  <h1>#<%= params[:tag] %> (<%= pluralize(@posts.count, "article") %>)</h1>
+  <%- if @tag -%>
+  <h1>#<%= @tag %> (<%= pluralize(@posts.count, "article") %>)</h1>
   <%- end -%>
 
   <%- cache @posts do -%>

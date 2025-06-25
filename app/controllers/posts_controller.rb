@@ -3,8 +3,10 @@ class PostsController < ApplicationController
 
   # GET /
   def index
-    @posts = Post.optimized.ordered.query(params).page(params[:page])
-    redirect_to root_path if @posts.none? && params[:page]
+    @page = params[:page]
+    @tag = params[:tag]
+    @posts = Post.optimized.ordered.tagged(@tag).page(@page)
+    redirect_to root_path if @posts.none? && (@page || @tag)
   end
 
   # GET /posts/:slug
