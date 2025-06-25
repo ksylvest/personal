@@ -1,7 +1,10 @@
 <%- provide :title, "Contact" -%>
 <%- provide :keywords, "kevin, sylvestre, github, stack, twitter, facebook, linkedin, dribbble, google, vimeo" -%>
 <%- provide :description, "How to get in touch. Try GitHub, Stack, Twitter, Facebook, LinkedIn, Google or Vimeo." -%>
-<%- provide :head -%>
+
+<%- provide :head do -%>
+<%= tag.link rel: "canonical", href: contact_url %>
+<%- end -%>
 
 <div class="grid gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
   <%= link_to github_url, class: "text-center rounded-2xl p-8 bg-slate-100 hover:bg-slate-200" do %>

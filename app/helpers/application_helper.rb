@@ -28,10 +28,7 @@ module ApplicationHelper
     "width=device-width,initial-scale=1.0"
   end
 
-  def filters(filters = {})
-    page = filters[:page]
-    tag = filters[:tag]
-
+  def filters(page:, tag:)
     [
       (" | ##{tag}" if tag.present?),
       (" | Page #{page}" if page.present?),

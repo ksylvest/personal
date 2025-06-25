@@ -42,7 +42,7 @@ RSpec.describe ApplicationHelper do
 
   describe "#filters" do
     it "returns nothing unless a page is specified" do
-      expect(helper.filters({})).to be_blank
+      expect(helper.filters(page: nil, tag: nil)).to be_blank
     end
 
     it "returns something if a page is specified" do

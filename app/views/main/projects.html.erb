@@ -1,7 +1,10 @@
 <%- provide :title, "Projects" -%>
 <%- provide :keywords, "attached, formula, erroneous, identifier, serializer, setup, age, carousel, gridly, growl, lighter, modal, obsere, spin" -%>
 <%- provide :description, "Links to Ruby, Rails, iOS, JS and Bash projects." -%>
-<%- provide :head -%>
+
+<%- provide :head do -%>
+<%= tag.link rel: "canonical", href: projects_url %>
+<%- end -%>
 
 <div class="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
   <%- Project.all.each do |project| -%>
