@@ -1,0 +1,7 @@
+<%- unless Rails.env.local? -%>
+<%= tag.div class: "cf-turnstile", data: {
+  controller: "turnstile",
+  sitekey: Rails.application.credentials.turnstile.site_key!,
+  size: "flexible"
+} %>
+<%- end -%>
