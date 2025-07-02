@@ -11,5 +11,7 @@
     <%= errors session, :password %>
   </div>
 
+  <%= render("turnstile/widget") %>
+
   <%= form.submit commit, class: "button" %>
 <% end %>
