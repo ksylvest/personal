@@ -1,7 +1,10 @@
 <%- provide :title, "Search" %>
 <%- provide :keywords, "kevin, sylvestre, software, engineer" %>
 <%- provide :description, "Search through posts and pages to find the results you are looking for." %>
-<%- provide :head %>
+
+<%- provide :head do %>
+<%= tag.link rel: "canonical", href: search_url %>
+<%- end -%>
 
 <div class="space-y-16">
   <%= render "form", search: @search %>
