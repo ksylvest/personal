@@ -311,6 +311,7 @@ GEM
     reline (0.6.1)
       io-console (~> 0.5)
     rexml (3.4.1)
+    rotp (6.3.0)
     rouge (4.5.2)
     rspec-core (3.13.4)
       rspec-support (~> 3.13.0)
@@ -459,6 +460,7 @@ DEPENDENCIES
   rails
   redcarpet
   redis
+  rotp
   rouge
   rspec-rails
   rspec_junit_formatter

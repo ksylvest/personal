@@ -20,6 +20,7 @@ gem "progress"
 gem "propshaft"
 gem "redcarpet"
 gem "redis"
+gem "rotp"
 gem "rouge"
 
 gem "image_processing"
