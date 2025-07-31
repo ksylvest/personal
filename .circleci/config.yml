@@ -4,6 +4,7 @@ orbs:
   docker: circleci/docker@2.8.2
   node: circleci/node@7.1.0
   ruby: circleci/ruby@2.5.3
+  qlty: qltysh/qlty-orb@0.0.11
 
 executors:
   default:
@@ -88,11 +89,8 @@ jobs:
       - run: dockerize -wait tcp://localhost:5432 -timeout 2m # Postgres
       - run: bin/rails db:test:prepare test:prepare
       - ruby/rspec-test
-      - run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-$CC_TEST_REPORTER_VERSION > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter format-coverage -t simplecov coverage/coverage.json
-          ./cc-test-reporter upload-coverage
+      - qlty/coverage_publish:
+          files: ./coverage/.resultset.json
 
 workflows:
   version: 2.1
