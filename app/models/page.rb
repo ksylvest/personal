@@ -13,7 +13,7 @@ class Page < ApplicationRecord
 
   before_validation :defaults!
 
-  scope :ordered, -> { order("id DESC") }
+  scope :ordered, -> { order(id: :desc) }
   scope :optimized, -> { includes(:user) }
 
   scope :canonical, -> { where(canonical_url: nil) }
