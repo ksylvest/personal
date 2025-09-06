@@ -20,7 +20,7 @@ class Post < ApplicationRecord
 
   scope :canonical, -> { where(canonical_url: nil) }
 
-  scope :ordered, -> { order("id DESC") }
+  scope :ordered, -> { order(id: :desc) }
   scope :optimized, -> { includes(:user) }
 
   def date
