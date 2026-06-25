@@ -1,7 +1,10 @@
+// @ts-check
+
 import eslint from "@eslint/js";
+import { defineConfig } from 'eslint/config';
 import tseslint from "typescript-eslint";
 
-export default [
+export default defineConfig(
   {
     ignores: [
       "tailwind.config.js",
@@ -9,7 +12,9 @@ export default [
       "coverage/**/*",
       "vendor/**/*",
     ],
+    extends: [
+      eslint.configs.recommended,
+      tseslint.configs.recommended,
+    ]
   },
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-];
+);
