@@ -13,7 +13,7 @@ class Admin::AttachmentsController < AdminController
 
   # GET /admin/posts/:id/edit
   def edit
-    @attachment = Attachment.find(params[:id])
+    @attachment = Attachment.find(params.expect(:id))
   end
 
   # POST /admin/attachments/attachment
@@ -29,7 +29,7 @@ class Admin::AttachmentsController < AdminController
 
   # PATCH /admin/attachments/:id
   def update
-    @attachment = Attachment.find(params[:id])
+    @attachment = Attachment.find(params.expect(:id))
     @attachment.attributes = attributes
     @attachment.save
 
@@ -42,7 +42,7 @@ class Admin::AttachmentsController < AdminController
 
   # DELETE /admin/attachments/:id
   def destroy
-    @attachment = Attachment.find(params[:id])
+    @attachment = Attachment.find(params.expect(:id))
     @attachment.destroy!
 
     redirect_to admin_attachments_path
