@@ -13,7 +13,7 @@ class Admin::PagesController < AdminController
 
   # GET /admin/pages/:id/edit
   def edit
-    @page = user.pages.find(params[:id])
+    @page = user.pages.find(params.expect(:id))
   end
 
   # POST /admin/pages/:id
@@ -29,7 +29,7 @@ class Admin::PagesController < AdminController
 
   # PATCH /admin/pages/:id
   def update
-    @page = user.pages.find(params[:id])
+    @page = user.pages.find(params.expect(:id))
 
     if @page.update(attributes)
       redirect_to admin_pages_path
@@ -40,7 +40,7 @@ class Admin::PagesController < AdminController
 
   # DELETE /admin/pages/:id
   def destroy
-    @page = user.pages.find(params[:id])
+    @page = user.pages.find(params.expect(:id))
     @page.destroy
 
     redirect_to admin_pages_path

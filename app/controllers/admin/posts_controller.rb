@@ -13,7 +13,7 @@ class Admin::PostsController < AdminController
 
   # GET /admin/posts/:id/edit
   def edit
-    @post = user.posts.find(params[:id])
+    @post = user.posts.find(params.expect(:id))
   end
 
   # POST /admin/posts/:id
@@ -29,7 +29,7 @@ class Admin::PostsController < AdminController
 
   # PATCH /admin/posts/:id
   def update
-    @post = user.posts.find(params[:id])
+    @post = user.posts.find(params.expect(:id))
 
     if @post.update(attributes)
       redirect_to admin_posts_path
@@ -40,7 +40,7 @@ class Admin::PostsController < AdminController
 
   # DELETE /admin/posts/:id
   def destroy
-    @page = user.posts.find(params[:id])
+    @page = user.posts.find(params.expect(:id))
     @page.destroy
 
     redirect_to admin_posts_path

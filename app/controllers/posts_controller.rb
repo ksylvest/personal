@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   # GET /posts/:slug
   # GET /posts/:segment/:slug
   def show
-    @post = Post.optimized.find_by!(slug: params[:slug])
+    @post = Post.optimized.find_by!(slug: params.expect(:slug))
     norobot unless @post.active?
   end
 end

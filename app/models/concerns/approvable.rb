@@ -17,10 +17,10 @@ module Approvable
   end
 
   def active?
-    self.status.eql?(Status::ACTIVE)
+    status.eql?(Status::ACTIVE)
   end
 
   def pending?
-    self.status.eql?(Status::PENDING)
+    status.eql?(Status::PENDING)
   end
 end
