@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "4.0.1"
+ruby "4.0.6"
 
 gem "rails"
 
@@ -23,6 +23,7 @@ gem "redis"
 gem "rouge"
 
 gem "image_processing"
+gem "ruby-vips"
 
 gem "aws-sdk-s3", require: false
 gem "cloudflare-ips"
