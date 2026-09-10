@@ -26,7 +26,7 @@ RUN \
   apt-get install --no-install-recommends -y build-essential gnupg git libpq-dev libyaml-dev node-gyp pkg-config && \
   rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
-ARG NODE_VERSION=23.3.0
+ARG NODE_VERSION=24.21.0
 ENV PATH=/usr/local/node/bin:$PATH
 RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
   /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
