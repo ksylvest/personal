@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    /* Base */
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+
+    /* Bundling */
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "paths": {
+      "@/*": ["./app/packs/*"],
+      "@application/*": ["./app/packs/application/*"]
+    }
+  }
+}

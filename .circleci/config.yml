@@ -1,10 +1,10 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@2.1.0
-  docker: circleci/docker@2.8.2
-  node: circleci/node@7.1.0
-  ruby: circleci/ruby@2.5.3
-  qlty: qltysh/qlty-orb@0.0.11
+  browser-tools: circleci/browser-tools@2.4.2
+  docker: circleci/docker@4.0.1
+  node: circleci/node@7.2.1
+  ruby: circleci/ruby@3.0.0
+  qlty: qltysh/qlty-orb@0.1.2
 
 executors:
   default:
@@ -43,7 +43,6 @@ jobs:
       - docker/build:
           image: << parameters.image >>
           tag: << parameters.tag >>
-          use-buildkit: true
       - docker/push:
           image: << parameters.image >>
           tag: << parameters.tag >>
@@ -62,17 +61,23 @@ jobs:
           path: tmp/brakeman.html
           destination: brakeman.html
 
-  eslint:
+  oxlint:
     executor: default
     steps:
       - setup
-      - run: npx eslint
+      - run: npm run lint
 
-  prettier:
+  oxfmt:
     executor: default
     steps:
       - setup
-      - run: npx prettier --check app/packs
+      - run: npm run fmt
+
+  tsc:
+    executor: default
+    steps:
+      - setup
+      - run: npm run typecheck
 
   rubocop:
     executor: default
@@ -96,9 +101,10 @@ workflows:
   version: 2.1
   build:
     jobs:
-      - containerize
       - brakeman
-      - eslint
-      - prettier
-      - rubocop
+      - containerize
+      - oxfmt
+      - oxlint
       - rspec
+      - rubocop
+      - tsc

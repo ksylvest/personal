@@ -5,7 +5,7 @@ const ESC_KEY = 27;
 export class GalleryController extends Controller {
   public static targets = ["dialog", "content"];
 
-  public zoom(event): void {
+  public zoom(event: any): void {
     const link = event.target.closest("a");
     this.content.src = link.href;
     this.show();
