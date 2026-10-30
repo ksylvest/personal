@@ -1,2 +1,1 @@
 brew "rbenv"
-brew "vips"

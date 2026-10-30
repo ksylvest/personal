@@ -1,6 +1,6 @@
 class ArchivesController < ApplicationController
   # GET /archive
   def show
-    @posts = Post.ordered
+    @posts = Post.all
   end
 end

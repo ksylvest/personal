@@ -1,36 +1,37 @@
 require "spec_helper"
 
 RSpec.describe PostsController, type: :request do
-  let(:post) { create(:post) }
-
   describe "GET #index" do
     it "is succcesful" do
       get posts_path
       expect(response).to have_http_status(:ok)
     end
-  end
 
-  describe "GET #show" do
-    it "is successful" do
-      get post_path(segment: post.segment, slug: post.slug)
+    it "is successful with a tag" do
+      get posts_path(tag: "ruby")
       expect(response).to have_http_status(:ok)
     end
 
-    context "with an active post" do
-      let(:post) { create(:post, status: Approvable::Status::ACTIVE) }
+    it "redirects for an unknown tag" do
+      get posts_path(tag: "unknown")
+      expect(response).to redirect_to(root_path)
+    end
+  end
 
-      it "allows indexing of valid posts" do
+  describe "GET #show" do
+    context "with a known post" do
+      let(:post) { Post.find!(slug: "swift") }
+
+      it "is successful" do
         get post_path(segment: post.segment, slug: post.slug)
-        expect(response.headers["X-Robots-Tag"]).to be_nil
+        expect(response).to have_http_status(:ok)
       end
     end
 
-    context "with an inactive post" do
-      let(:post) { create(:post, status: Approvable::Status::PENDING) }
-
-      it "disallows indexing of invalid posts" do
-        get post_path(segment: post.segment, slug: post.slug)
-        expect(response.headers["X-Robots-Tag"]).to(eql("noindex,nofollow"))
+    context "with an unknown post" do
+      it "is not found" do
+        get post_path(segment: "2024-01-01", slug: "unknown")
+        expect(response).to have_http_status(:not_found)
       end
     end
   end

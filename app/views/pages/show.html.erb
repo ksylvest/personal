@@ -6,10 +6,8 @@
 <%= tag.link rel: "canonical", href: @page.canonical_url || page_url(slug: @page.slug) %>
 <%- end -%>
 
-<%- cache @page do -%>
-  <h1><%= @page.title %></h1>
-  <%= render "pages/tags", tags: @page.tags %>
-  <%= prose do %>
-    <%= markdown @page.body %>
-  <% end %>
-<%- end -%>
+<h1><%= @page.title %></h1>
+<%= render "pages/tags", tags: @page.tags %>
+<%= prose do %>
+  <%= markdown @page.body %>
+<% end %>

@@ -1,4 +1,7 @@
 en:
+  date:
+    formats:
+      human: '%A, %B %e, %Y'
   time:
     formats:
       human: '%A, %B %e, %Y'

@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
   # GET /
   def show
-    @posts = Post.order(id: :desc)
+    @posts = Post.all
   end
 end

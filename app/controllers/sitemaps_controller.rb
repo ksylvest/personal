@@ -3,7 +3,7 @@ class SitemapsController < ApplicationController
 
   # GET /sitemap
   def show
-    @posts = Post.canonical.ordered
-    @pages = Page.canonical.ordered
+    @posts = Post.all.reject(&:canonical_url)
+    @pages = Page.all.reject(&:canonical_url)
   end
 end

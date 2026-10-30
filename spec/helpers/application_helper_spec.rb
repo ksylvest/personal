@@ -27,17 +27,6 @@ RSpec.describe ApplicationHelper do
         expect(markdown).to match("</code></pre>")
       end
     end
-
-    %w[original small large square].each do |variant|
-      context "with a 'image' attachment using '#{variant}'" do
-        let(:text) { "![Image](attachment:#{attachment.id}:#{variant})" }
-        let(:attachment) { create(:attachment, :image) }
-
-        it "generates an image" do
-          expect(markdown).to match('<img alt="Image" src="http://test.host/rails/(.*)/image.png">')
-        end
-      end
-    end
   end
 
   describe "#filters" do

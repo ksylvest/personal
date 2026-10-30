@@ -1,19 +1,17 @@
-<%- cache post do -%>
-  <article class="space-y-2">
-    <h2>
-      <%= link_to(post.title, post_path(segment: post.segment, slug: post.slug)) %>
-    </h2>
+<article class="space-y-2">
+  <h2>
+    <%= link_to(post.title, post_path(segment: post.segment, slug: post.slug)) %>
+  </h2>
 
-    <p class="font-semibold">
-      <%= time_tag(post.date, l(post.date, format: :human)) %>
-    </p>
+  <p class="font-semibold">
+    <%= time_tag(post.date, l(post.date, format: :human)) %>
+  </p>
 
-    <div>
-      <%= render "posts/tags", tags: post.tags %>
-    </div>
+  <div>
+    <%= render "posts/tags", tags: post.tags %>
+  </div>
 
-    <p>
-      <%= post.summary %>
-    </p>
-  </article>
-<%- end -%>
+  <p>
+    <%= post.summary %>
+  </p>
+</article>

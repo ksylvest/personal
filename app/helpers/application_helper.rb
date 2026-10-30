@@ -19,7 +19,6 @@ module ApplicationHelper
 
   def markdown(text)
     render = Redcarpet::Render::Advanced.new
-    render.helper = self
     markdown = Redcarpet::Markdown.new(render, fenced_code_blocks: true)
     sanitize markdown.render(text)
   end
@@ -73,9 +72,5 @@ module ApplicationHelper
       ["Status", status_url],
       ["Feed", feed_url(:atom)],
     ]
-  end
-
-  def release
-    "#{ENV.fetch('HEROKU_APP_NAME', 'playground')}@#{ENV.fetch('HEROKU_RELEASE_VERSION', 'local')}"
   end
 end

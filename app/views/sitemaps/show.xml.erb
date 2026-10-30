@@ -4,11 +4,5 @@
 <%= render "entry", path: projects_url %>
 <%= render "entry", path: portfolio_url %>
 <%= render "entry", path: search_url %>
-
-<%- cache @pages do -%>
-  <%= render partial: "page", collection: @pages, as: :page %>
-<%- end -%>
-
-<%- cache @posts do -%>
-  <%= render partial: "post", collection: @posts, as: :post %>
-<%- end -%>
+<%= render partial: "page", collection: @pages, as: :page %>
+<%= render partial: "post", collection: @posts, as: :post %>

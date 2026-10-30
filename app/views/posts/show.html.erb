@@ -6,11 +6,9 @@
 <%= tag.link rel: "canonical", href: @post.canonical_url || post_url(segment: @post.segment, slug: @post.slug) %>
 <%- end -%>
 
-<%- cache @post do -%>
-  <h1><%= @post.title %></h1>
-  <p><%= time_tag(@post.date, l(@post.date, format: :human)) %></p>
-  <%= render "posts/tags", tags: @post.tags %>
-  <%= prose do %>
-    <%= markdown @post.body %>
-  <% end %>
-<%- end -%>
+<h1><%= @post.title %></h1>
+<p><%= time_tag(@post.date, l(@post.date, format: :human)) %></p>
+<%= render "posts/tags", tags: @post.tags %>
+<%= prose do %>
+  <%= markdown @post.body %>
+<% end %>

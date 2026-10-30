@@ -36,7 +36,6 @@
     }
   },
   "addons": [
-    "heroku-postgresql",
     {
       "plan": "heroku-redis",
       "as": "CACHE_REDIS"
@@ -54,8 +53,5 @@
     {
       "url": "heroku/ruby"
     }
-  ],
-  "scripts": {
-    "postdeploy": "bundle exec rake db:schema:load db:seed"
-  }
+  ]
 }

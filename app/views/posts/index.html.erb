@@ -12,9 +12,7 @@
   <h1>#<%= @tag %> (<%= pluralize(@posts.count, "article") %>)</h1>
   <%- end -%>
 
-  <%- cache @posts do -%>
-    <%= render partial: "summary", collection: @posts, as: :post %>
-  <%- end %>
+  <%= render partial: "summary", collection: @posts, as: :post %>
 </div>
 
 <%= paginate @posts %>

@@ -1,38 +1,49 @@
 require "spec_helper"
 
 RSpec.describe Page do
-  subject { build(:page) }
-
-  it_behaves_like "approvable"
-  it_behaves_like "attachable"
-  it_behaves_like "searchable"
-  it_behaves_like "taggable"
-
-  it { is_expected.to belong_to(:user) }
-
-  it { is_expected.to validate_presence_of(:title) }
-  it { is_expected.to validate_presence_of(:summary) }
-  it { is_expected.to validate_presence_of(:body) }
-
-  it { is_expected.to allow_value("ruby-on-rails").for(:slug) }
-  it { is_expected.not_to allow_value("Ruby on Rails").for(:slug) }
-
-  it { is_expected.to allow_value("2013-12-31").for(:slug) }
-  it { is_expected.not_to allow_value("2013 12 31").for(:slug) }
-
-  describe ".search" do
-    subject(:search) { Page.search("Potato") }
-
-    let!(:match) { create(:page, title: "Potato") }
-    let!(:miss) { create(:page, title: "Tomato") }
-
-    it 'includes a page about "Potato" when searching for "Potato"' do
-      expect(search).to include(match)
-    end
-
-    it 'excludes a page about "Tomato" when searching for "Potato"' do
-      expect(search).not_to include(miss)
+  describe ".all" do
+    it "returns pages ordered newest first" do
+      expect(Page.all.map(&:slug)).to eql(%w[uses drafts])
     end
   end
 
+  describe ".find" do
+    it "returns a page for a known slug" do
+      expect(Page.find(slug: "uses")).to have_attributes(
+        slug: "uses",
+        date: Date.new(2024, 1, 1),
+        title: "Uses",
+        summary: "The hardware and software I use.",
+        tags: %w[setup],
+        canonical_url: nil,
+        body: "A list of things I use every day."
+      )
+    end
+
+    it "returns nil for an unknown slug" do
+      expect(Page.find(slug: "unknown")).to be_nil
+    end
+  end
+
+  describe ".find!" do
+    it "raises for an unknown slug" do
+      expect { Page.find!(slug: "unknown") }.to raise_error(ActionController::RoutingError)
+    end
+  end
+
+  describe ".search" do
+    it "matches every term against the title, summary, and body" do
+      expect(Page.search(query: "hardware every day").map(&:slug)).to eql(%w[uses])
+    end
+
+    it "returns nothing for a blank query" do
+      expect(Page.search(query: " ")).to be_empty
+    end
+  end
+
+  describe ".tagged" do
+    it "filters by tag" do
+      expect(Page.tagged(tag: "setup").map(&:slug)).to eql(%w[uses])
+    end
+  end
 end
