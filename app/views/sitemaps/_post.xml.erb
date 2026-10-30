@@ -1,3 +1,1 @@
-<%- cache post do -%>
-  <%= render "entry", path: post_url(segment: post.segment, slug: post.slug), lastmod: post.updated_at || post.created_at %>
-<%- end -%>
+<%= render "entry", path: post_url(segment: post.segment, slug: post.slug), lastmod: post.date %>

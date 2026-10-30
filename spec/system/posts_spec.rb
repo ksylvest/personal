@@ -1,7 +1,7 @@
 require "spec_helper"
 
 RSpec.describe "Posts" do
-  let(:entry) { create(:post) }
+  let(:entry) { Post.find!(slug: "swift") }
 
   it "lets a visitor view a post title and body" do
     visit post_path(segment: entry.segment, slug: entry.slug)

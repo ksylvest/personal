@@ -1,7 +1,7 @@
 require "spec_helper"
 
 RSpec.describe "Pages" do
-  let(:entry) { create(:page) }
+  let(:entry) { Page.find!(slug: "uses") }
 
   it "lets a visitor view a page title and body" do
     visit page_path(slug: entry.slug)

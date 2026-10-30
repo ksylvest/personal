@@ -14,7 +14,6 @@
 <%= csp_meta_tag %>
 
 <script>
-  RELEASE = <%= raw JSON.generate(release) %>;
   ENVIRONMENT = <%= raw JSON.generate(Rails.env) %>;
   SENTRY_DSN = <%= raw JSON.generate(Rails.application.credentials.sentry_dsn) %>;
   SENTRY_TRACES_SAMPLE_RATE = <%= raw JSON.generate(Sentry.configuration.traces_sample_rate) %>;

@@ -15,7 +15,6 @@ heroku addons:add scheduler
 heroku addons:add papertrail
 heroku domains:add ksylvest.com
 git push heroku master
-heroku run rake db:setup
 ```
 
 ## Configuration

@@ -20,18 +20,6 @@ Rails.application.routes.draw do
 
   resource :search, only: %i[show]
 
-  get "admin", to: "admin/dashboard#index", as: :admin
-
-  resource :auth, only: %i[create destroy]
-
-  namespace :admin do
-    resource :user, only: %i[edit update]
-    resource :session, only: %i[new create destroy]
-    resources :attachments, only: %i[index new edit update create destroy]
-    resources :posts, only: %i[index new edit update create destroy]
-    resources :pages, only: %i[index new edit update create destroy]
-  end
-
   get "(tagged/:tag)/(page/:page)", to: "posts#index", as: :posts
 
   get "posts/:segment/:slug", to: "posts#show", as: :post

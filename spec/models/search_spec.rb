@@ -3,19 +3,36 @@ require "spec_helper"
 RSpec.describe Search do
   subject(:search) { Search.new(query) }
 
-  let!(:page) { create(:page, title: query) }
-  let!(:post) { create(:post, title: query) }
-  let(:query) { "Ruby" }
+  context "with a query matching a post" do
+    let(:query) { "rails framework" }
 
-  describe "#pages" do
-    it "searches pages" do
-      expect(search.pages).to include(page)
+    it "includes matching posts" do
+      expect(search.posts.map(&:slug)).to eql(%w[ruby-on-rails])
+    end
+
+    it "excludes non-matching pages" do
+      expect(search.pages).to be_empty
     end
   end
 
-  describe "#posts" do
-    it "searches posts" do
-      expect(search.posts).to include(post)
+  context "with a query matching a page" do
+    let(:query) { "Hardware" }
+
+    it "includes matching pages" do
+      expect(search.pages.map(&:slug)).to eql(%w[uses])
+    end
+
+    it "excludes non-matching posts" do
+      expect(search.posts).to be_empty
+    end
+  end
+
+  context "without a query" do
+    let(:query) { nil }
+
+    it "returns nothing" do
+      expect(search.posts).to be_nil
+      expect(search.pages).to be_nil
     end
   end
 end

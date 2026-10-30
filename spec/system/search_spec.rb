@@ -3,8 +3,8 @@ require "spec_helper"
 RSpec.describe "Search" do
   let(:searchables) do
     [
-      create(:page, title: "Rails", summary: "Rails is a web application framework."),
-      create(:post, title: "swift", summary: "Swift is a statically typed language."),
+      Page.find!(slug: "uses"),
+      Post.find!(slug: "swift"),
     ]
   end
 

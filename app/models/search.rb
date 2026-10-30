@@ -7,12 +7,14 @@ class Search
     @query = query
   end
 
+  # @return [Array<Post>, nil]
   def posts
-    @posts ||= Post.search(@query) if present?
+    @posts ||= Post.search(query:) if present?
   end
 
+  # @return [Array<Page>, nil]
   def pages
-    @pages ||= Page.search(@query) if present?
+    @pages ||= Page.search(query:) if present?
   end
 
   delegate :present?, to: :@query

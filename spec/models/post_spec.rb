@@ -1,34 +1,81 @@
 require "spec_helper"
 
 RSpec.describe Post do
-  subject { build(:post) }
+  describe ".all" do
+    it "returns posts ordered newest first" do
+      expect(described_class.all.map(&:slug)).to eql(%w[ruby-on-rails swift])
+    end
+  end
 
-  it_behaves_like "approvable"
-  it_behaves_like "attachable"
-  it_behaves_like "searchable"
-  it_behaves_like "taggable"
-
-  it { is_expected.to belong_to(:user) }
-
-  it { is_expected.to validate_presence_of(:title) }
-  it { is_expected.to validate_presence_of(:summary) }
-  it { is_expected.to validate_presence_of(:body) }
-
-  it { is_expected.to allow_value("ruby-on-rails").for(:slug) }
-  it { is_expected.not_to allow_value("Ruby on Rails").for(:slug) }
-
-  describe ".search" do
-    subject(:search) { Post.search("Ruby") }
-
-    let!(:match) { create(:post, title: "Ruby") }
-    let!(:miss) { create(:post, title: "Python") }
-
-    it 'includes a post about "Ruby" when searching for "Ruby"' do
-      expect(search).to include(match)
+  describe ".find" do
+    it "returns a post for a known slug" do
+      expect(described_class.find(slug: "ruby-on-rails")).to have_attributes(
+        slug: "ruby-on-rails",
+        date: Date.new(2024, 2, 1),
+        title: "Ruby on Rails",
+        summary: "Rails is a web application framework.",
+        tags: %w[rails ruby],
+        canonical_url: nil,
+        body: "Rails makes building web applications delightful."
+      )
     end
 
-    it 'excludes a post about "Python" when searching for "Ruby"' do
-      expect(search).not_to include(miss)
+    it "returns nil for an unknown slug" do
+      expect(described_class.find(slug: "unknown")).to be_nil
+    end
+  end
+
+  describe ".find!" do
+    it "returns a post for a known slug" do
+      expect(described_class.find!(slug: "swift")).to have_attributes(
+        slug: "swift",
+        date: Date.new(2024, 1, 1),
+        title: "Swift",
+        summary: "Swift is a statically typed language.",
+        tags: %w[swift],
+        canonical_url: "https://example.com/swift",
+        body: "Swift is used to build apps for iOS and macOS."
+      )
+    end
+
+    it "raises for an unknown slug" do
+      expect { described_class.find!(slug: "unknown") }.to raise_error(ActionController::RoutingError)
+    end
+  end
+
+  describe ".tagged" do
+    it "filters by tag" do
+      expect(described_class.tagged(tag: "swift").map(&:slug)).to eql(%w[swift])
+    end
+
+    it "returns all posts without a tag" do
+      expect(described_class.tagged(tag: nil).map(&:slug)).to eql(%w[ruby-on-rails swift])
+    end
+  end
+
+  describe ".search" do
+    it "matches every term against the title, summary, and body" do
+      expect(described_class.search(query: "rails delightful").map(&:slug)).to eql(%w[ruby-on-rails])
+    end
+
+    it "ignores case" do
+      expect(described_class.search(query: "SWIFT").map(&:slug)).to eql(%w[swift])
+    end
+
+    it "excludes posts missing a term" do
+      expect(described_class.search(query: "rails swift")).to be_empty
+    end
+  end
+
+  describe "#segment" do
+    it "formats the date" do
+      expect(described_class.find!(slug: "ruby-on-rails").segment).to eql("2024-02-01")
+    end
+  end
+
+  describe "#keywords" do
+    it "joins the tags" do
+      expect(described_class.find!(slug: "ruby-on-rails").keywords).to eql("rails,ruby")
     end
   end
 end

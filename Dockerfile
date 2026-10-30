@@ -8,7 +8,7 @@ WORKDIR /rails
 
 RUN \
   apt-get update -qq && \
-  apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
+  apt-get install --no-install-recommends -y curl libjemalloc2 && \
   rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 ENV \
@@ -23,7 +23,7 @@ FROM base AS build
 
 RUN \
   apt-get update -qq && \
-  apt-get install --no-install-recommends -y build-essential gnupg git libpq-dev libyaml-dev node-gyp pkg-config && \
+  apt-get install --no-install-recommends -y build-essential gnupg git libyaml-dev node-gyp pkg-config && \
   rm -rf /var/lib/apt/lists/* /var/cache/apt/archives
 
 ARG NODE_VERSION=24.21.0
@@ -53,7 +53,7 @@ COPY --from=build /rails/public/assets /rails/public/assets
 RUN bundle exec bootsnap precompile --gemfile /app /lib
 
 RUN useradd rails -m -s /bin/bash && \
-  chown -R rails:rails log storage tmp
+  chown -R rails:rails log tmp
 USER rails:rails
 
 ENTRYPOINT ["/rails/bin/entrypoint"]

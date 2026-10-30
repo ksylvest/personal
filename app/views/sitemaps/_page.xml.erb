@@ -1,3 +1,1 @@
-<%- cache page do -%>
-  <%= render "entry", path: page_url(slug: page.slug), lastmod: page.updated_at || page.created_at %>
-<%- end -%>
+<%= render "entry", path: page_url(slug: page.slug), lastmod: page.date %>
