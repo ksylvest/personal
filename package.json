@@ -28,7 +28,7 @@
     "@types/rails__ujs": "^6.0.4",
     "knip": "^6.44.1",
     "oxfmt": "^0.77.0",
-    "oxlint": "^1.91.0",
+    "oxlint": "^1.92.0",
     "typescript": "^7.0.2"
   }
 }
