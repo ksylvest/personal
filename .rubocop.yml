@@ -8,7 +8,7 @@ plugins:
   - rubocop-rspec_rails
 
 AllCops:
-  TargetRubyVersion: 4.0.6
+  TargetRubyVersion: 4.0.9
   Exclude:
     - Gemfile.lock
     - bin/*
