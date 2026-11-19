@@ -9,7 +9,7 @@ orbs:
 executors:
   default:
     docker:
-      - image: cimg/ruby:4.0.9-browsers
+      - image: cimg/ruby:4.0.10-browsers
     environment:
       CI: on
       RACK_ENV: test
