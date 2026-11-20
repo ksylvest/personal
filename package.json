@@ -27,7 +27,7 @@
   "devDependencies": {
     "@types/rails__ujs": "^6.0.4",
     "knip": "^6.45.1",
-    "oxfmt": "^0.78.0",
+    "oxfmt": "^0.79.0",
     "oxlint": "^1.94.0",
     "typescript": "^7.0.2"
   }
